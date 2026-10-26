@@ -77,6 +77,58 @@
 @media(max-width:600px){.expedition{padding:75px 0}.expedition-visual{min-height:320px}.expedition-copy{padding:25px;min-height:315px}.expedition-copy h3{font-size:3.5rem}.expedition-controls{padding:13px}.exp-tab{padding:9px 10px;font-size:.62rem}.vr-portal{height:67%;top:16%}.laser-target{width:90px}}
 @media(prefers-reduced-motion:reduce){.paintball,.paint-splash,.vr-portal,.vr-core,.vr-particle,.laser-beam{animation:none!important}.paintball{opacity:.7;transform:translate(80px,-20px)}.laser-beam{opacity:.65}}
 
+
+/* FULLSCREEN CHAPTER EXPERIENCE */
+html{scroll-snap-type:y mandatory}
+body{scrollbar-color:#ff650d #111}
+.chapter{min-height:calc(100svh - 78px);height:calc(100svh - 78px);position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;scroll-snap-align:start;scroll-snap-stop:always}
+.chapter-inner{width:min(1320px,calc(100% - 48px));margin:auto;position:relative;z-index:3}
+.chapter-bg{position:absolute;inset:0;z-index:-2;transition:transform 1.2s cubic-bezier(.2,.75,.2,1);background-size:cover;background-position:center}
+.chapter:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#080808f0 0%,#080808b5 48%,#08080826 100%),linear-gradient(0deg,#0c0c0c88,transparent 45%)}
+.chapter-label{font-size:.72rem;letter-spacing:.2em;font-weight:900;color:#ff9c36;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.chapter-label:before{content:"";width:30px;height:2px;background:#ff650d}
+.chapter h1,.chapter h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.045em;line-height:.8;font-size:clamp(4rem,10vw,10rem);max-width:850px;margin:28px 0}
+.chapter p{max-width:500px;line-height:1.85;font-size:1.02rem;color:#d1ccc4}
+.chapter-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.chapter-count{position:absolute;right:clamp(24px,5vw,80px);bottom:32px;font:900 1rem 'Barlow Condensed';letter-spacing:.18em;color:#ffffffa0;z-index:4}
+.chapter-count strong{color:#ff650d;font-size:1.8rem}
+.chapter-next{position:absolute;right:clamp(20px,5vw,72px);top:50%;z-index:5;width:54px;height:54px;border:1px solid #ffffff55;background:#1118;color:#fff;backdrop-filter:blur(10px);cursor:pointer;font-size:1.6rem;transition:.25s}
+.chapter-next:hover{background:#ff650d;color:#111;border-color:#ff650d;transform:translateX(4px)}
+.chapter-dots{position:fixed;z-index:24;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
+.chapter-dot{width:9px;height:9px;border:1px solid #ffffff99;background:#1118;border-radius:50%;padding:0;cursor:pointer;transition:.25s}
+.chapter-dot.active{background:#ff650d;border-color:#ff650d;box-shadow:0 0 15px #ff650d99;transform:scale(1.35)}
+.chapter-hint{position:absolute;left:clamp(24px,5vw,80px);bottom:30px;z-index:4;font-size:.68rem;letter-spacing:.17em;color:#ffffff9c;text-transform:uppercase}
+.chapter-paint{background:radial-gradient(ellipse at 72% 55%,#75401f 0%,#291b14 35%,#101010 72%)}
+.paint-orb{position:absolute;width:clamp(120px,23vw,280px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 28% 25%,#fff7 0 2%,#ff9c36 7%,#ff650d 32%,#a62900 70%,#3c1108 100%);box-shadow:inset -30px -35px 50px #210800b0,0 0 55px #ff650d55;right:18%;top:23%;animation:paintFloat 5s ease-in-out infinite;transform-style:preserve-3d}
+.paint-orb:after{content:"";position:absolute;inset:-24%;border:1px solid #ff9c3644;border-radius:50%;transform:rotateX(68deg) rotateZ(-20deg)}
+.paint-trail{position:absolute;width:45vw;height:3px;right:5%;top:48%;transform:rotate(-23deg);background:linear-gradient(90deg,transparent,#ff650d,#ffcf8a,transparent);filter:drop-shadow(0 0 8px #ff650d);animation:trail 2.2s ease-in-out infinite}
+.paint-splat{position:absolute;right:30%;top:33%;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,#ff650d 0 12%,#ff650d88 14% 22%,transparent 25%);filter:drop-shadow(0 0 12px #ff650d);animation:splat 2.5s infinite}
+.paint-splat:before,.paint-splat:after{content:"";position:absolute;width:12px;height:42px;background:#ff650d;border-radius:50%;left:8%;top:-15%;transform:rotate(35deg)}.paint-splat:after{left:78%;top:55%;height:30px;transform:rotate(-50deg)}
+.chapter-vr{background:radial-gradient(ellipse at 72% 50%,#392184,#111426 45%,#090a10 78%)}
+.vr-ring{position:absolute;right:13%;top:10%;height:80%;aspect-ratio:.72;border:3px solid #9c79ff;border-radius:50%;transform:rotateY(-25deg) rotateZ(8deg);box-shadow:0 0 20px #8c63ff,inset 0 0 35px #8c63ff,0 0 0 18px #8c63ff17,0 0 0 42px #8c63ff0c;animation:ringPulse 5s ease-in-out infinite}
+.vr-ring:before,.vr-ring:after{content:"";position:absolute;inset:12px;border:1px solid #c4b0ff;border-radius:50%;transform:rotateY(35deg)}.vr-ring:after{inset:35px;border-color:#5ee7ff99;transform:rotateY(-35deg)}
+.vr-glow{position:absolute;right:28%;top:32%;width:16%;aspect-ratio:1;background:#8e60ff;border-radius:50%;filter:blur(40px);box-shadow:0 0 100px 50px #7744ff66;animation:glowPulse 3s infinite}
+.vr-star{position:absolute;width:4px;height:4px;border-radius:50%;background:#b6f7ff;box-shadow:0 0 12px #6eeaff;animation:starFloat 4s linear infinite}
+.vr-star.s1{right:38%;top:20%}.vr-star.s2{right:14%;top:67%;animation-delay:-1.2s}.vr-star.s3{right:48%;top:72%;animation-delay:-2s}.vr-star.s4{right:8%;top:31%;animation-delay:-2.7s}
+.chapter-laser{background:radial-gradient(ellipse at 74% 50%,#173451,#090d17 60%)}
+.laser-cross{position:absolute;inset:0;background:linear-gradient(90deg,transparent 15%,#1b4260 15.5%,transparent 16%,transparent 80%,#1b4260 80.5%,transparent 81%),linear-gradient(0deg,transparent 25%,#1b4260 25.5%,transparent 26%,transparent 68%,#1b4260 68.5%,transparent 69%);opacity:.7}
+.chapter-laser-beam{position:absolute;right:-10%;width:80%;height:3px;background:linear-gradient(90deg,transparent,#ff315e,white,#ff315e,transparent);box-shadow:0 0 12px #ff315e,0 0 30px #ff315e;transform-origin:right;animation:laserSweep 2.1s infinite}
+.chapter-laser-beam.l1{top:30%;transform:rotate(22deg)}.chapter-laser-beam.l2{top:55%;transform:rotate(-12deg);animation-delay:-.8s;background:linear-gradient(90deg,transparent,#38e8ff,white,#38e8ff,transparent);box-shadow:0 0 12px #38e8ff,0 0 30px #38e8ff}
+.laser-reticle{position:absolute;right:25%;top:35%;width:clamp(90px,15vw,180px);aspect-ratio:1;border:1px solid #ff315e99;border-radius:50%;box-shadow:0 0 0 20px #ff315e0b,0 0 0 40px #ff315e08}
+.laser-reticle:before,.laser-reticle:after{content:"";position:absolute;background:#ff315e99}.laser-reticle:before{width:1px;height:150%;top:-25%;left:50%}.laser-reticle:after{height:1px;width:150%;left:-25%;top:50%}
+.chapter-party{background:radial-gradient(ellipse at 72% 50%,#683019,#21110d 44%,#0c0c0c 78%)}
+.party-rings{position:absolute;right:13%;top:12%;width:45vw;max-width:550px;aspect-ratio:1;border:1px solid #ff9c3655;border-radius:50%;box-shadow:0 0 0 25px #ff650d0b,0 0 0 70px #ff650d09;animation:ringPulse 7s infinite}
+.party-rings:before,.party-rings:after{content:"";position:absolute;inset:15%;border:1px solid #ff9c3633;border-radius:50%}.party-rings:after{inset:30%}
+@keyframes paintFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-25px) rotate(12deg)}}
+@keyframes trail{0%,100%{opacity:.1;transform:translateX(-12%) rotate(-23deg)}50%{opacity:1;transform:translateX(8%) rotate(-23deg)}}
+@keyframes splat{0%,100%{transform:scale(.6);opacity:.2}50%{transform:scale(1.5);opacity:1}}
+@keyframes ringPulse{0%,100%{transform:rotateY(-25deg) rotateZ(8deg) scale(.96);filter:hue-rotate(0)}50%{transform:rotateY(20deg) rotateZ(-5deg) scale(1.04);filter:hue-rotate(20deg)}}
+@keyframes glowPulse{0%,100%{opacity:.5;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
+@keyframes starFloat{0%{transform:translateY(30px);opacity:0}30%{opacity:1}100%{transform:translateY(-90px);opacity:0}}
+@keyframes laserSweep{0%,100%{opacity:0}20%,35%{opacity:1}50%{opacity:.15}65%{opacity:.9}80%{opacity:0}}
+@media(max-width:700px){html{scroll-snap-type:y proximity}.chapter{min-height:calc(100svh - 70px);height:calc(100svh - 70px)}.chapter-inner{width:calc(100% - 44px)}.chapter h1,.chapter h2{font-size:clamp(4rem,16vw,6rem);max-width:90%}.chapter p{max-width:85%;font-size:.9rem}.chapter-next{right:12px;top:auto;bottom:65px;width:42px;height:42px}.chapter-count{right:20px;bottom:20px}.chapter-hint{left:22px;bottom:23px;font-size:.55rem}.paint-orb{right:2%;top:14%;width:42vw;opacity:.7}.paint-trail{top:29%;right:-10%;width:70vw}.paint-splat{right:15%;top:24%}.vr-ring{right:-1%;height:55%;top:7%;opacity:.75}.vr-glow{right:20%;top:24%}.laser-reticle{right:7%;top:25%}.chapter-laser-beam{width:95%;right:-15%}.party-rings{right:-15%;top:15%;width:65vw}}
+@media(prefers-reduced-motion:reduce){.paint-orb,.paint-trail,.paint-splat,.vr-ring,.vr-glow,.vr-star,.chapter-laser-beam,.party-rings{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -87,36 +139,20 @@
 <nav class="links" id="links"><a href="#misiones">Experiencias</a><a href="#packs">Packs</a><a href="#precios">Precios</a><a href="#ubicacion">Encuéntranos</a><a class="btn primary" href="#reservar">Reserva ahora <span class="arrow">↗</span></a></nav>
 </div></header>
 <main>
-<section class="hero" id="inicio"><div class="hero-image" aria-hidden="true"></div><div class="hero-grid" aria-hidden="true"></div><div class="hero-orb" aria-hidden="true"></div><div class="hero-cross" aria-hidden="true">PA</div><div class="wrap hero-content">
-<div class="hero-kicker reveal"><span class="live-dot"></span> Lleida · Elige tu próxima misión</div>
-<h1 class="reveal d1">LA AVENTURA<br>NO SE <span> MIRA.</span><br><span>SE VIVE.</span></h1>
-<p class="hero-copy reveal d2">Apaga la rutina. Reúne a tu gente. Entra en el juego. Paintball, Laser Tag, realidad virtual y experiencias para convertir cualquier día en una historia que contar.</p>
-<div class="hero-actions reveal d3"><a class="btn primary" href="#misiones">Encuentra tu aventura <span class="arrow">↘</span></a><a class="btn ghost" href="#reservar">Organiza tu grupo <span class="arrow">↗</span></a></div>
-<div class="hero-foot reveal d3"><div class="hero-stat"><b>01 · ELIGE</b><span>Tu experiencia</span></div><div class="hero-stat"><b>02 · REÚNE</b><span>A tu equipo</span></div><div class="hero-stat"><b>03 · JUEGA</b><span>Sin mirar el reloj</span></div></div>
-<div class="hero-side">Desliza para descubrir</div><div class="hero-label">PARK AVENTURA<strong>LET'S PLAY.</strong></div>
-</div></section>
+
+<nav class="chapter-dots" aria-label="Navegación por capítulos">
+<button class="chapter-dot active" data-chapter="0" aria-label="Portada" title="Portada"></button><button class="chapter-dot" data-chapter="1" aria-label="Paintball" title="Paintball"></button><button class="chapter-dot" data-chapter="2" aria-label="Realidad virtual" title="Realidad virtual"></button><button class="chapter-dot" data-chapter="3" aria-label="Laser Tag" title="Laser Tag"></button><button class="chapter-dot" data-chapter="4" aria-label="Cumpleaños y grupos" title="Cumpleaños y grupos"></button><button class="chapter-dot" data-chapter="5" aria-label="Reservas" title="Reservas"></button>
+</nav>
+<section class="chapter" id="inicio" data-chapter-page="0"><div class="chapter-bg" style="background-image:linear-gradient(90deg,#090909eF,#09090977 70%,#09090922),url('https://assets.vizitio.com/api/assets/images/yslOKDoq7pe1wA782SISKXEMmsLUJV-w1000.webp')"></div><div class="chapter-inner"><span class="chapter-label">LLEIDA · ¿PREPARADO PARA ENTRAR?</span><h1>NO ES UNA<br>WEB. ES TU<br><span class="orange">PRÓXIMA MISIÓN.</span></h1><p>Olvida lo de siempre. Elige tu mundo, reúne a tu equipo y descubre qué pasa cuando la aventura empieza contigo.</p><div class="chapter-actions"><button class="btn primary" data-next-chapter="1">ENTRAR EN EL JUEGO <span class="arrow">↗</span></button><a class="btn ghost" href="#reservar">QUIERO RESERVAR</a></div></div><span class="chapter-hint">PULSA ENTRAR O EXPLORA LOS CAPÍTULOS</span><span class="chapter-count"><strong>00</strong> / 05</span><button class="chapter-next" data-next-chapter="1" aria-label="Siguiente capítulo">↓</button></section>
+<section class="chapter chapter-paint" id="paintball" data-chapter-page="1"><div class="chapter-bg"></div><div class="paint-orb"></div><div class="paint-trail"></div><div class="paint-splat"></div><div class="chapter-inner"><span class="chapter-label">MISIÓN 01 · PAINTBALL</span><h2>EL PLAN:<br><span class="orange">NO TE DEJES</span><br>MARCAR.</h2><p>Cobertura. Estrategia. Adrenalina. Cada partida es una historia distinta y tu equipo es el protagonista. ¿Aceptas el reto?</p><div class="chapter-actions"><a class="btn primary chapter-book" data-activity="Paintball" href="#reservar">ELEGIR PAINTBALL ↗</a><button class="btn ghost" data-next-chapter="2">SIGUIENTE MUNDO →</button></div></div><span class="chapter-hint">01 / ACCIÓN · ESTRATEGIA · EQUIPO</span><span class="chapter-count"><strong>01</strong> / 05</span><button class="chapter-next" data-next-chapter="2" aria-label="Siguiente capítulo">↓</button></section>
+<section class="chapter chapter-vr" id="realidad-virtual" data-chapter-page="2"><div class="vr-ring"></div><div class="vr-glow"></div><i class="vr-star s1"></i><i class="vr-star s2"></i><i class="vr-star s3"></i><i class="vr-star s4"></i><div class="chapter-inner"><span class="chapter-label">MISIÓN 02 · REALIDAD VIRTUAL</span><h2>LA REALIDAD<br>SE QUEDA<br><span class="orange">PEQUEÑA.</span></h2><p>Cruza el portal. Entra en otra dimensión y conviértete en el protagonista de una experiencia que no se parece a ninguna otra.</p><div class="chapter-actions"><a class="btn primary chapter-book" data-activity="Realidad virtual" href="#reservar">CRUZAR EL PORTAL ↗</a><button class="btn ghost" data-next-chapter="3">SIGUIENTE MUNDO →</button></div></div><span class="chapter-hint">02 / INMERSIÓN · TECNOLOGÍA · DESCUBRIMIENTO</span><span class="chapter-count"><strong>02</strong> / 05</span><button class="chapter-next" data-next-chapter="3" aria-label="Siguiente capítulo">↓</button></section>
+<section class="chapter chapter-laser" id="laser-tag" data-chapter-page="3"><div class="laser-cross"></div><div class="chapter-laser-beam l1"></div><div class="chapter-laser-beam l2"></div><div class="laser-reticle"></div><div class="chapter-inner"><span class="chapter-label">MISIÓN 03 · LASER TAG</span><h2>LUZ ROJA.<br>LUZ AZUL.<br><span class="orange">MUÉVETE.</span></h2><p>La arena se enciende. Los equipos se enfrentan. Reflejos y táctica deciden quién domina el juego. ¿Tú de qué lado estás?</p><div class="chapter-actions"><a class="btn primary chapter-book" data-activity="Laser Tag" href="#reservar">ACTIVAR MISIÓN ↗</a><button class="btn ghost" data-next-chapter="4">SIGUIENTE MUNDO →</button></div></div><span class="chapter-hint">03 / REFLEJOS · TÁCTICA · COMPETICIÓN</span><span class="chapter-count"><strong>03</strong> / 05</span><button class="chapter-next" data-next-chapter="4" aria-label="Siguiente capítulo">↓</button></section>
+<section class="chapter chapter-party" id="cumpleanos" data-chapter-page="4"><div class="party-rings"></div><div class="chapter-inner"><span class="chapter-label">MISIÓN 04 · CUMPLEAÑOS Y GRUPOS</span><h2>LOS RECUERDOS<br>NO SE HACEN<br><span class="orange>">EN EL SOFÁ.</span></h2><p>Trae a tu gente. Celebra a lo grande. Cumpleaños, amigos y grupos que quieren algo más que un plan cualquiera. La misión empieza cuando llegáis todos.</p><div class="chapter-actions"><a class="btn primary chapter-book" data-activity="Cumpleaños y grupos" href="#reservar">MONTAR MI PLAN ↗</a><button class="btn ghost" data-next-chapter="5">PREPARAR RESERVA →</button></div></div><span class="chapter-hint">04 / AMIGOS · CELEBRACIÓN · EXPERIENCIAS</span><span class="chapter-count"><strong>04</strong> / 05</span><button class="chapter-next" data-next-chapter="5" aria-label="Ir a reservar">↓</button></section>
+<section class="chapter" id="reservar" data-chapter-page="5" style="background:radial-gradient(ellipse at 80% 50%,#4b230f,#0c0c0c 65%)"><div class="chapter-inner"><span class="chapter-label">ÚLTIMO PASO · TU AVENTURA TE ESPERA</span><h2>¿QUIÉN VIENE<br><span class="orange">A JUGAR?</span></h2><p>Elige tu experiencia y prepara el equipo. Cuéntanos tu plan y te ayudamos con la reserva.</p><div class="chapter-actions"><a class="btn primary" href="#bookingForm">PREPARAR MI RESERVA ↗</a><button class="btn ghost" data-next-chapter="0">VOLVER AL INICIO ↺</button></div></div><span class="chapter-hint">05 / EL SIGUIENTE PASO ES TUYO</span><span class="chapter-count"><strong>05</strong> / 05</span><button class="chapter-next" data-next-chapter="0" aria-label="Volver al inicio">↺</button></section>
+
 <div class="marquee" aria-label="Actividades Park Aventura"><div class="marquee-track"><span>Paintball <b>✳</b></span><span>Laser Tag <b>✳</b></span><span>Realidad virtual <b>✳</b></span><span>Cumpleaños <b>✳</b></span><span>Grupos <b>✳</b></span><span>Paintball <b>✳</b></span><span>Laser Tag <b>✳</b></span><span>Realidad virtual <b>✳</b></span><span>Cumpleaños <b>✳</b></span><span>Grupos <b>✳</b></span></div></div>
 
-<section class="expedition" id="expedicion">
-<div class="wrap">
-<div class="expedition-head reveal"><div><span class="eyebrow">Una experiencia interactiva</span><h2>ENTRA EN <span class="orange">EL JUEGO.</span></h2></div><p>No te lo contamos. Te lo enseñamos. Elige una misión, descubre su universo y avanza a la siguiente experiencia.</p></div>
-<div class="expedition-shell reveal">
-<div class="expedition-copy" aria-live="polite">
-<span class="expedition-step" id="expStep">MISIÓN 01 / 03</span>
-<h3 id="expTitle">APUNTA.<br><span class="orange">DISPARA.</span></h3>
-<p id="expDescription">Adéntrate en el campo, busca cobertura y coordínate con tu equipo. Cada movimiento cuenta. ¿Tienes puntería para ganar?</p>
-<div class="expedition-cta"><a class="btn primary" id="expCta" href="#reservar" data-exp-activity="Paintball">Quiero jugar <span class="arrow">↗</span></a><span class="section-index" id="expHint">ESTRATEGIA · ACCIÓN · EQUIPO</span></div>
-</div>
-<div class="expedition-visual" id="expVisual" aria-label="Animación interactiva de actividades">
-<div class="scene active" data-scene="0" aria-hidden="false"><div class="paint-world"></div><div class="paint-net"></div><div class="paint-cover one"></div><div class="paint-cover two"></div><span class="paintball p1"></span><span class="paintball p2"></span><span class="paintball p3"></span><span class="paintball p4"></span><span class="paint-splash s1"></span><span class="paint-splash s2"></span><span class="scene-kicker">01 / PAINTBALL — LIVE ARENA</span><span class="scene-watermark">FIRE</span></div>
-<div class="scene" data-scene="1" aria-hidden="true"><div class="vr-world"></div><div class="vr-grid"></div><div class="vr-portal"></div><div class="vr-core"></div><i class="vr-particle"></i><i class="vr-particle"></i><i class="vr-particle"></i><i class="vr-particle"></i><i class="vr-particle"></i><i class="vr-particle"></i><span class="vr-label">ENTER ANOTHER WORLD</span><span class="scene-kicker">02 / REALIDAD VIRTUAL — PORTAL ACTIVO</span><span class="scene-watermark">VR</span></div>
-<div class="scene" data-scene="2" aria-hidden="true"><div class="laser-world"></div><div class="laser-walls"></div><div class="laser-column c1"></div><div class="laser-column c2"></div><div class="laser-beam b1"></div><div class="laser-beam b2"></div><div class="laser-beam b3"></div><div class="laser-target"></div><span class="scene-kicker">03 / LASER TAG — MODO COMBATE</span><span class="scene-watermark">TAG</span></div>
-</div>
-</div>
-<div class="expedition-controls reveal"><div class="expedition-tabs" role="group" aria-label="Seleccionar experiencia"><button class="exp-tab active" type="button" data-go="0" aria-pressed="true">01 · Paintball</button><button class="exp-tab" type="button" data-go="1" aria-pressed="false">02 · Realidad virtual</button><button class="exp-tab" type="button" data-go="2" aria-pressed="false">03 · Laser Tag</button></div><div class="expedition-nav"><button class="exp-arrow" type="button" id="expPrev" aria-label="Experiencia anterior">←</button><button class="exp-arrow" type="button" id="expNext" aria-label="Siguiente experiencia">→</button></div></div>
-<div class="exp-progress" aria-hidden="true"><span id="expProgress"></span></div>
-</div>
-</section>
+
 
 <section class="section" id="misiones"><div class="wrap mission-layout"><div class="mission-intro reveal"><span class="eyebrow">Selecciona tu modo de juego</span><h2>¿CUÁL<br>ES TU <span class="orange">MISIÓN?</span></h2><p>Un espacio. Un equipo. Mil maneras de pasarlo bien. Explora las experiencias, encuentra tu estilo y prepara un plan que no se parezca a ningún otro.</p><div class="mission-number">01—05</div><a class="btn ghost" href="#reservar">Diseña tu plan <span class="arrow">↗</span></a></div>
 <div class="mission-list">
@@ -160,18 +196,14 @@
 <script>
 const menu=document.getElementById('menu'),links=document.getElementById('links');
 
-const expData=[
-{title:'APUNTA.<br><span class="orange">DISPARA.</span>',description:'Adéntrate en el campo, busca cobertura y coordínate con tu equipo. Cada movimiento cuenta. ¿Tienes puntería para ganar?',hint:'ESTRATEGIA · ACCIÓN · EQUIPO',activity:'Paintball'},
-{title:'ROMPE.<br><span class="orange">LA REALIDAD.</span>',description:'Ponte las gafas y cruza el portal. Mundos inmersivos, retos inesperados y otra dimensión donde tú eres el protagonista.',hint:'INMERSIÓN · RETOS · TECNOLOGÍA',activity:'Realidad virtual'},
-{title:'ENCIENDE.<br><span class="orange">EL COMBATE.</span>',description:'Muévete entre luces, esquiva los haces y juega en equipo. Reflejos y estrategia en una arena donde cada segundo cuenta.',hint:'REFLEJOS · TÁCTICA · EQUIPO',activity:'Laser Tag'}
-];
-let expCurrent=0;
-function setExp(index){expCurrent=(index+expData.length)%expData.length;const d=expData[expCurrent];document.getElementById('expStep').textContent='MISIÓN 0'+(expCurrent+1)+' / 03';document.getElementById('expTitle').innerHTML=d.title;document.getElementById('expDescription').textContent=d.description;document.getElementById('expHint').textContent=d.hint;const cta=document.getElementById('expCta');cta.dataset.expActivity=d.activity;cta.innerHTML='Quiero jugar <span class="arrow">↗</span>';document.querySelectorAll('.scene').forEach((el,i)=>{el.classList.toggle('active',i===expCurrent);el.setAttribute('aria-hidden',String(i!==expCurrent))});document.querySelectorAll('.exp-tab').forEach((el,i)=>{el.classList.toggle('active',i===expCurrent);el.setAttribute('aria-pressed',String(i===expCurrent))});document.getElementById('expProgress').style.width=((expCurrent+1)/expData.length*100)+'%';}
-document.querySelectorAll('.exp-tab').forEach(btn=>btn.addEventListener('click',()=>setExp(Number(btn.dataset.go))));
-document.getElementById('expPrev').addEventListener('click',()=>setExp(expCurrent-1));
-document.getElementById('expNext').addEventListener('click',()=>setExp(expCurrent+1));
-document.getElementById('expCta').addEventListener('click',e=>{document.getElementById('activity').value=e.currentTarget.dataset.expActivity});
 
+const chapterPages=[...document.querySelectorAll('[data-chapter-page]')];
+function goChapter(i){const target=chapterPages[Math.max(0,Math.min(i,chapterPages.length-1))];if(target)target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
+document.querySelectorAll('[data-next-chapter]').forEach(b=>b.addEventListener('click',()=>goChapter(Number(b.dataset.nextChapter))));
+document.querySelectorAll('.chapter-dot').forEach(b=>b.addEventListener('click',()=>goChapter(Number(b.dataset.chapter))));
+document.querySelectorAll('.chapter-book').forEach(b=>b.addEventListener('click',()=>{const activity=document.getElementById('activity');if(activity)activity.value=b.dataset.activity;}));
+const chapterObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.chapter-dot').forEach((dot,i)=>dot.classList.toggle('active',i===Number(entry.target.dataset.chapterPage)));}})},{threshold:.55});
+chapterPages.forEach(p=>chapterObserver.observe(p));
 menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'✕':'☰'});
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
 document.getElementById('year').textContent=new Date().getFullYear();
