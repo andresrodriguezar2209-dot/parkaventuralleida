@@ -242,7 +242,7 @@ function goChapter(i){const target=chapterPages[Math.max(0,Math.min(i,chapterPag
 document.querySelectorAll('[data-next-chapter]').forEach(b=>b.addEventListener('click',()=>goChapter(Number(b.dataset.nextChapter))));
 document.querySelectorAll('.chapter-dot').forEach(b=>b.addEventListener('click',()=>goChapter(Number(b.dataset.chapter))));
 document.querySelectorAll('.chapter-book').forEach(b=>b.addEventListener('click',()=>{const activity=document.getElementById('activity');if(activity){activity.value=b.dataset.activity;activity.dispatchEvent(new Event('change',{bubbles:true}));}}));
-const chapterObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.chapter-dot').forEach((dot,i)=>dot.classList.toggle('active',i===Number(entry.target.dataset.chapterPage)));}})},{threshold:.55});
+const chapterObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.chapter-dot').forEach((dot,i)=>dot.classList.toggle('active',i===Number(entry.target.dataset.chapterPage)));}})},{threshold:.25});
 chapterPages.forEach(p=>chapterObserver.observe(p));
 menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'✕':'☰'});
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
