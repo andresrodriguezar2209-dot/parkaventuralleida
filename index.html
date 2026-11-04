@@ -313,6 +313,128 @@ body{width:100%;max-width:100%;overflow-x:clip}
 }
 @media(prefers-reduced-motion:reduce){#inicio.chapter .chapter-bg{animation:none}}
 
+
+/* PORTADA — réplica de la referencia visual */
+header.nav{
+  position:absolute!important;top:0;left:0;right:0;height:88px!important;
+  z-index:40;background:linear-gradient(180deg,#080808c9,transparent)!important;
+  border:0!important;backdrop-filter:none!important;
+}
+header.nav .navin{width:min(1210px,calc(100% - 64px))}
+header.nav .brand img{width:58px;height:58px}
+header.nav .links{gap:34px}
+#inicio.chapter{
+  height:100svh!important;min-height:680px!important;max-height:none!important;
+  padding-top:88px;align-items:center;background:#080808;
+}
+#inicio.chapter .chapter-bg{
+  inset:0!important;background-size:cover!important;
+  background-position:center center!important;transform:scale(1.015);
+  animation:referenceHeroZoom 26s ease-in-out infinite alternate;
+}
+#inicio.chapter:after{
+  z-index:-1!important;
+  background:
+   linear-gradient(90deg,#070707f0 0%,#070707e8 27%,#070707b0 46%,#07070725 72%,#07070708 100%),
+   linear-gradient(0deg,#070707a8 0%,transparent 28%,#0808082b 100%)!important;
+}
+#inicio.chapter:before{
+  content:"";position:absolute;z-index:1;pointer-events:none;
+  left:-5%;top:18%;width:53%;height:67%;
+  border-left:5px solid #ff650d;transform:skewY(-17deg) rotate(-4deg);
+  background:linear-gradient(110deg,#ff650d14,transparent 72%);
+  filter:drop-shadow(0 0 20px #ff650d44);
+}
+#inicio.chapter .chapter-inner{
+  width:min(1210px,calc(100% - 64px))!important;
+  max-width:none!important;margin:0 auto!important;
+  padding:52px 0 20px 0!important;text-align:left!important;
+}
+#inicio.chapter .chapter-label{
+  display:flex;align-items:center;gap:14px;margin:0 0 25px;
+  max-width:620px;font-size:.76rem;letter-spacing:.13em;color:#ff7625;
+}
+#inicio.chapter .chapter-label:before{width:78px;height:4px;flex:none}
+#inicio.chapter h1{
+  max-width:720px!important;font-size:clamp(5.5rem,9.6vw,9.7rem)!important;
+  line-height:.77!important;letter-spacing:-.045em!important;
+  margin:0 0 25px!important;text-align:left!important;
+  text-shadow:0 8px 35px #000b;transform:skewX(-3deg);transform-origin:left center;
+}
+#inicio.chapter h1 .orange{color:#ff650d!important}
+#inicio.chapter .hero-slogan{
+  font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.35rem,2.1vw,2rem);
+  font-weight:900;line-height:1.1;letter-spacing:.01em;margin:0 0 12px!important;
+  color:#fff;text-transform:uppercase;
+}
+#inicio.chapter .chapter-inner>p:not(.hero-slogan){
+  max-width:530px;font-size:.98rem;line-height:1.7;color:#eee;
+  margin:0 0 24px!important;
+}
+#inicio.chapter .chapter-actions{display:flex;gap:15px;margin-top:0!important}
+#inicio.chapter .chapter-actions .btn{
+  min-height:54px;padding:16px 26px;font-size:.77rem;letter-spacing:.02em;
+}
+#inicio.chapter .chapter-actions .primary{background:#ff650d;color:#111}
+#inicio.chapter .chapter-actions .ghost{border-color:#fff9;background:#09090940}
+#inicio.chapter .chapter-hint{
+  left:max(32px,calc((100vw - 1210px)/2));bottom:27px;
+  font-size:.66rem;letter-spacing:.22em;color:#ffffffb8;z-index:5;
+}
+#inicio.chapter .chapter-count{display:none}
+#inicio.chapter .chapter-next{
+  left:50%;right:auto;top:auto;bottom:22px;transform:translateX(-50%);
+  width:27px;height:48px;border:1.5px solid #fff;background:#08080830;
+  border-radius:18px;color:transparent;z-index:6;
+}
+#inicio.chapter .chapter-next:before{
+  content:"";position:absolute;left:50%;top:8px;width:5px;height:9px;
+  border:1px solid white;border-radius:5px;transform:translateX(-50%);
+  animation:heroMouse 1.5s ease-in-out infinite;
+}
+#inicio.chapter .chapter-next:after{
+  content:"↓";position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);
+  color:white;font-size:17px;
+}
+#inicio.chapter .hero-corner-cta{
+  position:absolute;right:max(32px,calc((100vw - 1210px)/2));bottom:25px;
+  z-index:6;background:#ff650d;color:#111;padding:14px 20px;
+  font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;
+}
+#inicio.chapter .hero-corner-cta span{font-size:1.2rem;margin-left:8px}
+@keyframes referenceHeroZoom{from{transform:scale(1.015)}to{transform:scale(1.07)}}
+@keyframes heroMouse{0%,100%{transform:translate(-50%,0);opacity:1}70%{transform:translate(-50%,8px);opacity:.25}}
+@media(max-width:850px){
+ header.nav .navin{width:calc(100% - 36px)}
+ header.nav .links{gap:16px}
+ #inicio.chapter .chapter-inner{width:calc(100% - 48px)!important}
+ #inicio.chapter h1{font-size:clamp(5rem,11vw,7.5rem)!important}
+ #inicio.chapter .chapter-bg{background-position:61% center!important}
+}
+@media(max-width:650px){
+ header.nav{height:72px!important;background:linear-gradient(180deg,#080808e8,transparent)!important}
+ header.nav .brand img{width:48px;height:48px}
+ #inicio.chapter{height:auto!important;min-height:100svh!important;padding:110px 0 110px!important}
+ #inicio.chapter .chapter-bg{background-position:64% center!important;opacity:.8}
+ #inicio.chapter:after{
+  background:linear-gradient(90deg,#070707ed 0%,#070707b8 65%,#07070765 100%),
+  linear-gradient(0deg,#070707d9 0%,transparent 55%)!important;
+ }
+ #inicio.chapter:before{left:-14%;top:25%;width:95%;height:54%;opacity:.75}
+ #inicio.chapter .chapter-inner{width:calc(100% - 38px)!important;padding:30px 0 0!important}
+ #inicio.chapter .chapter-label{font-size:.59rem;letter-spacing:.1em;gap:9px;margin-bottom:21px}
+ #inicio.chapter .chapter-label:before{width:34px;height:3px}
+ #inicio.chapter h1{font-size:clamp(4.15rem,17vw,6.3rem)!important;line-height:.78!important;margin-bottom:23px!important}
+ #inicio.chapter .hero-slogan{font-size:1.25rem}
+ #inicio.chapter .chapter-inner>p:not(.hero-slogan){font-size:.9rem;max-width:340px}
+ #inicio.chapter .chapter-actions{display:grid;grid-template-columns:1fr;gap:10px}
+ #inicio.chapter .chapter-actions .btn{width:100%;min-height:49px;padding:14px 12px;font-size:.7rem}
+ #inicio.chapter .chapter-hint{left:18px;bottom:20px;right:18px;font-size:.5rem;letter-spacing:.12em}
+ #inicio.chapter .chapter-next{left:50%;bottom:15px;width:23px;height:39px}
+ #inicio.chapter .hero-corner-cta{display:none}
+}
+@media(prefers-reduced-motion:reduce){#inicio.chapter .chapter-bg{animation:none!important}#inicio.chapter .chapter-next:before{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -327,7 +449,7 @@ body{width:100%;max-width:100%;overflow-x:clip}
 <nav class="chapter-dots" aria-label="Navegación principal">
 <button class="chapter-dot active" data-chapter="0" aria-label="Portada" title="Portada"></button><button class="chapter-dot" data-chapter="1" aria-label="Experiencias" title="Experiencias"></button><button class="chapter-dot" data-chapter="2" aria-label="Reserva" title="Reserva"></button>
 </nav>
-<section class="chapter" id="inicio" data-chapter-page="0"><div class="chapter-bg" style="background-image:linear-gradient(90deg,#090909eF 0%,#090909a8 45%,#09090930 100%),linear-gradient(0deg,#0c0c0c88,transparent 45%),url('/68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8.jpeg')"></div><div class="chapter-inner"><span class="chapter-label">PARK AVENTURA LLEIDA · EXPERIENCIAS PARA COMPARTIR</span><h1>PARK AVENTURA<br><span class="orange">LLEIDA.</span></h1><p class="hero-slogan">SIN LÍMITES. <span class="orange">SOLO AVENTURA.</span></p><p>Acción, tecnología y diversión para vivir algo diferente con los tuyos.</p><div class="chapter-actions"><button class="btn primary" data-next-chapter="1">DESCUBRIR EXPERIENCIAS <span class="arrow">↗</span></button><a class="btn ghost" href="#reservar">QUIERO RESERVAR</a></div></div><span class="chapter-hint">PAINTBALL · LASER TAG · VR · CUMPLEAÑOS</span><span class="chapter-count"><strong>00</strong> / 02</span><button class="chapter-next" data-next-chapter="1" aria-label="Ver experiencias">↓</button></section>
+<section class="chapter" id="inicio" data-chapter-page="0"><div class="chapter-bg" style="background-image:url('/68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8.jpeg')"></div><div class="chapter-inner"><span class="chapter-label">PARK AVENTURA LLEIDA · EXPERIENCIAS PARA COMPARTIR</span><h1>PARK<br>AVENTURA<br><span class="orange">LLEIDA.</span></h1><p class="hero-slogan">SIN LÍMITES. <span class="orange">SOLO AVENTURA.</span></p><p>Acción, tecnología y diversión para vivir algo diferente con los tuyos.</p><div class="chapter-actions"><button class="btn primary" data-next-chapter="1">DESCUBRIR EXPERIENCIAS <span class="arrow">↗</span></button><a class="btn ghost" href="#reservar">QUIERO RESERVAR</a></div></div><span class="chapter-hint">PAINTBALL · LASER TAG · VR · CUMPLEAÑOS</span><span class="chapter-count"><strong>00</strong> / 02</span><button class="chapter-next" data-next-chapter="1" aria-label="Ver experiencias">↓</button><a class="hero-corner-cta" href="#reservar">RESERVA AHORA <span>→</span></a></section>
 <section class="quick-activities" id="experiencias-rapidas" data-chapter-page="1"><div class="wrap"><div class="quick-heading"><div><span class="eyebrow">Cuatro formas de salir de la rutina</span><h2>ELIGE TU <span class="orange">AVENTURA.</span></h2></div><p>Descubre lo que te espera. Más abajo encontrarás todos los detalles.</p></div><div class="quick-grid">
 <a class="quick-card" href="#detalle-paintball" style="--quick-image:url('/ddc4e458-9c6e-4a7a-9c98-d833754bd5d2.jpeg')"><span>01 / ACCIÓN</span><strong>PAINTBALL</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-laser" style="--quick-image:url('/5ac10b49-c7f7-4159-a252-b0f128f6ade0.jpeg')"><span>02 / COMPETICIÓN</span><strong>LASER TAG</strong><i>Descubrir ↗</i></a>
