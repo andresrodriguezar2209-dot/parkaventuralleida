@@ -193,6 +193,126 @@ body{width:100%;max-width:100%;overflow-x:clip}
 
 /* Ventanas de vídeo para las actividades: preparadas para añadir los vídeos reales más adelante. */
 .mission-photo .video-trigger{position:absolute;z-index:2;left:18px;bottom:18px;display:inline-flex;align-items:center;gap:10px;padding:11px 15px;border:1px solid #ffffff80;background:#101010d9;color:#fff;font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(10px);transition:background .25s,border-color .25s,transform .25s}.mission-photo .video-trigger:hover{background:var(--orange);border-color:var(--orange);color:#111;transform:translateY(-3px)}.play-icon{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--orange);color:#111;font-size:.7rem;padding-left:2px}.video-modal{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}.video-modal.open{opacity:1;visibility:visible}.video-modal-backdrop{position:absolute;inset:0;background:#000d;backdrop-filter:blur(9px)}.video-modal-panel{position:relative;width:min(900px,100%);background:#151515;border:1px solid #ffffff28;box-shadow:0 25px 100px #000b;transform:translateY(18px) scale(.98);transition:transform .3s;overflow:hidden}.video-modal.open .video-modal-panel{transform:translateY(0) scale(1)}.video-modal-close{position:absolute;z-index:3;right:14px;top:12px;width:42px;height:42px;border:1px solid #ffffff55;background:#111c;color:#fff;font-size:1.8rem;cursor:pointer}.video-placeholder{min-height:clamp(280px,52vw,510px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 24px;background:radial-gradient(ellipse at 50% 45%,#ff650d28,transparent 55%),linear-gradient(135deg,#24201d,#090909);border-bottom:1px solid #ffffff20}.video-placeholder-mark{width:76px;height:76px;display:grid;place-items:center;border:1px solid var(--orange);border-radius:50%;color:var(--orange);font-size:1.6rem;padding-left:4px;margin-bottom:22px;box-shadow:0 0 0 12px #ff650d12,0 0 45px #ff650d22}.video-placeholder h3{font-size:clamp(3rem,8vw,5.5rem);margin:16px 0}.video-placeholder p{margin:0 0 20px}.video-coming{padding:8px 13px;border:1px solid #ff650d80;color:var(--amber);font-size:.65rem;font-weight:900;letter-spacing:.18em}.video-modal-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 24px}.video-modal-footer p{margin:0;font-size:.82rem}.video-modal-footer .btn{flex:none}@media(max-width:600px){.mission-photo .video-trigger{left:12px;bottom:12px;padding:9px 12px}.video-modal{padding:12px}.video-modal-footer{align-items:stretch;flex-direction:column}.video-modal-footer .btn{width:100%}}
+
+/* PORTADA 2026 — composición cinematográfica asimétrica */
+#inicio.chapter{
+  min-height: min(900px, calc(100svh - 78px));
+  height: min(900px, calc(100svh - 78px));
+  align-items: center;
+  background:#090909;
+}
+#inicio.chapter .chapter-bg{
+  inset:0;
+  background-size:cover !important;
+  background-position:72% center !important;
+  transform:scale(1.035);
+  animation: portadaZoom 24s ease-in-out infinite alternate;
+}
+#inicio.chapter:after{
+  background:
+    linear-gradient(90deg, #070707 0%, #070707f2 27%, #070707c9 47%, #07070745 72%, #07070718 100%),
+    linear-gradient(0deg,#080808a8 0%,transparent 34%,#08080820 100%);
+}
+#inicio.chapter:before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  left:-7%;top:18%;
+  width:58%;height:64%;
+  pointer-events:none;
+  background:linear-gradient(112deg,transparent 0 35%,#ff650d22 35.2% 36%,transparent 36.3% 100%);
+  border-top:2px solid #ff650d55;
+  border-bottom:1px solid #ff9c362e;
+  transform:skewY(-11deg) rotate(-4deg);
+  filter:drop-shadow(0 0 22px #ff650d22);
+}
+#inicio.chapter .chapter-inner{
+  width:min(1320px,calc(100% - 64px)) !important;
+  max-width:none !important;
+  margin:0 auto !important;
+  padding:0 0 42px clamp(0px,2.5vw,42px);
+  text-align:left !important;
+}
+#inicio.chapter .chapter-label{margin-bottom:22px;max-width:620px}
+#inicio.chapter h1{
+  font-size:clamp(5.8rem,11.8vw,11.2rem) !important;
+  line-height:.76 !important;
+  letter-spacing:-.055em !important;
+  max-width:920px !important;
+  margin:18px 0 25px !important;
+  text-shadow:0 10px 45px #000b;
+  transform:skewX(-3deg);
+  transform-origin:left center;
+}
+#inicio.chapter h1 .orange{
+  color:#ff650d !important;
+  display:inline-block;
+  text-shadow:5px 5px 0 #090909,0 0 45px #ff650d33;
+}
+#inicio.chapter .hero-slogan{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:clamp(1.35rem,2.2vw,2rem);
+  letter-spacing:.015em;
+  margin:0 0 5px;
+  color:#fff;
+}
+#inicio.chapter .hero-slogan .orange{color:#ff650d}
+#inicio.chapter .chapter-inner>p:not(.hero-slogan){
+  max-width:490px;
+  font-size:1rem;
+  line-height:1.75;
+  color:#e1ddd7;
+  margin:10px 0 0;
+}
+#inicio.chapter .chapter-actions{margin-top:26px;gap:14px}
+#inicio.chapter .chapter-actions .btn{min-height:54px;padding:16px 24px}
+#inicio.chapter .chapter-hint{
+  left:clamp(24px,4vw,64px);
+  bottom:30px;
+  letter-spacing:.2em;
+  color:#ffffffb5;
+}
+#inicio.chapter .chapter-count{right:clamp(24px,5vw,80px);bottom:28px}
+#inicio.chapter .chapter-next{
+  right:clamp(24px,5vw,75px);
+  top:47%;
+  border-color:#ffffff70;
+  background:#0b0b0b77;
+}
+#inicio.chapter .chapter-next:hover{background:#ff650d}
+@keyframes portadaZoom{from{transform:scale(1.035)}to{transform:scale(1.105)}}
+@media(max-width:760px){
+  #inicio.chapter{height:auto;min-height:calc(100svh - 70px);padding:70px 0 95px}
+  #inicio.chapter .chapter-bg{
+    background-position:66% center !important;
+    opacity:.82;
+  }
+  #inicio.chapter:after{
+    background:linear-gradient(90deg,#070707ed 0%,#070707c9 58%,#07070770 100%),linear-gradient(0deg,#080808e8 0%,transparent 55%);
+  }
+  #inicio.chapter:before{width:90%;left:-20%;top:20%;height:55%}
+  #inicio.chapter .chapter-inner{
+    width:calc(100% - 38px) !important;
+    padding:0 !important;
+    margin:0 auto !important;
+  }
+  #inicio.chapter .chapter-label{font-size:.58rem;letter-spacing:.13em;line-height:1.6}
+  #inicio.chapter h1{
+    font-size:clamp(4.25rem,17vw,7rem) !important;
+    line-height:.79 !important;
+    margin:22px 0 !important;
+  }
+  #inicio.chapter .hero-slogan{font-size:1.25rem}
+  #inicio.chapter .chapter-inner>p:not(.hero-slogan){font-size:.91rem;max-width:340px}
+  #inicio.chapter .chapter-actions{gap:9px;margin-top:22px}
+  #inicio.chapter .chapter-actions .btn{padding:13px 14px;min-height:48px;font-size:.68rem}
+  #inicio.chapter .chapter-hint{font-size:.53rem;left:19px;bottom:19px;letter-spacing:.1em}
+  #inicio.chapter .chapter-count{right:18px;bottom:18px;font-size:.78rem}
+  #inicio.chapter .chapter-next{right:18px;top:auto;bottom:68px;width:42px;height:42px}
+}
+@media(prefers-reduced-motion:reduce){#inicio.chapter .chapter-bg{animation:none}}
+
 </style>
 </head>
 <body>
