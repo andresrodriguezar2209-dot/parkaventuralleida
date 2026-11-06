@@ -435,6 +435,31 @@ header.nav .links{gap:34px}
 }
 @media(prefers-reduced-motion:reduce){#inicio.chapter .chapter-bg{animation:none!important}#inicio.chapter .chapter-next:before{animation:none!important}}
 
+
+/* Galería integrada en la página principal */
+.gallery-section{background:linear-gradient(180deg,#101010,#151515 55%,#0c0c0c);border-block:1px solid #ffffff12}
+.gallery-section .section-heading{margin-bottom:30px}
+.gallery-filters{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 25px}
+.gallery-filters button{background:transparent;border:1px solid #ffffff35;color:#f6f4ef;padding:10px 14px;cursor:pointer;font:800 .7rem 'DM Sans';text-transform:uppercase;transition:background .2s,border-color .2s,color .2s}
+.gallery-filters button:hover,.gallery-filters button.active{background:var(--orange);border-color:var(--orange);color:#111}
+.home-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.home-gallery-item{position:relative;display:block;overflow:hidden;aspect-ratio:4/3;border:1px solid #ffffff20;background:#191919;padding:0;cursor:zoom-in;text-align:left}
+.home-gallery-item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .65s var(--ease),filter .4s}
+.home-gallery-item:hover img{transform:scale(1.07);filter:saturate(1.12)}
+.home-gallery-item:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#000b);pointer-events:none}
+.home-gallery-item span{position:absolute;z-index:1;left:15px;right:15px;bottom:13px;color:#fff;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.gallery-empty{grid-column:1/-1;color:var(--muted);padding:25px 0;line-height:1.7}
+.gallery-actions{display:flex;justify-content:center;margin-top:28px}
+.gallery-lightbox{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px;background:#000e;backdrop-filter:blur(12px)}
+.gallery-lightbox.open{display:flex}
+.gallery-lightbox figure{position:relative;max-width:min(1100px,100%);max-height:100%;margin:0}
+.gallery-lightbox img{display:block;max-width:100%;max-height:82vh;object-fit:contain;border:1px solid #ffffff35;box-shadow:0 25px 90px #000}
+.gallery-lightbox figcaption{padding:12px 48px 0 0;color:#fff;font-weight:800}
+.gallery-lightbox-close{position:absolute;top:-15px;right:-15px;width:42px;height:42px;border:1px solid #ffffff60;background:var(--orange);color:#111;font-size:1.7rem;cursor:pointer}
+.gallery-lightbox[aria-hidden="true"]{pointer-events:none}
+@media(max-width:800px){.home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.home-gallery-grid{gap:8px}.home-gallery-item{aspect-ratio:1/1}.gallery-lightbox{padding:14px}.gallery-lightbox-close{right:0;top:-48px}}
+
 </style>
 </head>
 <body>
@@ -442,7 +467,7 @@ header.nav .links{gap:34px}
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="#inicio" aria-label="Park Aventura Lleida, inicio"><img src="/unnamed-removebg-preview.png" alt="Logo Park Aventura Lleida"><span class="brandname">PARK AVENTURA<small>LLEIDA · EXPERIENCIAS</small></span></a>
 <button class="menu" id="menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
-<nav class="links" id="links"><a href="#misiones">Experiencias</a><a href="#packs">Packs</a><a href="#precios">Precios</a><a href="#ubicacion">Encuéntranos</a><a href="/galeria">Galería</a><a class="btn primary" href="#reservar">Reserva ahora <span class="arrow">↗</span></a></nav>
+<nav class="links" id="links"><a href="#misiones">Experiencias</a><a href="#packs">Packs</a><a href="#precios">Precios</a><a href="#ubicacion">Encuéntranos</a><a href="#galeria">Galería</a><a class="btn primary" href="#reservar">Reserva ahora <span class="arrow">↗</span></a></nav>
 </div></header>
 <main>
 
@@ -517,6 +542,29 @@ header.nav .links{gap:34px}
     <p class="reviews-note">Fragmentos breves de opiniones publicadas en Google. Se muestran sin nombres porque los datos de autor y fecha no estaban disponibles en la fuente consultada. Consulta el texto original en Google.</p>
   </div>
 </section>
+
+<section class="section gallery-section" id="galeria" aria-labelledby="gallery-title">
+  <div class="wrap">
+    <div class="section-heading reveal">
+      <div><span class="eyebrow">Así se vive la aventura</span><h2 id="gallery-title">MOMENTOS <span class="orange">REALES.</span></h2></div>
+      <p>Partidas, retos y recuerdos compartidos. Descubre lo que se vive en Park Aventura Lleida.</p>
+    </div>
+    <div class="gallery-filters reveal" id="homeGalleryFilters" aria-label="Filtrar fotografías">
+      <button class="active" type="button" data-gallery-category="all">Todas</button>
+      <button type="button" data-gallery-category="paintball">Paintball</button>
+      <button type="button" data-gallery-category="laser-tag">Laser Tag</button>
+      <button type="button" data-gallery-category="realidad-virtual">Realidad virtual</button>
+      <button type="button" data-gallery-category="humor-amarillo">Humor amarillo</button>
+      <button type="button" data-gallery-category="cumpleanos">Cumpleaños y grupos</button>
+    </div>
+    <div class="home-gallery-grid reveal" id="homeGalleryGrid" aria-live="polite"><p class="gallery-empty">Cargando fotografías…</p></div>
+    <div class="gallery-actions reveal"><a class="btn ghost" href="/galeria">VER TODA LA GALERÍA <span class="arrow">↗</span></a></div>
+  </div>
+</section>
+<div class="gallery-lightbox" id="homeGalleryLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fotografía ampliada">
+  <figure><button class="gallery-lightbox-close" id="homeGalleryClose" type="button" aria-label="Cerrar fotografía">×</button><img id="homeGalleryLarge" alt=""><figcaption id="homeGalleryCaption"></figcaption></figure>
+</div>
+
 <section class="section location" id="ubicacion"><div class="wrap location-grid"><div class="location-copy reveal"><span class="eyebrow">Tu punto de partida</span><h2>LA AVENTURA<br>ESTÁ EN <span class="orange">LLEIDA.</span></h2><p>Estamos en la avenida Alcalde Rovira Roure. Reserva con antelación para que podamos preparar tu experiencia.</p><div class="contact">
 <div class="contact-row"><span class="contact-icon">⌖</span><div><strong>Dirección · toca para abrir el mapa</strong><a class="address-link" href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Alcalde%20Rovira%20Roure%2C%20214%2C%2025198%20Lleida" target="_blank" rel="noopener">Av. Alcalde Rovira Roure, 214, 25198 Lleida ↗</a></div></div>
 <div class="contact-row"><span class="contact-icon">◷</span><div><strong>Horario</strong><span>Todos los días, 10:00–22:00 · con reserva previa</span></div></div>
@@ -534,6 +582,80 @@ header.nav .links{gap:34px}
 </main>
 <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#inicio"><img src="/unnamed-removebg-preview.png" alt="Logo Park Aventura Lleida"><span class="brandname">PARK AVENTURA<small>LLEIDA · EXPERIENCIAS</small></span></a><p>© <span id="year"></span> Park Aventura Lleida · La aventura se vive.</p><a href="mailto:parkaventuralleida@gmail.com">Contacto ↗</a></div></footer>
 <a class="wa" href="https://wa.me/34722146640?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20reservar%20en%20Park%20Aventura%20Lleida." target="_blank" rel="noopener"><span class="wa-dot"></span> WhatsApp ↗</a>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './supabase-config.js';
+const galleryDb = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const galleryGrid = document.getElementById('homeGalleryGrid');
+const galleryLightbox = document.getElementById('homeGalleryLightbox');
+const galleryLarge = document.getElementById('homeGalleryLarge');
+const galleryCaption = document.getElementById('homeGalleryCaption');
+const galleryClose = document.getElementById('homeGalleryClose');
+let homePhotos = [];
+let activeGalleryCategory = 'all';
+function renderHomeGallery() {
+  galleryGrid.replaceChildren();
+  const visible = homePhotos.filter(photo => activeGalleryCategory === 'all' || photo.category === activeGalleryCategory).slice(0, 6);
+  if (!visible.length) {
+    const empty = document.createElement('p');
+    empty.className = 'gallery-empty';
+    empty.textContent = 'Todavía no hay fotografías publicadas en esta categoría. ¡Pronto habrá novedades!';
+    galleryGrid.append(empty);
+    return;
+  }
+  for (const photo of visible) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'home-gallery-item';
+    button.setAttribute('aria-label', 'Ampliar fotografía: ' + (photo.title || photo.category));
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = galleryDb.storage.from('park-gallery').getPublicUrl(photo.storage_path).data.publicUrl;
+    img.alt = photo.title || 'Fotografía de Park Aventura Lleida';
+    const caption = document.createElement('span');
+    caption.textContent = photo.title || photo.category.replaceAll('-', ' ');
+    button.append(img, caption);
+    button.addEventListener('click', () => {
+      galleryLarge.src = img.src;
+      galleryLarge.alt = img.alt;
+      galleryCaption.textContent = caption.textContent;
+      galleryLightbox.classList.add('open');
+      galleryLightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      galleryClose.focus();
+    });
+    galleryGrid.append(button);
+  }
+}
+function closeHomeGallery() {
+  galleryLightbox.classList.remove('open');
+  galleryLightbox.setAttribute('aria-hidden', 'true');
+  galleryLarge.removeAttribute('src');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('[data-gallery-category]').forEach(button => button.addEventListener('click', () => {
+  activeGalleryCategory = button.dataset.galleryCategory;
+  document.querySelectorAll('[data-gallery-category]').forEach(item => item.classList.toggle('active', item === button));
+  renderHomeGallery();
+}));
+galleryClose.addEventListener('click', closeHomeGallery);
+galleryLightbox.addEventListener('click', event => { if (event.target === galleryLightbox) closeHomeGallery(); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && galleryLightbox.classList.contains('open')) closeHomeGallery(); });
+const { data: photos, error: galleryError } = await galleryDb
+  .from('gallery_photos')
+  .select('id,title,category,storage_path')
+  .eq('is_published', true)
+  .order('sort_order')
+  .order('created_at', { ascending: false });
+if (galleryError) {
+  galleryGrid.textContent = 'No se han podido cargar las fotografías. Puedes visitar la galería completa más tarde.';
+} else {
+  homePhotos = photos || [];
+  renderHomeGallery();
+}
+</script>
+
 <script>
 const menu=document.getElementById('menu'),links=document.getElementById('links');
 const chapterPages=[...document.querySelectorAll('[data-chapter-page]')];
