@@ -460,7 +460,23 @@ header.nav .links{gap:34px}
 @media(max-width:800px){.home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.home-gallery-grid{gap:8px}.home-gallery-item{aspect-ratio:1/1}.gallery-lightbox{padding:14px}.gallery-lightbox-close{right:0;top:-48px}}
 
-.mission-photo .info-trigger{position:absolute;z-index:3;right:18px;bottom:18px;display:inline-flex;align-items:center;gap:7px;padding:11px 14px;border:1px solid var(--orange);background:#ff650de8;color:#111;font-size:.68rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(10px);transition:transform .25s,background .25s}.mission-photo .info-trigger:hover{transform:translateY(-3px);background:#ff8a3d}.activity-info-modal{position:fixed;inset:0;z-index:130;display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}.activity-info-modal.open{opacity:1;visibility:visible}.activity-info-backdrop{position:absolute;inset:0;background:#000e;backdrop-filter:blur(10px)}.activity-info-panel{position:relative;width:min(620px,100%);max-height:min(85vh,850px);overflow:auto;background:#151515;border:1px solid #ffffff30;padding:clamp(24px,5vw,42px);box-shadow:0 25px 100px #000b}.activity-info-panel h2{font:900 clamp(2.6rem,8vw,4.5rem)/.9 'Barlow Condensed';margin:12px 0 15px}.activity-info-panel>p{line-height:1.75;color:#d1cec8}.activity-info-close{position:absolute;right:14px;top:12px;width:40px;height:40px;background:var(--orange);border:0;color:#111;font-size:1.7rem;cursor:pointer}.activity-info-prices{margin:22px 0;border-top:1px solid #ffffff24}.activity-info-price{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid #ffffff20;font-size:.88rem}.activity-info-price strong{color:var(--amber);white-space:nowrap}.activity-info-note{font-size:.76rem!important;color:var(--muted)!important}.activity-info-panel .btn{display:inline-flex;margin-top:8px}@media(max-width:650px){.mission-photo .video-trigger{left:10px;bottom:10px;padding:9px 10px;font-size:.58rem}.mission-photo .info-trigger{right:10px;bottom:10px;padding:9px 10px;font-size:.56rem}.play-icon{width:22px;height:22px}.activity-info-panel{padding:28px 20px}.activity-info-price{font-size:.8rem}}</style>
+.mission-photo .info-trigger{position:absolute;z-index:3;right:18px;bottom:18px;display:inline-flex;align-items:center;gap:7px;padding:11px 14px;border:1px solid var(--orange);background:#ff650de8;color:#111;font-size:.68rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(10px);transition:transform .25s,background .25s}.mission-photo .info-trigger:hover{transform:translateY(-3px);background:#ff8a3d}.activity-info-modal{position:fixed;inset:0;z-index:130;display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}.activity-info-modal.open{opacity:1;visibility:visible}.activity-info-backdrop{position:absolute;inset:0;background:#000e;backdrop-filter:blur(10px)}.activity-info-panel{position:relative;width:min(620px,100%);max-height:min(85vh,850px);overflow:auto;background:#151515;border:1px solid #ffffff30;padding:clamp(24px,5vw,42px);box-shadow:0 25px 100px #000b}.activity-info-panel h2{font:900 clamp(2.6rem,8vw,4.5rem)/.9 'Barlow Condensed';margin:12px 0 15px}.activity-info-panel>p{line-height:1.75;color:#d1cec8}.activity-info-close{position:absolute;right:14px;top:12px;width:40px;height:40px;background:var(--orange);border:0;color:#111;font-size:1.7rem;cursor:pointer}.activity-info-prices{margin:22px 0;border-top:1px solid #ffffff24}.activity-info-price{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid #ffffff20;font-size:.88rem}.activity-info-price strong{color:var(--amber);white-space:nowrap}.activity-info-note{font-size:.76rem!important;color:var(--muted)!important}.activity-info-panel .btn{display:inline-flex;margin-top:8px}@media(max-width:650px){.mission-photo .video-trigger{left:10px;bottom:10px;padding:9px 10px;font-size:.58rem}.mission-photo .info-trigger{right:10px;bottom:10px;padding:9px 10px;font-size:.56rem}.play-icon{width:22px;height:22px}.activity-info-panel{padding:28px 20px}.activity-info-price{font-size:.8rem}}
+/* Galería renovada: fotografía protagonista, sin pies de foto */
+.home-gallery-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(115px,14vw,185px);gap:14px}
+.home-gallery-item{aspect-ratio:auto;border:1px solid #ffffff22;border-radius:5px;box-shadow:0 12px 35px #0005;isolation:isolate}
+.home-gallery-item:nth-child(6n+1){grid-column:span 2;grid-row:span 2}
+.home-gallery-item:nth-child(6n+4){grid-row:span 2}
+.home-gallery-item:after{inset:0;background:linear-gradient(180deg,#0002,transparent 35%,#0005);opacity:.55;transition:opacity .35s}
+.home-gallery-item:hover:after{opacity:.9}
+.home-gallery-item img{filter:saturate(.9);transition:transform .8s var(--ease),filter .5s}
+.home-gallery-item:hover img{transform:scale(1.075);filter:saturate(1.18)}
+.home-gallery-item span{display:none}
+.gallery-lightbox figure{display:flex;align-items:center;justify-content:center}
+.gallery-lightbox figcaption{display:none}
+@media(max-width:800px){.home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(130px,28vw,210px);gap:10px}.home-gallery-item:nth-child(6n+1){grid-column:span 2;grid-row:span 2}.home-gallery-item:nth-child(6n+4){grid-row:span 1}}
+@media(max-width:520px){.home-gallery-grid{grid-auto-rows:145px;gap:8px}.home-gallery-item:nth-child(6n+1){grid-row:span 2}.home-gallery-item:nth-child(6n+4){grid-row:span 1}}
+
+</style>
 <style>
 /* AJUSTES FINALES RESPONSIVE: evitar desplazamiento horizontal en móviles */
 html,body{width:100%;max-width:100%;overflow-x:clip}
@@ -612,7 +628,7 @@ img,svg,video,iframe{max-width:100%}
   </div>
 </section>
 <div class="gallery-lightbox" id="homeGalleryLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fotografía ampliada">
-  <figure><button class="gallery-lightbox-close" id="homeGalleryClose" type="button" aria-label="Cerrar fotografía">×</button><img id="homeGalleryLarge" alt=""><figcaption id="homeGalleryCaption"></figcaption></figure>
+  <figure><button class="gallery-lightbox-close" id="homeGalleryClose" type="button" aria-label="Cerrar fotografía">×</button><img id="homeGalleryLarge" alt=""></figure>
 </div>
 
 <section class="section location" id="ubicacion"><div class="wrap location-grid"><div class="location-copy reveal"><span class="eyebrow">Tu punto de partida</span><h2>LA AVENTURA<br>ESTÁ EN <span class="orange">LLEIDA.</span></h2><p>Estamos en la avenida Alcalde Rovira Roure. Reserva con antelación para que podamos preparar tu experiencia.</p><div class="contact">
@@ -641,7 +657,6 @@ const galleryDb = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 const galleryGrid = document.getElementById('homeGalleryGrid');
 const galleryLightbox = document.getElementById('homeGalleryLightbox');
 const galleryLarge = document.getElementById('homeGalleryLarge');
-const galleryCaption = document.getElementById('homeGalleryCaption');
 const galleryClose = document.getElementById('homeGalleryClose');
 let homePhotos = [];
 let activeGalleryCategory = 'all';
@@ -664,13 +679,10 @@ function renderHomeGallery() {
     img.loading = 'lazy';
     img.src = galleryDb.storage.from('park-gallery').getPublicUrl(photo.storage_path).data.publicUrl;
     img.alt = photo.title || 'Fotografía de Park Aventura Lleida';
-    const caption = document.createElement('span');
-    caption.textContent = photo.title || photo.category.replaceAll('-', ' ');
-    button.append(img, caption);
+    button.append(img);
     button.addEventListener('click', () => {
       galleryLarge.src = img.src;
       galleryLarge.alt = img.alt;
-      galleryCaption.textContent = caption.textContent;
       galleryLightbox.classList.add('open');
       galleryLightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
