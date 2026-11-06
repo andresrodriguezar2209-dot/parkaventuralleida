@@ -461,6 +461,56 @@ header.nav .links{gap:34px}
 @media(max-width:520px){.home-gallery-grid{gap:8px}.home-gallery-item{aspect-ratio:1/1}.gallery-lightbox{padding:14px}.gallery-lightbox-close{right:0;top:-48px}}
 
 .mission-photo .info-trigger{position:absolute;z-index:3;right:18px;bottom:18px;display:inline-flex;align-items:center;gap:7px;padding:11px 14px;border:1px solid var(--orange);background:#ff650de8;color:#111;font-size:.68rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(10px);transition:transform .25s,background .25s}.mission-photo .info-trigger:hover{transform:translateY(-3px);background:#ff8a3d}.activity-info-modal{position:fixed;inset:0;z-index:130;display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}.activity-info-modal.open{opacity:1;visibility:visible}.activity-info-backdrop{position:absolute;inset:0;background:#000e;backdrop-filter:blur(10px)}.activity-info-panel{position:relative;width:min(620px,100%);max-height:min(85vh,850px);overflow:auto;background:#151515;border:1px solid #ffffff30;padding:clamp(24px,5vw,42px);box-shadow:0 25px 100px #000b}.activity-info-panel h2{font:900 clamp(2.6rem,8vw,4.5rem)/.9 'Barlow Condensed';margin:12px 0 15px}.activity-info-panel>p{line-height:1.75;color:#d1cec8}.activity-info-close{position:absolute;right:14px;top:12px;width:40px;height:40px;background:var(--orange);border:0;color:#111;font-size:1.7rem;cursor:pointer}.activity-info-prices{margin:22px 0;border-top:1px solid #ffffff24}.activity-info-price{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid #ffffff20;font-size:.88rem}.activity-info-price strong{color:var(--amber);white-space:nowrap}.activity-info-note{font-size:.76rem!important;color:var(--muted)!important}.activity-info-panel .btn{display:inline-flex;margin-top:8px}@media(max-width:650px){.mission-photo .video-trigger{left:10px;bottom:10px;padding:9px 10px;font-size:.58rem}.mission-photo .info-trigger{right:10px;bottom:10px;padding:9px 10px;font-size:.56rem}.play-icon{width:22px;height:22px}.activity-info-panel{padding:28px 20px}.activity-info-price{font-size:.8rem}}</style>
+<style>
+/* AJUSTES FINALES RESPONSIVE: evitar desplazamiento horizontal en móviles */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+body{position:relative}
+img,svg,video,iframe{max-width:100%}
+.wrap{max-width:100%}
+.footer-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.admin-access{display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border:1px solid #ff650d88;color:var(--orange);font-size:.68rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+.admin-access:hover{background:#ff650d18;border-color:var(--orange)}
+@media(max-width:650px){
+  html,body{overflow-x:clip!important;overscroll-behavior-x:none}
+  .wrap{width:calc(100% - 32px)!important}
+  main,header,footer,section,nav,.navin,.footer-inner{max-width:100%;min-width:0}
+  .section-heading,.location-grid,.booking-grid,.faq-grid,.feature-grid,.mission-layout{min-width:0}
+  .location-grid,.booking-grid,.faq-grid,.feature-grid{grid-template-columns:minmax(0,1fr)!important}
+  .mission-list,.mission-card,.mission-info,.mission-photo{min-width:0;max-width:100%}
+  .mission-card{grid-template-columns:minmax(0,1fr)!important}
+  .mission-card:nth-child(even){grid-template-columns:minmax(0,1fr)!important}
+  .mission-photo{width:100%;min-height:210px}
+  .mission-info{padding:22px 18px}
+  .mission-info h3{overflow-wrap:anywhere}
+  .booking-form{grid-template-columns:minmax(0,1fr)!important;padding:18px}
+  .booking-form .field{min-width:0}
+  .booking-form .field.full,.booking-form button,.booking-form .fine{grid-column:1}
+  .map{height:300px}
+  .map-actions{flex-direction:column}
+  .map-actions .btn{width:100%;min-width:0}
+  .reviews-top{grid-template-columns:minmax(0,1fr)!important}
+  .reviews-score{min-width:0;width:100%}
+  .reviews-grid,.quick-grid,.home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .packs,.prices{grid-template-columns:minmax(0,1fr)!important}
+  .groups{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .final-cta-inner{align-items:flex-start;flex-direction:column}
+  .footer-inner{align-items:flex-start;flex-direction:column;gap:12px}
+  .footer-actions{width:100%;justify-content:space-between;gap:10px}
+  .wa{right:12px;bottom:12px;padding:11px 13px;font-size:.7rem}
+  .activity-info-modal,.video-modal{padding:12px}
+  .activity-info-panel{max-height:88svh;padding:25px 18px}
+  .activity-info-price{font-size:.8rem;align-items:flex-start}
+  .chapter,.expedition,.hero,.section{max-width:100%;overflow-x:clip}
+  .chapter-inner,.expedition-shell,.expedition-copy{min-width:0;max-width:100%}
+  .chapter h1,.chapter h2{overflow-wrap:normal;word-break:normal}
+  .chapter-dots{max-width:calc(100% - 20px)}
+}
+@media(max-width:380px){
+  .reviews-grid,.quick-grid,.home-gallery-grid,.groups{grid-template-columns:minmax(0,1fr)!important}
+  .hero h1{font-size:clamp(3.7rem,17vw,5rem)}
+  .footer-actions{align-items:flex-start;flex-direction:column}
+}
+</style>
 </head>
 <body>
 <div class="topline" id="scrollProgress" aria-hidden="true"></div><div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
@@ -567,6 +617,7 @@ header.nav .links{gap:34px}
 
 <section class="section location" id="ubicacion"><div class="wrap location-grid"><div class="location-copy reveal"><span class="eyebrow">Tu punto de partida</span><h2>LA AVENTURA<br>ESTÁ EN <span class="orange">LLEIDA.</span></h2><p>Estamos en la avenida Alcalde Rovira Roure. Reserva con antelación para que podamos preparar tu experiencia.</p><div class="contact">
 <div class="contact-row"><span class="contact-icon">⌖</span><div><strong>Dirección · toca para abrir el mapa</strong><a class="address-link" href="https://www.google.com/maps/dir/?api=1&destination=Av.%20Alcalde%20Rovira%20Roure%2C%20214%2C%2025198%20Lleida" target="_blank" rel="noopener">Av. Alcalde Rovira Roure, 214, 25198 Lleida ↗</a></div></div>
+<div class="contact-row"><span class="contact-icon">P</span><div><strong>Parking gratuito</strong><span>Parking gratuito disponible para todos nuestros clientes.</span></div></div>
 <div class="contact-row"><span class="contact-icon">◷</span><div><strong>Horario</strong><span>Todos los días, 10:00–22:00 · con reserva previa</span></div></div>
 <div class="contact-row"><span class="contact-icon">☎</span><div><strong>Teléfono</strong><a href="tel:+34722146640">722 146 640</a></div></div>
 <div class="contact-row"><span class="contact-icon">✉</span><div><strong>Email</strong><a href="mailto:parkaventuralleida@gmail.com">parkaventuralleida@gmail.com</a></div></div>
@@ -577,10 +628,10 @@ header.nav .links{gap:34px}
 <div class="field"><label for="people">Número de personas</label><select id="people" name="people" required><option value="">¿Cuántos sois?</option><option>1–4 personas</option><option>5–8 personas</option><option>9–15 personas</option><option>16–25 personas</option><option>Más de 25 personas</option></select></div>
 <div class="field"><label for="date">Fecha preferida</label><input id="date" name="date" type="date"></div><div class="field"><label for="time">Franja horaria</label><select id="time" name="time"><option value="">Flexible</option><option>Mañana (10:00–13:00)</option><option>Mediodía (13:00–16:00)</option><option>Tarde (16:00–19:00)</option><option>Noche (19:00–22:00)</option></select></div>
 <div class="field full"><label for="details">Detalles adicionales (opcional)</label><textarea id="details" name="details" placeholder="Cumpleaños, edades, preferencias o dudas…"></textarea></div><button class="btn primary" type="submit">Enviar solicitud por WhatsApp ↗</button><p class="fine">Se abrirá WhatsApp para que revises y envíes el mensaje. Esta web no almacena tus datos.</p></form></div></section>
-<section class="section faq" style="padding-top:0"><div class="wrap faq-grid"><div class="reveal"><span class="eyebrow">Antes de venir</span><h2>TODO<br>CLARO.</h2></div><div class="reveal d1"><details><summary>¿Tengo que reservar antes de ir?</summary><p>Sí, el horario indicado es con reserva previa. Contacta por WhatsApp para confirmar disponibilidad y duración.</p></details><details><summary>¿Puedo organizar un cumpleaños o una actividad de empresa?</summary><p>Sí. Hay opciones para cumpleaños, amigos, familias y empresas. Cuéntanos el tamaño del grupo y qué experiencia buscáis.</p></details><details><summary>¿Hay parking?</summary><p>La información del centro indica que hay parking gratuito.</p></details><details><summary>¿Los precios son definitivos?</summary><p>Los precios son orientativos según las tarifas publicadas. Confirma el precio final y las condiciones al consultar.</p></details></div></div></section>
+<section class="section faq" style="padding-top:0"><div class="wrap faq-grid"><div class="reveal"><span class="eyebrow">Antes de venir</span><h2>TODO<br>CLARO.</h2></div><div class="reveal d1"><details><summary>¿Tengo que reservar antes de ir?</summary><p>Sí, el horario indicado es con reserva previa. Contacta por WhatsApp para confirmar disponibilidad y duración.</p></details><details><summary>¿Puedo organizar un cumpleaños o una actividad de empresa?</summary><p>Sí. Hay opciones para cumpleaños, amigos, familias y empresas. Cuéntanos el tamaño del grupo y qué experiencia buscáis.</p></details><details><summary>¿Hay parking?</summary><p>Sí. Disponemos de parking gratuito para nuestros clientes para que puedas venir y disfrutar de tu experiencia con comodidad.</p></details><details><summary>¿Los precios son definitivos?</summary><p>Los precios son orientativos según las tarifas publicadas. Confirma el precio final y las condiciones al consultar.</p></details></div></div></section>
 <section class="final-cta"><div class="wrap final-cta-inner"><div><h2>MENOS RUTINA.<br>MÁS AVENTURA.</h2><p>El equipo ya está. Solo faltas tú.</p></div><a class="btn" href="#reservar">Elige tu misión <span class="arrow">↗</span></a></div></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#inicio"><img src="/unnamed-removebg-preview.png" alt="Logo Park Aventura Lleida"><span class="brandname">PARK AVENTURA<small>LLEIDA · EXPERIENCIAS</small></span></a><p>© <span id="year"></span> Park Aventura Lleida · La aventura se vive.</p><a href="mailto:parkaventuralleida@gmail.com">Contacto ↗</a></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#inicio"><img src="/unnamed-removebg-preview.png" alt="Logo Park Aventura Lleida"><span class="brandname">PARK AVENTURA<small>LLEIDA · EXPERIENCIAS</small></span></a><p>© <span id="year"></span> Park Aventura Lleida · La aventura se vive.</p><div class="footer-actions"><a href="mailto:parkaventuralleida@gmail.com">Contacto ↗</a><a class="admin-access" href="/admin.html">Acceso administrador ↗</a></div></div></footer>
 <a class="wa" href="https://wa.me/34722146640?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20reservar%20en%20Park%20Aventura%20Lleida." target="_blank" rel="noopener"><span class="wa-dot"></span> WhatsApp ↗</a>
 
 <script type="module">
