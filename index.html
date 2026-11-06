@@ -175,7 +175,7 @@ body{width:100%;max-width:100%;overflow-x:clip}
 .quick-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:27px}
 .quick-heading h2{font-size:clamp(3rem,6vw,5.4rem);margin-top:13px}
 .quick-heading p{max-width:330px;line-height:1.7;margin:0}
-.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .quick-card{min-height:220px;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;border:1px solid #ffffff25;background:#191919;transition:transform .35s var(--ease),border-color .35s}
 .quick-card:before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(0deg,#080808ed 0%,#0808084a 55%,#08080815 100%),var(--quick-image);background-size:cover;background-position:center;transition:transform .65s var(--ease),filter .4s}
 .quick-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(135deg,#ff650d24,transparent 55%);opacity:.65}
@@ -480,7 +480,8 @@ header.nav .links{gap:34px}
 <a class="quick-card" href="#detalle-laser" style="--quick-image:url('/5ac10b49-c7f7-4159-a252-b0f128f6ade0.jpeg')"><span>02 / COMPETICIÓN</span><strong>LASER TAG</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-vr" style="--quick-image:url('/d9ff5331-6ce4-43c3-adf0-27db93e16f80.jpeg')"><span>03 / INMERSIÓN</span><strong>REALIDAD VIRTUAL</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-humor" style="--quick-image:url('/68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8.jpeg')"><span>04 / RETOS Y DIVERSIÓN</span><strong>HUMOR AMARILLO</strong><i>Descubrir ↗</i></a>
-<a class="quick-card" href="#detalle-battle" style="--quick-image:url('/0bfcf067-9f09-4cb0-8983-47004232d65d.jpeg')"><span>05 / DESAFÍO</span><strong>BATTLE START</strong><i>Descubrir ↗</i></a>
+<a class="quick-card" href="#detalle-team" style="--quick-image:url('/0bfcf067-9f09-4cb0-8983-47004232d65d.jpeg')"><span>05 / EQUIPO</span><strong>TEAM BUILDING</strong><i>Descubrir ↗</i></a>
+<a class="quick-card" href="#detalle-battle" style="--quick-image:url('/0bfcf067-9f09-4cb0-8983-47004232d65d.jpeg')"><span>06 / DESAFÍO</span><strong>BATTLE START</strong><i>Descubrir ↗</i></a>
 </div></div></section>
 <section class="chapter" id="chapter-reserva" data-chapter-page="2" style="background:radial-gradient(ellipse at 80% 50%,#4b230f,#0c0c0c 65%)"><div class="chapter-inner"><span class="chapter-label">TU AVENTURA TE ESPERA</span><h2>¿PREPARAMOS<br><span class="orange">EL PLAN?</span></h2><p>Cuéntanos qué experiencia quieres vivir y te ayudamos a organizarla.</p><div class="chapter-actions"><a class="btn primary" href="#bookingForm">PREPARAR MI RESERVA ↗</a><button class="btn ghost" data-next-chapter="0">VOLVER AL INICIO ↺</button></div></div><span class="chapter-hint">PARK AVENTURA LLEIDA · SIN LÍMITES</span><span class="chapter-count"><strong>02</strong> / 02</span><button class="chapter-next" data-next-chapter="0" aria-label="Volver al inicio">↺</button></section>
 
@@ -659,7 +660,7 @@ if (galleryError) {
 const activityInfoData={
  paintball:{title:'Paintball',description:'Planifica, muévete y conquista el campo. Una experiencia de estrategia, acción y juego en equipo.',prices:[['Equipo + 100 bolas','25 €'],['Recarga de 100 bolas','5 €']],note:'Tarifas de referencia publicadas. Consulta disponibilidad y condiciones para tu grupo.'},
  laser:{title:'Laser Tag',description:'Luces, reflejos y coordinación. Compite con tu equipo en una partida llena de emoción.',prices:[['30 minutos','20 €'],['1 hora','30 €']],note:'Tarifas de referencia publicadas. Pregunta por packs y opciones para grupos.'},
- vr:{title:'Realidad virtual',description:'Entra en otros mundos, afronta desafíos y vive una experiencia inmersiva.',prices:[['30 minutos','20 €'],['1 hora','30 €'],['Pack Laser Tag + VR','50 €']],note:'Tarifas de referencia publicadas. La disponibilidad de experiencias puede variar.'},
+ vr:{title:'Realidad virtual',description:'Entra en otros mundos, afronta desafíos y vive una experiencia inmersiva.',prices:[['Realidad virtual · 30 minutos','20 €'],['Realidad virtual · 1 hora','30 €'],['Escape Room VR · 30 minutos','20 €'],['Escape Room VR · 1 hora','30 €'],['Pack Laser Tag + VR','50 €']],note:'Tarifas de referencia publicadas. La disponibilidad de experiencias puede variar.'},
  humor:{title:'Humor Amarillo',description:'Supera pruebas y desafíos de habilidad en una experiencia llena de movimiento, competición y diversión.',prices:[['Menores de 15 años','25 €'],['Adultos · 1 hora','32 €'],['Oferta · 2 horas','40 €']],note:'Precios de referencia publicados. Consulta condiciones, edades y disponibilidad antes de reservar.'},
  team:{title:'Team Building',description:'Diseña una actividad para tu empresa o grupo: retos compartidos, comunicación y trabajo en equipo.',prices:[['Actividad para grupos y empresas','Consultar presupuesto']],note:'El precio depende del número de participantes, las actividades elegidas y la duración. Contacta para recibir una propuesta.'},
  stress:{title:'Stress Room',description:'Una sala de retos y enigmas para poner a prueba la observación, la lógica y el trabajo en equipo.',prices:[['Precio y duración','Consultar disponibilidad']],note:'No hay una tarifa pública confirmada para esta actividad. Contacta con Park Aventura para conocer el precio actualizado.'},
