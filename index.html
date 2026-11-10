@@ -621,7 +621,7 @@ img,svg,video,iframe{max-width:100%}
       <button type="button" data-gallery-category="laser-tag">Laser Tag</button>
       <button type="button" data-gallery-category="realidad-virtual">Realidad virtual</button>
       <button type="button" data-gallery-category="humor-amarillo">Humor amarillo</button>
-      <button type="button" data-gallery-category="team-building">Team Building</button><button type="button" data-gallery-category="battle-start">Battle Start</button>
+      <button type="button" data-gallery-category="team-building">Team Building</button><button type="button" data-gallery-category="battle-start">Battle Start</button><button type="button" data-gallery-category="stress-room">Stress Room</button><button type="button" data-gallery-category="cumpleanos">Cumpleaños</button>
     </div>
     <div class="home-gallery-grid reveal" id="homeGalleryGrid" aria-live="polite"><p class="gallery-empty">Cargando fotografías…</p></div>
     <div class="gallery-actions reveal"><a class="btn ghost" href="/galeria">VER TODA LA GALERÍA <span class="arrow">↗</span></a></div>
@@ -729,12 +729,6 @@ const newRepositoryPhotos = [
   { title: 'Recuerdo de la partida', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-31 (1).jpg') },
   { title: 'Zona de celebración y comida', category: 'cumpleanos', url: repoImage('PHOTO-2026-11-07-14-45-28.jpg') }
 ];
-if (galleryError) {
-  galleryGrid.textContent = 'No se han podido cargar las fotografías. Puedes visitar la galería completa más tarde.';
-} else {
-  homePhotos = photos || [];
-  renderHomeGallery();
-}
 if (galleryError) {
   homePhotos = newRepositoryPhotos;
 } else {
