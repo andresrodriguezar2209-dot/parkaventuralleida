@@ -662,7 +662,7 @@ let homePhotos = [];
 let activeGalleryCategory = 'all';
 function renderHomeGallery() {
   galleryGrid.replaceChildren();
-  const visible = homePhotos.filter(photo => activeGalleryCategory === 'all' || photo.category === activeGalleryCategory).slice(0, 6);
+  const visible = homePhotos.filter(photo => activeGalleryCategory === 'all' || photo.category === activeGalleryCategory).slice(0, 12);
   if (!visible.length) {
     const empty = document.createElement('p');
     empty.className = 'gallery-empty';
@@ -677,7 +677,7 @@ function renderHomeGallery() {
     button.setAttribute('aria-label', 'Ampliar fotografía: ' + (photo.title || photo.category));
     const img = document.createElement('img');
     img.loading = 'lazy';
-    img.src = galleryDb.storage.from('park-gallery').getPublicUrl(photo.storage_path).data.publicUrl;
+    img.src = photo.url || galleryDb.storage.from('park-gallery').getPublicUrl(photo.storage_path).data.publicUrl;
     img.alt = photo.title || 'Fotografía de Park Aventura Lleida';
     button.append(img);
     button.addEventListener('click', () => {
@@ -711,12 +711,36 @@ const { data: photos, error: galleryError } = await galleryDb
   .eq('is_published', true)
   .order('sort_order')
   .order('created_at', { ascending: false });
+const repoImage = name => 'https://raw.githubusercontent.com/andresrodriguezar2209-dot/parkaventuralleida/main/' + encodeURIComponent(name).replace(/%2F/g, '/');
+const newRepositoryPhotos = [
+  { title: 'Partida de Laser Tag', category: 'laser-tag', url: repoImage('PHOTO-2026-11-07-14-41-48.jpg') },
+  { title: 'Realidad virtual en grupo', category: 'realidad-virtual', url: repoImage('PHOTO-2026-11-07-14-41-48 (1).jpg') },
+  { title: 'Simulador de conducción', category: 'realidad-virtual', url: repoImage('PHOTO-2026-11-07-14-41-48 (2).jpg') },
+  { title: 'Experiencia inmersiva VR', category: 'realidad-virtual', url: repoImage('PHOTO-2026-11-07-14-41-48 (3).jpg') },
+  { title: 'Jugador en el campo', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-41-49.jpg') },
+  { title: 'Equipo preparado para jugar', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-41-49 (1).jpg') },
+  { title: 'Acción en el campo', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-41-50.jpg') },
+  { title: 'Foto de grupo', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-41-50 (1).jpg') },
+  { title: 'Partida entre obstáculos', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-30.jpg') },
+  { title: 'Estrategia en equipo', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-30 (1).jpg') },
+  { title: 'Avance por el campo', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-30 (2).jpg') },
+  { title: 'Grupo de paintball', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-30 (3).jpg') },
+  { title: 'Acción entre refugios', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-31.jpg') },
+  { title: 'Recuerdo de la partida', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-31 (1).jpg') },
+  { title: 'Zona de celebración y comida', category: 'cumpleanos', url: repoImage('PHOTO-2026-11-07-14-45-28.jpg') }
+];
 if (galleryError) {
   galleryGrid.textContent = 'No se han podido cargar las fotografías. Puedes visitar la galería completa más tarde.';
 } else {
   homePhotos = photos || [];
   renderHomeGallery();
 }
+if (galleryError) {
+  homePhotos = newRepositoryPhotos;
+} else {
+  homePhotos = [...newRepositoryPhotos, ...(photos || [])];
+}
+renderHomeGallery();
 </script>
 
 <script>
