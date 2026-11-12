@@ -26,6 +26,9 @@
 <script src="/scroll-effects.js?v=7" defer></script>
 <script src="/experience-motion.js?v=5" defer></script>
 <script src="/cinematic.js?v=5" defer></script>
+<link rel="preload" as="image" href="/assets/paintball-impact.webp">
+<link rel="stylesheet" href="/paintball-hero.css?v=1">
+<script src="/paintball-hero.js?v=1" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#misiones">Saltar al contenido</a>
@@ -37,7 +40,18 @@
 </div></header>
 <main>
 
-<section class="chapter" id="inicio" data-chapter-page="0"><div class="chapter-bg" style="background-image:url('https://iauhvbdwatgpeqkjqdcr.supabase.co/storage/v1/object/public/park-gallery/7edd629f-72b8-4127-abc1-e1fe75002b6d.png')"></div><div class="chapter-inner"><span class="chapter-label">LLEIDA · ACTIVIDADES Y CELEBRACIONES</span><h1>PARK<br>AVENTURA<br><span class="orange">LLEIDA.</span></h1><p class="hero-slogan">SIN LÍMITES. <span class="orange">SOLO AVENTURA.</span></p><p>Paintball, láser y realidad virtual. Cumpleaños, amigos y equipos: elige vuestro plan y nosotros os ayudamos a organizarlo.</p><div class="chapter-actions"><a class="btn primary" href="#misiones">Explorar actividades <span class="arrow" aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="btn ghost" href="#packs-cumple">Organizar un cumpleaños</a></div></div><div class="hero-facts"><span>⌖ Lleida ciudad</span><span>Parking gratuito</span><span>Con reserva previa</span></div><a class="hero-scroll" href="#misiones" aria-label="Explorar las actividades">↓</a></section>
+<section class="chapter impact-hero" id="inicio" data-chapter-page="0">
+<div class="chapter-inner impact-layout">
+<div class="impact-copy"><span class="chapter-label">LLEIDA · ACTIVIDADES Y CELEBRACIONES</span><h1>PARK <br>AVENTURA<br><span class="orange">LLEIDA.</span></h1><p class="hero-slogan">SIN LÍMITES. <span class="orange">SOLO AVENTURA.</span></p><p>Paintball, láser y realidad virtual. Cumpleaños, amigos y equipos: elige vuestro plan y nosotros os ayudamos a organizarlo.</p></div>
+<div class="impact-scene" id="paintballScene">
+<div class="impact-photo impact-before" role="img" aria-label="Máscara de paintball e impacto de pintura naranja"></div>
+<div class="impact-photo impact-after" aria-hidden="true"></div>
+<div class="impact-ball" aria-hidden="true"></div><div class="impact-droplets" aria-hidden="true"></div>
+<button type="button" class="impact-replay" id="paintballReplay" aria-label="Reproducir impacto de paintball"><span aria-hidden="true">↻</span> <span class="impact-button-label">Repetir impacto</span></button>
+</div><div class="chapter-actions"><a class="btn primary" href="#misiones">Explorar actividades <span class="arrow" aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="btn ghost" href="#packs-cumple">Organizar un cumpleaños</a></div>
+</div>
+<div class="hero-facts"><span>⌖ Lleida ciudad</span><span>Parking gratuito</span><span>Con reserva previa</span></div><a class="hero-scroll" href="#misiones" aria-label="Explorar las actividades">↓</a>
+</section>
 <nav class="plan-shortcuts wrap" aria-label="Encuentra tu tipo de plan">
 <span class="shortcut-label">¿QUÉ CELEBRAMOS?</span>
 <a href="#packs-cumple"><span>01</span> Un cumpleaños <b aria-hidden="true"><svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></b></a>
