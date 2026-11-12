@@ -18,18 +18,9 @@
 .impact-replay:hover{background:#ff6b16;color:#101110;transform:translateY(-2px)}
 .impact-replay>span:first-child{font-size:1.3rem;line-height:1}
 .impact-replay:focus-visible{outline:3px solid #ffad73;outline-offset:-5px}
-.impact-ball{position:absolute;z-index:3;left:45%;top:42%;width:17px;height:17px;border-radius:50%;opacity:0;background:radial-gradient(circle at 30% 30%,#ffe0a3,#ff9d23 24%,#ff6200 70%);box-shadow:9px -2px 13px #ff8b2b8a;pointer-events:none}
-.impact-droplets{position:absolute;inset:0;pointer-events:none;z-index:3}
-.impact-droplets i{position:absolute;left:45%;top:42%;width:var(--size);height:var(--size);background:#ff7b10;border-radius:45% 55% 65% 35%;opacity:0;box-shadow:0 0 3px #ffc060}
-.impact-running .impact-ball{animation:paintball-approach .32s cubic-bezier(.6,0,1,1) both}
-.impact-running .impact-after{animation:paintball-burst .16s .29s both}
-.impact-running .impact-photo{animation:paintball-recoil .6s .3s both}
-.impact-running .impact-droplets i{animation:paintball-droplet 1.3s .3s ease-out both}
+.impact-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;pointer-events:none;background:#101110}
+.impact-video-active .impact-video{opacity:1}
 #inicio.impact-hero .hero-facts{bottom:22px}
-@keyframes paintball-approach{0%{opacity:0;transform:translate(390px,-80px) scale(.45)}15%{opacity:1}95%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(0,0) scale(.1)}}
-@keyframes paintball-burst{from{opacity:0;clip-path:circle(0 at 45% 42%)}to{opacity:1;clip-path:circle(110% at 45% 42%)}}
-@keyframes paintball-recoil{0%{transform:translate(0,0) scale(1.001)}12%{transform:translate(-7px,3px) scale(1.025)}25%{transform:translate(5px,-2px) scale(1.02)}45%{transform:translate(-2px,1px) scale(1.012)}100%{transform:translate(0,0) scale(1.001)}}
-@keyframes paintball-droplet{0%{opacity:0;transform:translate(0,0) scale(.5)}5%{opacity:1}75%{opacity:.65}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.3)}}
 @media(min-width:1400px){#inicio .impact-layout{min-height:610px}.impact-scene{width:110%;max-width:690px;margin-left:-10px}}
 @media(max-width:1000px) and (min-width:761px){#inicio .chapter-actions{flex-direction:column;align-items:stretch;max-width:300px}#inicio .impact-copy h1{font-size:5rem}.impact-scene{align-self:start;margin-top:55px}#inicio .impact-layout{min-height:560px}}
 @media(max-width:760px){
@@ -47,4 +38,4 @@
  #inicio.impact-hero .hero-facts{position:relative;left:auto;right:auto;bottom:auto;width:calc(100% - 36px);margin:24px auto 0;gap:12px;font-size:.55rem;justify-content:center;flex-wrap:wrap}
  #inicio.impact-hero .hero-scroll{display:none}.impact-replay{right:10px;bottom:14px;font-size:.66rem;padding:9px 13px}
 }
-@media(prefers-reduced-motion:reduce){.impact-scene .impact-after{opacity:1}.impact-ball,.impact-droplets{display:none}.impact-scene .impact-photo{animation:none!important}.impact-replay{display:none}}
+@media(prefers-reduced-motion:reduce){.impact-scene .impact-after{opacity:1}.impact-video{display:none}.impact-scene .impact-photo{animation:none!important}.impact-replay{display:none}}
