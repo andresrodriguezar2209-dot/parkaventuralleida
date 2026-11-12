@@ -572,6 +572,67 @@ img,svg,video,iframe{max-width:100%}
 }
 </style>
 
+<style>
+/* PARK AVENTURA · refinamiento editorial 2026 */
+:root{--soft-line:rgba(255,255,255,.11)}
+.section{padding-block:clamp(72px,8vw,112px)}
+.section-heading{gap:clamp(22px,4vw,65px)}
+.section-heading h2{line-height:.93;letter-spacing:-.035em}
+.section-heading p{font-size:.95rem;color:#bdb8b0}
+.btn{border-radius:7px;min-height:47px}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #ffb16b;outline-offset:3px}
+.mission-card{border-radius:12px;box-shadow:0 14px 45px #0003}
+.mission-info{padding:clamp(22px,3vw,35px)}
+.mission-photo img{filter:saturate(1.06)}
+.mission-list{gap:18px}
+.pack-navigation{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 36px;padding:10px;border:1px solid var(--soft-line);background:#171717;border-radius:12px}
+.pack-navigation a{display:inline-flex;align-items:center;justify-content:center;flex:1;min-width:150px;padding:13px 17px;border-radius:7px;background:#222;color:#f6f4ef;font-size:.82rem;font-weight:800;transition:background .2s,transform .2s}
+.pack-navigation a:hover,.pack-navigation a:focus-visible{background:#ff650d;color:#111;transform:translateY(-2px)}
+.pack-category{scroll-margin-top:100px;padding:34px 0 44px;border-top:1px solid var(--soft-line)}
+.pack-category:first-of-type{border-top:0}
+.category-kicker{font-size:.7rem;font-weight:900;letter-spacing:.17em;color:#ff9c36;text-transform:uppercase;margin-bottom:16px}
+.pack-category>h3{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;letter-spacing:-.02em}
+.packs{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:18px}
+.pack{min-height:0;padding:clamp(22px,2.5vw,33px);border-radius:13px;border-color:#ffffff22;box-shadow:0 12px 36px #0002}
+.pack.featured,.pack.featured:hover{transform:none}
+.pack:hover{transform:translateY(-5px)}
+.pack h3{line-height:1.05;margin:22px 0 10px;font-size:clamp(2.1rem,3vw,2.8rem)}
+.pack-price{font-size:clamp(3.2rem,4.6vw,4.4rem);letter-spacing:-.025em;line-height:1}
+.pack-tag{line-height:1.5;max-width:100%}
+.pack ul{list-style:none;padding:0;margin:18px 0 26px;line-height:1.55}
+.pack li{position:relative;padding:10px 0 10px 22px;border-bottom:1px solid #ffffff13}
+.pack li:before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:900}
+.pack.featured li{border-color:#1112}
+.pack.featured li:before{color:#111}
+.pack .btn{width:100%;text-align:center}
+.prices{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pricebox{border-radius:12px;padding:clamp(22px,2.4vw,30px);border-color:#ffffff22;background:linear-gradient(150deg,#1e1e1e,#141414)}
+.pricebox h3{line-height:1.06;font-size:2.05rem}
+.pricebox .price-row{flex-wrap:wrap}
+.pricebox .price-row b{white-space:normal;font-size:1rem}
+.price-note{color:#bdb8b0}
+.booking-form{border-radius:14px;gap:18px;box-shadow:0 22px 70px #0004}
+.field input,.field select,.field textarea{border-radius:6px}
+.group-card{border-radius:12px}
+@media(max-width:1050px){.packs,.prices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){
+ .section{padding-block:65px}
+ .section-heading{margin-bottom:28px}
+ .pack-navigation{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:7px;gap:7px}
+ .pack-navigation a{min-width:0;padding:12px 6px;font-size:.72rem}
+ .pack-category{padding:30px 0 36px}
+ .pack-category>h3{font-size:2.8rem}
+ .packs,.prices{grid-template-columns:1fr!important;gap:13px}
+ .pack{padding:23px;min-height:0}
+ .pack h3{font-size:2.35rem}
+ .pack-price{font-size:3.6rem}
+ .mission-card{border-radius:10px}
+ .mission-info{padding:22px}
+ .booking-form{padding:18px}
+ .section-heading p{font-size:.86rem}
+}
+@media(prefers-reduced-motion:reduce){.pack,.pack-navigation a{transition:none!important}}
+</style>
 </head>
 <body>
 <div class="topline" id="scrollProgress" aria-hidden="true"></div><div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
@@ -615,21 +676,21 @@ img,svg,video,iframe{max-width:100%}
 <section class="statement"><div class="statement-ring" aria-hidden="true"></div><div class="wrap statement-inner reveal"><span class="eyebrow">La rutina puede esperar</span><h2>NO ES OTRO PLAN.<br>ES <span>EL PLAN.</span></h2><p>Ven por la actividad. Quédate por las risas, la competición y ese momento en el que todo el equipo se viene arriba.</p></div></section>
 <section class="section feature"><div class="wrap feature-grid"><div class="feature-visual reveal"><div class="feature-main"><img loading="lazy" src="/68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8.jpeg" alt="Personas disfrutando de retos de aventura"></div><div class="feature-small"><img loading="lazy" src="/0bfcf067-9f09-4cb0-8983-47004232d65d.jpeg" alt="Reto de aventura para grupos"></div><div class="round-stamp">TEAM UP<br>GAME ON<br>✳</div></div><div class="feature-copy reveal d1"><span class="eyebrow">Mejor cuando se comparte</span><h2>BUENAS HISTORIAS. <span class="orange">MEJORES EQUIPOS.</span></h2><p>Hay planes que se olvidan al día siguiente. Y hay partidas que se recuerdan durante años. Monta tu experiencia según el grupo, la ocasión y las ganas de pasarlo bien.</p><div class="feature-points"><div class="point"><b>✳ Cumpleaños</b><span>Una celebración con acción y recuerdos.</span></div><div class="point"><b>✳ Amigos y familias</b><span>Risas y desafíos para compartir.</span></div><div class="point"><b>✳ Empresas</b><span>Comunicación y trabajo en equipo.</span></div><div class="point"><b>✳ Grupos grandes</b><span>Opciones adaptadas a vuestro plan.</span></div></div><a class="btn primary" href="#reservar">Vamos a organizarlo <span class="arrow">↗</span></a></div></div></section>
 <section class="section" id="packs"><div class="wrap"><div class="section-heading reveal"><div><span class="eyebrow">Tarifas actualizadas · reserva previa</span><h2>ELIGE TU <span class="orange">AVENTURA.</span></h2></div><p>Todos los precios son por persona. Combina actividades y consulta disponibilidad por WhatsApp.</p></div>
-<h3 style="margin:0 0 24px">PACKS <span class="orange">CUMPLEAÑOS</span></h3><div class="packs">
+<div class="pack-navigation" aria-label="Categorías de packs"><a href="#packs-cumple">🎂 Cumpleaños</a><a href="#packs-combinados">⚡ Combinados</a><a href="#packs-empresas">🏆 Team Building</a><a href="#packs-actividades">🎯 Actividades</a></div><div class="pack-category" id="packs-cumple"><div class="category-kicker">01 / Celebraciones</div><h3 style="margin:0 0 24px">PACKS <span class="orange">CUMPLEAÑOS</span></h3><div class="packs">
 <article class="pack featured reveal"><span class="pack-tag">Lunes a jueves · 25 € / Viernes a domingo · 30 €</span><h3>Pack Básico</h3><div class="pack-price">25–30 € <small>/ persona</small></div><ul><li>30 min de Laser Tag o Battle Start</li><li>Mínimo 10 · máximo 16 participantes</li><li>Merienda: 1 pieza según el día + bebida</li><li>Sala de cumpleaños: hasta 30 min</li><li>Edad: 6–7 a 14 años · duración total aprox. 1 h</li><li>30 min adicionales de sala: +5 € por niño</li></ul><a class="btn choose" data-pack="Pack Básico" href="#reservar">Consultar y reservar ↗</a></article>
 <article class="pack reveal"><span class="pack-tag">Viernes a domingo</span><h3>Pack Completo</h3><div class="pack-price">45 € <small>/ persona</small></div><ul><li>30 min Laser Tag + 30 min Battle Start</li><li>Mínimo 8 packs</li><li>Merienda abundante: pizzas, nuggets, bollería, patatas, tortilla, tarta y bebida</li><li>Sala de cumpleaños: 30 min</li><li>Extras sujetos a disponibilidad: fútbol hinchable, toro mecánico, futbolín, billar, golf y karaoke</li><li>Edad: 6–7 a 14 años · duración aprox. 1 h 30 min–2 h</li></ul><a class="btn ghost choose" data-pack="Pack Completo" href="#reservar">Consultar y reservar ↗</a></article>
-</div><h3 style="margin:58px 0 24px">PACKS <span class="orange">COMBINADOS</span></h3><div class="packs">
+</div></div><div class="pack-category" id="packs-combinados"><div class="category-kicker">02 / Más experiencias</div><h3 style="margin:0 0 24px">PACKS <span class="orange">COMBINADOS</span></h3><div class="packs">
 <article class="pack reveal"><span class="pack-tag">1 h–1 h 15 min</span><h3>Pack 1</h3><div class="pack-price">40 € <small>/ persona</small></div><ul><li>Laser Tag + Battle Start</li></ul><a class="btn ghost choose" data-pack="Pack 1" href="#reservar">Consultar y reservar ↗</a></article>
 <article class="pack reveal"><span class="pack-tag">2 horas</span><h3>Pack 2</h3><div class="pack-price">50 € <small>/ persona</small></div><ul><li>Laser Tag + Battle Start</li></ul><a class="btn ghost choose" data-pack="Pack 2" href="#reservar">Consultar y reservar ↗</a></article>
 <article class="pack reveal"><span class="pack-tag">1 h 30 min</span><h3>Pack 3</h3><div class="pack-price">45 € <small>/ persona</small></div><ul><li>Battle Start + Escape Room de terror virtual</li></ul><a class="btn ghost choose" data-pack="Pack 3" href="#reservar">Consultar y reservar ↗</a></article>
-</div><h3 style="margin:58px 0 24px">TEAM <span class="orange">BUILDING</span></h3><div class="packs">
+</div></div><div class="pack-category" id="packs-empresas"><div class="category-kicker">03 / Empresas y grupos</div><h3 style="margin:0 0 24px">TEAM <span class="orange">BUILDING</span></h3><div class="packs">
 <article class="pack reveal"><span class="pack-tag">10–30 jugadores · 1 h–1 h 15 min</span><h3>Team Building 01</h3><div class="pack-price">40 € <small>/ persona</small></div><ul><li>Laser Tag + Battle Start</li><li>Se divide en grupos según participantes</li></ul><a class="btn ghost choose" data-pack="Team Building 01" href="#reservar">Consultar y reservar ↗</a></article>
 <article class="pack reveal"><span class="pack-tag">10–45 jugadores · 2 horas</span><h3>Team Building 02</h3><div class="pack-price">50 € <small>/ persona</small></div><ul><li>Battle Start + Laser Tag + Realidad Virtual</li><li>Se divide en grupos según participantes</li></ul><a class="btn ghost choose" data-pack="Team Building 02" href="#reservar">Consultar y reservar ↗</a></article>
 <article class="pack reveal"><span class="pack-tag">10–45 jugadores · 2 h 30 min–3 h</span><h3>Team Building 03</h3><div class="pack-price">60 € <small>/ persona</small></div><ul><li>Battle Start + Laser Tag + Realidad Virtual</li><li>Se divide en grupos según participantes</li><li>Pica-pica opcional: +20 € por persona</li></ul><a class="btn ghost choose" data-pack="Team Building 03" href="#reservar">Consultar y reservar ↗</a></article>
-</div><h3 style="margin:58px 0 24px">PRECIOS <span class="orange">POR ACTIVIDAD</span></h3><div class="prices">
+</div></div><div class="pack-category" id="packs-actividades"><div class="category-kicker">04 / A tu manera</div><h3 style="margin:0 0 24px">PRECIOS <span class="orange">POR ACTIVIDAD</span></h3><div class="prices">
 <article class="pricebox"><h3>Paintball</h3><div class="price-row"><b>25 € · 100 bolas incluidas</b></div><p class="price-note">Desde 14 años · mínimo 10 personas · recargas de 100 bolas: 5 €</p></article><article class="pricebox"><h3>Laser Tag</h3><div class="price-row"><b>20 € / 30 min · 30 € / 1 h</b></div><p class="price-note">Desde 7 años · 8–20 personas</p></article><article class="pricebox"><h3>Battle Start</h3><div class="price-row"><b>20 € / 30 min · 30 € / 1 h</b></div><p class="price-note">Desde 6 años · 8–16 personas</p></article><article class="pricebox"><h3>Realidad virtual individual</h3><div class="price-row"><b>20 € / 30 min · 30 € / 1 h</b></div><p class="price-note">Desde 6 años · hasta 16 jugadores</p></article><article class="pricebox"><h3>Escape Room de terror VR</h3><div class="price-row"><b>30 € / 1 h</b></div><p class="price-note">Desde 14 años · 8–16 personas</p></article><article class="pricebox"><h3>Stress Room</h3><div class="price-row"><b>30 € / 30 min</b></div><p class="price-note">Desde 16 años · 2 jugadores</p></article>
 </div><div class="pricebox" style="margin-top:20px"><h3>RIÑONERA DE PAINTBALL · MÁS BOLAS, MÁS DIVERSIÓN</h3><p>Entrada con 100 bolas: <b>25 €</b> · +1 recarga (100 bolas): <b>30 €</b> · +2 recargas (200 bolas): <b>35 €</b> · Riñonera entera, 3 botes (300 bolas extra): <b>40 €</b>.</p><p>Merienda adicional: <b>15 € por persona</b>. Opciones según el día: nuggets, pizzas, bocadillos, croquetas, ensaimadas, croissants y patatas. Disponemos de bar con bebidas y cócteles.</p><p>Reserva previa obligatoria. No se permite introducir comida ni bebida del exterior.</p><a class="btn primary" href="https://wa.me/34722146640">Consultar disponibilidad por WhatsApp ↗</a></div>
-</div></section>
+</div></div></section>
 <section class="section" style="padding-top:15px" id="grupos">
 <div class="wrap">
   <div class="section-heading reveal">
