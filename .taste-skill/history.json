@@ -1,0 +1,21 @@
+{
+  "moments": [
+    {
+      "id": "picture-develops",
+      "at": "2026-11-12T21:15:51.659Z",
+      "seed": "30119d46"
+    },
+    {
+      "id": "word-highlight",
+      "at": "2026-11-12T21:15:51.659Z",
+      "seed": "30119d46"
+    }
+  ],
+  "palettes": [],
+  "types": [],
+  "dealt": [
+    "source-serif",
+    "work-sans",
+    "gabarito"
+  ]
+}
