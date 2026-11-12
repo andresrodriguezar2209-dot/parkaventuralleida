@@ -99,3 +99,73 @@
   document.addEventListener('visibilitychange', requestPaint);
   requestPaint();
 })();
+
+/* V2: full-screen chapter cards, orange sweeps and image shine on vertical navigation. */
+(() => {
+  'use strict';
+  if (!('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const scenes = [
+    { selector:'#experiencias-rapidas', num:'01 / 05', title:'ELIGE TU AVENTURA' },
+    { selector:'#misiones', num:'02 / 05', title:'TU MISIÓN EMPIEZA' },
+    { selector:'#packs', num:'03 / 05', title:'SUBE DE NIVEL' },
+    { selector:'#galeria', num:'04 / 05', title:'MOMENTOS REALES' },
+    { selector:'#reservar', num:'05 / 05', title:'VIVE LA AVENTURA' }
+  ];
+  const overlay = document.createElement('div');
+  overlay.className = 'fx-scene-overlay';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = '<div class="fx-scene-center"><span class="fx-scene-num"></span><strong class="fx-scene-title"></strong><span class="fx-scene-decoration"></span></div>';
+  const num = overlay.querySelector('.fx-scene-num');
+  const title = overlay.querySelector('.fx-scene-title');
+  const decoration = overlay.querySelector('.fx-scene-decoration');
+  document.body.append(overlay);
+
+  const glow = document.createElement('span');
+  glow.className = 'fx-glint';
+  glow.setAttribute('aria-hidden', 'true');
+  document.querySelectorAll('.mission-photo,.quick-card').forEach(host => {
+    host.append(glow.cloneNode());
+  });
+
+  let current = '';
+  let timer = null;
+  let enabled = false;
+  // Let the first viewport settle; transitions should respond to real navigation.
+  window.requestAnimationFrame(() => { enabled = true; });
+
+  function play(scene) {
+    if (!enabled || scene.selector === current) return;
+    current = scene.selector;
+    if (timer !== null) clearTimeout(timer);
+    num.textContent = scene.num + ' · PARK AVENTURA LLEIDA';
+    title.textContent = scene.title;
+    decoration.textContent = scene.num.slice(0,2);
+    overlay.classList.remove('fx-playing');
+    // Restart transitions when revisiting a section from below.
+    void overlay.offsetWidth;
+    overlay.classList.add('fx-playing');
+    timer = window.setTimeout(() => {
+      overlay.classList.remove('fx-playing');
+      timer = null;
+    }, 1100);
+  }
+  const observer = new IntersectionObserver(entries => {
+    // If multiple panels enter the center band, prefer the one nearest center.
+    const hits = entries.filter(entry => entry.isIntersecting);
+    if (!hits.length) return;
+    hits.sort((a,b) => {
+      const center = window.innerHeight/2;
+      const ac = Math.abs((a.boundingClientRect.top+a.boundingClientRect.bottom)/2-center);
+      const bc = Math.abs((b.boundingClientRect.top+b.boundingClientRect.bottom)/2-center);
+      return ac-bc;
+    });
+    const scene = scenes.find(item => item.selector === '#' + hits[0].target.id);
+    if (scene) play(scene);
+  }, { rootMargin:'-28% 0px -40% 0px', threshold:0 });
+  for (const scene of scenes) {
+    const element = document.querySelector(scene.selector);
+    if (element) observer.observe(element);
+  }
+})();
