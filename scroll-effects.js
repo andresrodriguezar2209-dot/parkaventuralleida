@@ -16,10 +16,10 @@
   }, { rootMargin: '0px 0px -6% 0px', threshold: 0.065 });
   document.querySelectorAll('.reveal').forEach(el => revealWatcher.observe(el));
 
-  // Stage headings, chapter copy and subtle accents switch on and off naturally.
+  // Reveal headings once; revisiting a section must never hide its content.
   const sectionWatcher = new IntersectionObserver(entries => {
     for (const entry of entries) {
-      entry.target.classList.toggle('fx-active', entry.isIntersecting);
+      if(entry.isIntersecting)entry.target.classList.add('fx-active');
     }
   }, { rootMargin: '-8% 0px -12% 0px', threshold: 0 });
   document.querySelectorAll('main > section').forEach(el => sectionWatcher.observe(el));
@@ -39,8 +39,7 @@
       itemWatcher.observe(el);
     });
   }
-  attachItems(document.querySelectorAll('.quick-heading'), 1);
-  attachItems(document.querySelectorAll('.quick-grid .quick-card'), 3, 110);
+  attachItems(document.querySelectorAll('.section-heading:not(.reveal), .celebration-photo, .google-reviews .reviews-inner'), 1);
   attachItems(document.querySelectorAll('.faq details'), 2, 90);
 
   // Gallery photos arrive asynchronously from Supabase or repository fallback.
@@ -107,11 +106,10 @@
       window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const scenes = [
-    { selector:'#experiencias-rapidas', num:'01 / 05', title:'ELIGE TU AVENTURA' },
-    { selector:'#misiones', num:'02 / 05', title:'TU MISIÓN EMPIEZA' },
-    { selector:'#packs', num:'03 / 05', title:'SUBE DE NIVEL' },
-    { selector:'#galeria', num:'04 / 05', title:'MOMENTOS REALES' },
-    { selector:'#reservar', num:'05 / 05', title:'VIVE LA AVENTURA' }
+    { selector:'#misiones', num:'01 / 04', title:'TU MISIÓN EMPIEZA' },
+    { selector:'#packs', num:'02 / 04', title:'SUBE DE NIVEL' },
+    { selector:'#galeria', num:'03 / 04', title:'MOMENTOS REALES' },
+    { selector:'#ubicacion', num:'04 / 04', title:'NOS VEMOS EN LLEIDA' }
   ];
   const overlay = document.createElement('div');
   overlay.className = 'fx-scene-overlay';
@@ -137,7 +135,7 @@
   window.requestAnimationFrame(() => { enabled = true; });
 
   function play(scene) {
-    if (!enabled || scene.selector === current || played.has(scene.selector)) return;
+    if (!enabled || document.querySelector('[role="dialog"][aria-hidden="false"]') || scene.selector === current || played.has(scene.selector)) return;
     played.add(scene.selector);
     current = scene.selector;
     if (timer !== null) clearTimeout(timer);

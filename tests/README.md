@@ -25,3 +25,11 @@ python tests/verify_planner.py
 ```
 
 Comprueba edades, límites de participantes, modalidad, tarifa según el día, transferencia al formulario y recuperación tras corregir datos. Los importes son orientativos y la disponibilidad necesita confirmación del parque.
+
+Para comprobar la versión con todos los efectos activados:
+
+```sh
+python tests/verify_motion.py
+```
+
+Verifica partículas, radar, parallax, la banda de texto en movimiento, los siete efectos de actividad, las transiciones, el envío preparado de la reserva y la ausencia de desbordamiento a 1440, 390 y 320 píxeles. Comprueba también que los bucles se detienen fuera de pantalla y que se respeta la preferencia de movimiento reducido. No envía mensajes.

@@ -1,0 +1,103 @@
+/* Restore the full motion language, then add atmosphere, depth and kinetic type. */
+body.scroll-fx .chapter .chapter-inner{position:relative;z-index:3}
+.hero-facts,.hero-scroll{z-index:3}
+.hero-atmosphere{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;contain:strict}
+.hero-radar{position:absolute;width:clamp(200px,27vw,410px);aspect-ratio:1;right:12%;top:20%;border:1px solid #ffad7345;border-radius:50%;opacity:.48;box-shadow:0 0 0 36px #ff6b1606,0 0 0 72px #ff6b1604;transform:translate(var(--aim-x,0px),var(--aim-y,0px))}
+.hero-radar:before,.hero-radar:after{content:'';position:absolute;inset:12%;border:1px dashed #ffad7350;border-radius:50%}
+.hero-radar:after{inset:30%;border-style:solid;border-color:#ffffff30}
+.radar-cross{position:absolute;width:24px;height:24px;left:calc(50% - 12px);top:calc(50% - 12px);background:linear-gradient(#ffad73,#ffad73) center/1px 100% no-repeat,linear-gradient(90deg,#ffad73,#ffad73) center/100% 1px no-repeat}
+.radar-orbit{position:absolute;inset:-1px;border-top:2px solid #ffad73;border-right:2px solid transparent;border-radius:50%}
+.radar-orbit:after{content:'';position:absolute;right:12%;top:12%;width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 18px var(--orange)}
+.radar-caption{position:absolute;bottom:-38px;left:0;width:100%;text-align:center;color:#ffc394;font-size:.53rem;letter-spacing:.4em}
+.hero-embers{position:absolute;inset:0}
+.hero-embers i{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);background:#ffbf70;border-radius:50%;box-shadow:0 0 9px 2px #ff6b1650;opacity:0}
+.adventure-ticker{position:relative;overflow:hidden;background:var(--orange);color:#151510;isolation:isolate;margin-top:38px;padding:13px 0;transform:skewY(-1deg);border-block:1px solid #ffb26a}
+.adventure-ticker-track{display:flex;width:max-content;will-change:transform}
+.ticker-group{display:flex;align-items:center;flex:none}
+.ticker-group span{display:flex;align-items:center;gap:36px;padding-right:36px;white-space:nowrap;font:800 1.5rem/1.2 'Barlow Condensed',sans-serif;letter-spacing:.055em}
+.ticker-group i{font-style:normal;font-size:1.1rem}
+/* Keep the cinematic section transition, while controls remain above decorations. */
+.fx-scene-overlay{z-index:32;background:linear-gradient(105deg,#090909db,#120e0ba8 60%,#0c0c0c00);overflow:hidden}
+.fx-scene-title{font-size:clamp(3rem,10vw,9rem)}
+.fx-scene-num{font-size:clamp(.6rem,1vw,.85rem)}
+body.scroll-fx .chapter .chapter-inner>h1{transition-duration:1.25s;transition-delay:.12s}
+body.scroll-fx .chapter .chapter-inner>.hero-slogan{transition-delay:.32s}
+body.scroll-fx .chapter .chapter-inner>.chapter-actions{transition-delay:.48s}
+body.scroll-fx .chapter .chapter-inner>p:not(.hero-slogan){transition-delay:.4s}
+body.scroll-fx .mission-card.reveal.visible:hover{transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-7px)}
+body.scroll-fx .pack.featured.reveal.visible{transform:none}
+body.scroll-fx .pack.reveal.visible:hover,body.scroll-fx .pack.featured.reveal.visible:hover{transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-8px)}
+.mission-card,.pack{position:relative;isolation:isolate}
+.mission-card:after,.pack:after{content:'';position:absolute;inset:0;z-index:4;pointer-events:none;border-radius:inherit;background:radial-gradient(380px circle at var(--light-x,50%) var(--light-y,50%),#ffad731d,transparent 65%);opacity:0;transition:opacity .3s}
+.mission-card:hover:after,.pack:hover:after{opacity:1}
+.mission-card:focus-within,.pack:focus-within{border-color:var(--amber)}
+body.scroll-fx .mission-card .mission-photo img{transition:clip-path 1.04s cubic-bezier(.19,1,.22,1) .1s,transform .35s ease-out,filter .6s}
+body.scroll-fx .mission-card .mission-photo img.fx-parallax-image{transform:translate3d(0,var(--fx-shift,0px),0) scale(1.13)}
+body.scroll-fx .mission-card:hover .mission-photo img.fx-parallax-image{transform:translate3d(0,var(--fx-shift,0px),0) scale(1.19)}
+body.scroll-fx #inicio.chapter .chapter-bg{transform:translate3d(var(--aim-x,0px),calc(var(--fx-shift,0px) + var(--aim-y,0px)),0) scale(1.105)}
+body.scroll-fx .section-heading h2:after{margin-top:18px}
+/* Every experience keeps its own original scanning / radar / impact animation. */
+.experience-frame{z-index:1}
+.mission-photo .info-trigger,.mission-photo .video-trigger{z-index:5}
+[data-experience=paintball] .experience-frame i:before{content:'';position:absolute;inset:8px;border:1px solid currentColor;border-radius:50%;color:var(--experience-color)}
+/* A short light streak on interaction; clipped to the button itself. */
+.btn{position:relative;overflow:hidden}
+.btn:before{content:'';position:absolute;top:-30%;bottom:-30%;left:-65%;width:40%;background:linear-gradient(90deg,transparent,#ffffff45,transparent);transform:skewX(-22deg);pointer-events:none}
+.btn .icon-arrow{transition:transform .3s}
+.btn:hover .icon-arrow{transform:translate(2px,-2px)}
+.tap-wave{position:absolute;display:block;width:12px;height:12px;border-radius:50%;background:#ffffff65;pointer-events:none;transform:translate(-50%,-50%) scale(0);animation:cinema-ripple .6s ease-out forwards}
+.plan-shortcuts a{position:relative;overflow:hidden;transition:background .3s,color .3s}
+.plan-shortcuts a:after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.plan-shortcuts a:hover:after{transform:scaleX(1)}
+.final-cta{position:relative;isolation:isolate;overflow:hidden}
+.final-cta:before{content:'';position:absolute;right:-4%;top:-150px;width:480px;height:480px;border:1px solid #1112;border-radius:50%;box-shadow:0 0 0 40px #11106,0 0 0 80px #11104;z-index:-1}
+.gallery-lightbox.open img,.activity-info-modal.open .activity-info-panel,.video-modal.open .video-modal-panel{animation:cinema-dialog .4s var(--ease) both}
+/* Animation is opt-in to the browser's normal-motion preference. */
+@media(prefers-reduced-motion:no-preference){
+ .radar-orbit{animation:cinema-orbit 18s linear infinite paused}
+ .hero-radar:before{animation:cinema-orbit 35s linear reverse infinite paused}
+ .hero-radar:after{animation:cinema-radar-pulse 5s ease-in-out infinite paused}
+ .hero-embers i{animation:cinema-ember var(--duration) var(--delay) linear infinite paused}
+ #inicio.motion-running .radar-orbit,#inicio.motion-running .hero-radar:before,#inicio.motion-running .hero-radar:after,#inicio.motion-running .hero-embers i{animation-play-state:running}
+ .adventure-ticker-track{animation:cinema-ticker 32s linear infinite paused}
+ .adventure-ticker.motion-running .adventure-ticker-track{animation-play-state:running}
+ .adventure-ticker:hover .adventure-ticker-track{animation-play-state:paused}
+ .hero-scroll{animation:cinema-scroll 2.5s ease-in-out infinite}
+ .hero-slogan .orange{animation:cinema-text-glow 5s ease-in-out infinite}
+ .btn:hover:before,.btn:focus-visible:before{animation:cinema-button-shine .7s ease-out both}
+ .cinematic-title{transition:text-shadow .8s ease}
+ .cinematic-title.title-arrived{animation:cinema-title 1s var(--ease) both}
+ .final-cta:before{animation:cinema-radar-pulse 6s ease-in-out infinite paused}
+ .final-cta.motion-running:before{animation-play-state:running}
+ .home-gallery-item:hover{box-shadow:0 12px 35px #0008,0 0 0 1px #ff6b1677}
+ body.scroll-fx .home-gallery-item.motion-item.in-view{transition:opacity .8s,transform .8s var(--ease),filter .5s,box-shadow .3s}
+}
+@keyframes cinema-orbit{to{rotate:360deg}}
+@keyframes cinema-radar-pulse{0%,100%{scale:.96;opacity:.45}50%{scale:1.04;opacity:1}}
+@keyframes cinema-ember{0%{opacity:0;transform:translate3d(0,80px,0) scale(.4)}20%{opacity:.75}75%{opacity:.45}100%{opacity:0;transform:translate3d(var(--drift),-200px,0) scale(.2)}}
+@keyframes cinema-ticker{to{transform:translateX(-50%)}}
+@keyframes cinema-scroll{0%,100%{translate:0 0}50%{translate:0 7px}}
+@keyframes cinema-text-glow{0%,100%{text-shadow:0 0 0 #ff6b1600}50%{text-shadow:0 0 28px #ff6b1660}}
+@keyframes cinema-button-shine{to{left:140%}}
+@keyframes cinema-ripple{to{transform:translate(-50%,-50%) scale(32);opacity:0}}
+@keyframes cinema-title{0%{filter:blur(5px);translate:0 25px}55%{filter:blur(0)}100%{filter:blur(0);translate:0 0}}
+@keyframes cinema-dialog{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+@media(max-width:760px){
+ .hero-radar{right:-8%;top:13%;width:210px;opacity:.26}
+ .hero-embers i:nth-child(n+13){display:none}
+ .adventure-ticker{margin-top:25px;padding:11px 0}
+ .ticker-group span{font-size:1.15rem;gap:24px;padding-right:24px}
+ .fx-scene-title{font-size:clamp(2.8rem,12vw,5rem)}
+ body.scroll-fx .reveal.d1,body.scroll-fx .reveal.d2,body.scroll-fx .reveal.d3{transition-delay:70ms}
+ body.scroll-fx .mission-card.reveal.visible:hover,body.scroll-fx .pack.reveal.visible:hover,body.scroll-fx .pack.featured.reveal.visible:hover{transform:none}
+ body.scroll-fx .chapter .chapter-inner>h1{transition-duration:.95s}
+ body.scroll-fx #inicio.chapter .chapter-bg{transform:scale(1.04)}
+ body.scroll-fx .section-heading h2:after{width:75px;height:2px;margin-top:14px}
+ .mission-card:after,.pack:after{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-atmosphere,.fx-scene-overlay{display:none!important}
+ .adventure-ticker-track{transform:none;will-change:auto}
+ .cinematic-title,.chapter-inner>*{opacity:1!important;filter:none!important;clip-path:none!important;transform:none!important;translate:none!important}
+ .btn:before,.tap-wave{display:none!important}
+}
