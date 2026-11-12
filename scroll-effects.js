@@ -127,6 +127,14 @@
     host.append(glow.cloneNode());
   });
 
+  let navigationUntil = 0;
+  let interactionUntil = 0;
+  const dismiss = () => overlay.classList.remove('fx-playing');
+  document.addEventListener('click', event => {
+    if (event.target.closest('a[href^="#"]')) navigationUntil = Date.now() + 1800;
+    if (event.target.closest('a,button,input,select,textarea,summary')) { interactionUntil = Date.now() + 1400; dismiss(); }
+  }, true);
+  document.addEventListener('focusin', event => { if(event.target.closest('form,[role="dialog"],details')) { interactionUntil=Date.now()+1400; dismiss(); } });
   let current = '';
   const played=new Set();
   let timer = null;
@@ -135,7 +143,7 @@
   window.requestAnimationFrame(() => { enabled = true; });
 
   function play(scene) {
-    if (!enabled || document.querySelector('[role="dialog"][aria-hidden="false"]') || scene.selector === current || played.has(scene.selector)) return;
+    if (!enabled || Date.now() < navigationUntil || Date.now() < interactionUntil || document.querySelector('[role="dialog"][aria-hidden="false"]') || scene.selector === current || played.has(scene.selector)) return;
     played.add(scene.selector);
     current = scene.selector;
     if (timer !== null) clearTimeout(timer);

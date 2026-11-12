@@ -34,14 +34,22 @@ with sync_playwright() as p:
    expected=button.get_attribute('data-pack');button.click()
    assert page.locator('#activity').input_value()==expected,expected
   for title in ['Paintball','Laser Tag','Sala y merienda']:
-   page.locator('[data-video-title="'+title+'"]').click()
+   page.locator('[data-video-title="'+title+'"]').first.click()
    assert page.locator('#activityVideoModal').get_attribute('aria-hidden')=='false'
    assert page.locator('#experienceVideo').get_attribute('src')
    page.keyboard.press('Escape')
    assert page.locator('#activityVideoModal').get_attribute('aria-hidden')=='true'
    assert page.locator('#experienceVideo').get_attribute('src') is None
+  for preview in page.locator('.real-video').all():
+   preview.click()
+   assert page.locator('#activityVideoModal').get_attribute('aria-hidden')=='false'
+   assert page.locator('#experienceVideo').get_attribute('src')
+   page.keyboard.press('Escape')
+  assert page.locator('.pack-facts').count()==8
+  assert page.locator('#people').count()==0
+  assert page.locator('#phone').count()==0
   assert page.locator('.video-trigger:disabled').count()==0
-  assert page.locator('.video-trigger').count()==3
+  assert page.locator('.video-trigger').count()==6
   assert page.locator('#activity option').filter(has_text='Misión Galáctica').count()==0
   for button in page.locator('[data-gallery-category]').all():
    button.click()
@@ -55,7 +63,7 @@ with sync_playwright() as p:
   page.evaluate('window.open=(url)=>{window.testBookingUrl=url}')
   page.locator('#name').fill('Prueba técnica')
   page.locator('#activity').select_option(label='Pack Completo')
-  page.locator('#people').select_option(label='9–15 personas')
+  page.locator('#partySize').fill('10')
   page.locator('#bookingForm button[type=submit]').click()
   assert 'Pack Completo' in unquote(page.evaluate('window.testBookingUrl'))
   broken=page.evaluate("""[...document.querySelectorAll('a[href^="#"]')].map(a=>a.getAttribute('href')).filter(h=>h.length>1&&!document.getElementById(h.slice(1)))""")

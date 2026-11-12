@@ -33,3 +33,5 @@ python tests/verify_motion.py
 ```
 
 Verifica partículas, radar, parallax, la banda de texto en movimiento, los siete efectos de actividad, las transiciones, el envío preparado de la reserva y la ausencia de desbordamiento a 1440, 390 y 320 píxeles. Comprueba también que los bucles se detienen fuera de pantalla y que se respeta la preferencia de movimiento reducido. No envía mensajes.
+
+La reserva utiliza un solo campo de participantes; número y fecha pueden quedar pendientes. Edad, horario y comentarios están en el apartado opcional. Las pruebas verifican el total al cambiar o borrar participantes, y que los packs con modalidad fija no pidan elegirla de nuevo. Las tres vistas previas de vídeo de la galería usan el mismo reproductor que las actividades.

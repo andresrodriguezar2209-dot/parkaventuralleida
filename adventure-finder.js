@@ -166,13 +166,7 @@
     target.value = activity.value;
     target.dispatchEvent(new Event('change', { bubbles: true }));
     const partySize = document.getElementById('partySize');
-    const range = document.getElementById('people');
     if (people !== null) {
-      if (range) {
-        const text = people <= 4 ? '1–4 personas' : people <= 8 ? '5–8 personas' : people <= 15 ? '9–15 personas' : people <= 25 ? '16–25 personas' : 'Más de 25 personas';
-        if ([...range.options].some(option => option.value === text)) range.value = text;
-        range.dispatchEvent(new Event('change', { bubbles: true }));
-      }
       if (partySize) {
         partySize.value = String(people);
         partySize.dispatchEvent(new Event('input', { bubbles: true }));

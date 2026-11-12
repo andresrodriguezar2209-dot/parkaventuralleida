@@ -48,7 +48,10 @@ def choose_booking(page, activity, people, session=None):
     page.locator('#activity').select_option(label=activity)
     page.locator('#partySize').fill(str(people) if people is not None else '')
     if session is not None:
-        page.locator('#bookingSession').select_option(session)
+        if page.locator('#bookingSession').is_visible():
+            page.locator('#bookingSession').select_option(session)
+        else:
+            expect(page.locator('#bookingSession')).to_have_value(session)
     page.locator('#date').fill('')
 
 
@@ -113,7 +116,7 @@ with sync_playwright() as playwright:
         page.locator('[data-prepare-activity="paintball"]').click()
         expect(page.locator('#activity')).to_have_value('Paintball')
         expect(page.locator('#partySize')).to_have_value('10')
-        assert '9–15' in page.locator('#people').input_value()
+        assert page.locator('#people').count() == 0, 'Duplicate group-size question must be removed'
         assert amount_in(page.locator('#bookingSummaryTotal').inner_text(), 250)
 
         # Clear the optional age through the finder before isolated booking checks.
@@ -137,10 +140,10 @@ with sync_playwright() as playwright:
                 choose_booking(page, activity, count, session)
                 assert exact_is_valid(page), (activity, session, count)
 
-        # A revised people range cannot retain a contradictory exact count.
+        # The single exact count can be cleared without retaining a stale total.
         choose_booking(page, 'Laser Tag', 10, 'short')
-        page.locator('#people').select_option(label='1–4 personas')
-        expect(page.locator('#partySize')).to_have_value('')
+        page.locator('#partySize').fill('')
+        assert 'Por confirmar' in page.locator('#bookingSummaryTotal').inner_text()
         choose_booking(page, 'Team Building', 31, 'team01')
         assert not exact_is_valid(page)
         page.locator('#bookingSession').select_option('team02')
@@ -156,6 +159,7 @@ with sync_playwright() as playwright:
         choose_booking(page, 'Humor Amarillo', 10)
         assert not re.search(r'\d\s*€', page.locator('#bookingSummaryTotal').inner_text()), 'Unknown tariff must not become a quote'
 
+        page.locator('.booking-extras > summary').click()
         # An editable age must validate the chosen activity and release stale restrictions.
         choose_booking(page, 'Stress Room', 2)
         page.locator('#youngestAge').fill('14')
