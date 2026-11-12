@@ -32,3 +32,7 @@ Además existe un bundle completo local en /workspace/parkaventuralleida-antes-t
 La vista previa de esta rama es independiente de producción. No se fusiona en main ni se promociona a producción.
 
 El naranja se oscurece ligeramente para garantizar el contraste del texto blanco en botones y cierre. El acceso flotante se retira porque podía tapar información; WhatsApp sigue disponible en ubicación y en la solicitud.
+
+Las seis fuentes WOFF2 locales suman 143.492 bytes. Las comprobaciones específicas de diseño, interacciones y presupuesto están descritas en tests/README.md. El informe de Taste se conserva en docs/taste-validation.md.
+
+Las fotografías tienen variantes responsivas de 600 px y tamaños explícitos. La página completa transfiere aproximadamente 2,23 MiB en escritorio y 1,38 MiB en móvil en la comprobación local; el detalle y los límites están en docs/taste-validation.md.

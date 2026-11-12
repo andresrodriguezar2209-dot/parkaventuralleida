@@ -1,7 +1,7 @@
 # Local verification and browser state
 .taste-skill/chrome*/
 .taste-skill/gate/
-.taste-skill/build.json
-.taste-skill/gate.json
+.taste-skill/build*.json
+.taste-skill/gate*.json
 shots/
 dist/

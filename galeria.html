@@ -47,6 +47,7 @@ function closeLightbox() {
 document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox();if(lightbox.classList.contains('open')&&e.key==='ArrowLeft')showPhoto(activePhotoIndex-1);if(lightbox.classList.contains('open')&&e.key==='ArrowRight')showPhoto(activePhotoIndex+1); });
+const repositoryPhotoSizes = {"PHOTO-2026-11-07-14-44-31 (1).webp":[900,1200],"PHOTO-2026-11-07-14-41-49.webp":[553,1200],"PHOTO-2026-11-07-14-41-48 (3).webp":[749,1200],"PHOTO-2026-11-07-14-41-48 (1)-600.webp":[600,1064],"PHOTO-2026-11-07-14-41-49 (1)-600.webp":[600,800],"PHOTO-2026-11-07-14-45-28-600.webp":[600,1067],"PHOTO-2026-11-07-14-41-48 (3)-600.webp":[600,962],"PHOTO-2026-11-07-14-44-30 (3).webp":[1200,900],"71c502fc-5d83-4906-82e7-ec57e4964306.webp":[1200,800],"PHOTO-2026-11-07-14-44-30 (2)-600.webp":[600,800],"PHOTO-2026-11-07-14-41-50-600.webp":[600,1069],"ddc4e458-9c6e-4a7a-9c98-d833754bd5d2-600.webp":[600,400],"PHOTO-2026-11-07-14-44-31.webp":[1200,675],"PHOTO-2026-11-07-14-44-30 (1)-600.webp":[600,800],"PHOTO-2026-11-07-14-44-30 (1).webp":[900,1200],"PHOTO-2026-11-07-14-44-31-600.webp":[600,338],"PHOTO-2026-11-07-14-41-48 (2)-600.webp":[600,1063],"PHOTO-2026-11-07-14-41-49 (1).webp":[900,1200],"PHOTO-2026-11-07-14-45-28 (1).webp":[675,1200],"PHOTO-2026-11-07-14-41-50 (2)-600.webp":[600,800],"PHOTO-2026-11-07-14-44-30.webp":[900,1200],"PHOTO-2026-11-07-14-41-48 (2).webp":[677,1200],"PHOTO-2026-11-07-14-41-48.webp":[553,1200],"68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8-600.webp":[600,400],"PHOTO-2026-11-07-14-41-50 (1).webp":[900,1200],"0bfcf067-9f09-4cb0-8983-47004232d65d.webp":[1200,800],"PHOTO-2026-11-07-14-45-28 (1)-600.webp":[600,1067],"68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8.webp":[1200,800],"PHOTO-2026-11-07-14-44-30 (3)-600.webp":[600,450],"PHOTO-2026-11-07-14-41-48-600.webp":[600,1301],"PHOTO-2026-11-07-14-41-50 (1)-600.webp":[600,800],"PHOTO-2026-11-07-14-44-30-600.webp":[600,800],"d9ff5331-6ce4-43c3-adf0-27db93e16f80.webp":[1200,800],"5ac10b49-c7f7-4159-a252-b0f128f6ade0.webp":[1200,800],"0bfcf067-9f09-4cb0-8983-47004232d65d-600.webp":[600,400],"PHOTO-2026-11-07-14-41-50 (2).webp":[900,1200],"5ac10b49-c7f7-4159-a252-b0f128f6ade0-600.webp":[600,400],"PHOTO-2026-11-07-14-41-48 (1).webp":[677,1200],"park-logo.webp":[176,176],"ddc4e458-9c6e-4a7a-9c98-d833754bd5d2.webp":[1200,800],"d9ff5331-6ce4-43c3-adf0-27db93e16f80-600.webp":[600,400],"PHOTO-2026-11-07-14-44-30 (2).webp":[900,1200],"71c502fc-5d83-4906-82e7-ec57e4964306-600.webp":[600,400],"PHOTO-2026-11-07-14-45-28.webp":[675,1200],"PHOTO-2026-11-07-14-41-49-600.webp":[600,1301],"PHOTO-2026-11-07-14-44-31 (1)-600.webp":[600,800],"PHOTO-2026-11-07-14-41-50.webp":[674,1200]};
 function render() {
   root.replaceChildren();
   const visible = photos.filter(p => current === 'all' || p.category === current);
@@ -67,6 +68,16 @@ function render() {
     const img = document.createElement('img');
     img.loading = 'lazy';
     img.src = photo.url || db.storage.from('park-gallery').getPublicUrl(photo.storage_path).data.publicUrl;
+    img.decoding = 'async';
+    const localName = decodeURIComponent(new URL(img.src, location.href).pathname.split('/').pop());
+    const localSize = repositoryPhotoSizes[localName];
+    if (localSize) {
+      img.width = localSize[0]; img.height = localSize[1];
+      if (localSize[0] > 600 && repositoryPhotoSizes[localName.replace('.webp','-600.webp')]) {
+        img.srcset = img.src.replace(/\.webp$/, '-600.webp') + ' 600w, ' + img.src + ' ' + localSize[0] + 'w';
+        img.sizes = '(min-width: 1440px) 443px, (min-width: 640px) 40vw, calc(100vw - 40px)';
+      }
+    } else { img.width = 1200; img.height = 900; }
     img.alt = photo.title || 'Park Aventura Lleida';
     const open = () => {
       lastPhotoTrigger=figure;
