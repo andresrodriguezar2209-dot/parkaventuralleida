@@ -649,6 +649,15 @@ img,svg,video,iframe{max-width:100%}
 #homeGalleryLightbox .gallery-lightbox-close{top:15px;right:18px;border-radius:8px}
 @media(max-width:850px){#galeria .home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}}
 @media(max-width:520px){#galeria .home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}#galeria .home-gallery-item,#galeria .home-gallery-item img{aspect-ratio:4/5!important}#homeGalleryLightbox{padding:65px 12px}#homeGalleryLightbox img{max-height:calc(100dvh - 145px)}}
+
+/* Reproductor real de experiencias: responsive y sin reproducción en segundo plano. */
+.video-placeholder[hidden],.video-playback[hidden]{display:none!important}
+.video-playback{background:#090909;padding:0;display:flex;flex-direction:column;max-height:calc(90dvh - 100px)}
+.video-playback-header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:17px 58px 15px 22px;border-bottom:1px solid #ffffff1c}
+.video-playback-header strong{font:900 clamp(1.4rem,3vw,2.3rem)/1 'Barlow Condensed',sans-serif;text-transform:uppercase;color:#fff}
+.video-playback video{display:block;background:#000;width:100%;max-height:min(62dvh,650px);object-fit:contain;aspect-ratio:16/9}
+@media(max-width:650px){.video-modal{padding:12px}.video-modal-panel{max-height:94dvh}.video-playback-header{padding:13px 52px 12px 13px;gap:8px}.video-playback video{max-height:53dvh;aspect-ratio:auto;min-height:200px}.video-modal-footer{padding:14px}}
+
 </style><style id="mission-buttons-layout-fix">
 /* Dos botones alineados horizontalmente sobre cada imagen de misión */
 .mission-photo{position:relative}
@@ -677,10 +686,10 @@ img,svg,video,iframe{max-width:100%}
 </nav>
 <section class="chapter" id="inicio" data-chapter-page="0"><div class="chapter-bg" style="background-image:url('https://iauhvbdwatgpeqkjqdcr.supabase.co/storage/v1/object/public/park-gallery/7edd629f-72b8-4127-abc1-e1fe75002b6d.png')"></div><div class="chapter-inner"><span class="chapter-label">PARK AVENTURA LLEIDA · EXPERIENCIAS PARA COMPARTIR</span><h1>PARK<br>AVENTURA<br><span class="orange">LLEIDA.</span></h1><p class="hero-slogan">SIN LÍMITES. <span class="orange">SOLO AVENTURA.</span></p><p>Acción, tecnología y diversión para vivir algo diferente con los tuyos.</p><div class="chapter-actions"><button class="btn primary" data-next-chapter="1">DESCUBRIR EXPERIENCIAS <span class="arrow">↗</span></button><a class="btn ghost" href="#reservar">QUIERO RESERVAR</a></div></div><span class="chapter-hint">PAINTBALL · LASER TAG · VR · CUMPLEAÑOS</span><span class="chapter-count"><strong>00</strong> / 02</span><button class="chapter-next" data-next-chapter="1" aria-label="Ver experiencias">↓</button><a class="hero-corner-cta" href="#reservar">RESERVA AHORA <span>→</span></a></section>
 <section class="quick-activities" id="experiencias-rapidas" data-chapter-page="1"><div class="wrap"><div class="quick-heading"><div><span class="eyebrow">Siete formas de salir de la rutina</span><h2>ELIGE TU <span class="orange">AVENTURA.</span></h2></div><p>Descubre lo que te espera. Más abajo encontrarás todos los detalles.</p></div><div class="quick-grid">
-<a class="quick-card" href="#detalle-paintball" style="--quick-image:url('/ddc4e458-9c6e-4a7a-9c98-d833754bd5d2.jpeg')"><span>01 / ACCIÓN</span><strong>PAINTBALL</strong><i>Descubrir ↗</i></a>
+<a class="quick-card" href="#detalle-paintball" style="--quick-image:url('/PHOTO-2026-11-07-14-41-50%20%282%29.jpg')"><span>01 / ACCIÓN</span><strong>PAINTBALL</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-laser" style="--quick-image:url('/5ac10b49-c7f7-4159-a252-b0f128f6ade0.jpeg')"><span>02 / COMPETICIÓN</span><strong>LASER TAG</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-vr" style="--quick-image:url('/d9ff5331-6ce4-43c3-adf0-27db93e16f80.jpeg')"><span>03 / INMERSIÓN</span><strong>REALIDAD VIRTUAL</strong><i>Descubrir ↗</i></a>
-<a class="quick-card" href="#detalle-humor" style="--quick-image:url('/68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8.jpeg')"><span>04 / RETOS Y DIVERSIÓN</span><strong>HUMOR AMARILLO</strong><i>Descubrir ↗</i></a>
+<a class="quick-card" href="#detalle-humor" style="--quick-image:url('/PHOTO-2026-11-07-14-45-28%20%281%29.jpg')"><span>04 / RETOS Y DIVERSIÓN</span><strong>HUMOR AMARILLO</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-team" style="--quick-image:url('/0bfcf067-9f09-4cb0-8983-47004232d65d.jpeg')"><span>05 / EQUIPO</span><strong>TEAM BUILDING</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-stress" style="--quick-image:url('/71c502fc-5d83-4906-82e7-ec57e4964306.jpeg')"><span>06 / ENIGMAS</span><strong>STRESS ROOM</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-battle" style="--quick-image:url('https://iauhvbdwatgpeqkjqdcr.supabase.co/storage/v1/object/public/park-gallery/75dce3d8-ec98-48f5-971c-8541782ca96b.jpeg')"><span>07 / DESAFÍO</span><strong>BATTLE START</strong><i>Descubrir ↗</i></a>
@@ -701,7 +710,7 @@ img,svg,video,iframe{max-width:100%}
 <article class="mission-card reveal d2" id="detalle-stress" data-tilt><div class="mission-info" data-num="06"><span class="mission-type">06 / Escape Room</span><h3>Stress Room</h3><p>Una sala de retos y enigmas para poner a prueba la observación, la lógica y el trabajo en equipo.</p></div><div class="mission-photo"><img loading="lazy" src="/71c502fc-5d83-4906-82e7-ec57e4964306.jpeg" alt="Sala Stress Room de Park Aventura Lleida"><button class="video-trigger" type="button" data-video-title="Stress Room" aria-label="Ver vídeo de Stress Room"><span class="play-icon">▶</span><span>Ver experiencia</span></button><button class="info-trigger" type="button" data-activity-info="stress">ⓘ Información y precios</button></div></article>
 <article class="mission-card reveal d3" id="detalle-battle" data-tilt><div class="mission-info" data-num="07"><span class="mission-type">07 / Acción y estrategia</span><h3>Battle Start</h3><p>Una experiencia de juego dinámico para poner a prueba tus reflejos, estrategia y coordinación con el equipo.</p></div><div class="mission-photo"><img loading="lazy" src="https://iauhvbdwatgpeqkjqdcr.supabase.co/storage/v1/object/public/park-gallery/75dce3d8-ec98-48f5-971c-8541782ca96b.jpeg" alt="Actividad Battle Start en Park Aventura Lleida"><button class="video-trigger" type="button" data-video-title="Battle Start" aria-label="Ver vídeo de Battle Start"><span class="play-icon">▶</span><span>Ver experiencia</span></button><button class="info-trigger" type="button" data-activity-info="battle">ⓘ Información y precios</button></div></article>
 </div></div></section>
-<div class="activity-info-modal" id="activityInfoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="activityInfoTitle"><div class="activity-info-backdrop" data-close-info></div><div class="activity-info-panel"><button class="activity-info-close" type="button" data-close-info aria-label="Cerrar">×</button><span class="eyebrow">Park Aventura Lleida · Información</span><h2 id="activityInfoTitle">Actividad</h2><p id="activityInfoDescription"></p><div class="activity-info-prices" id="activityInfoPrices"></div><p class="activity-info-note" id="activityInfoNote"></p><a class="btn primary" href="#reservar">CONSULTAR Y RESERVAR ↗</a></div></div><div class="video-modal" id="activityVideoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle"><div class="video-modal-backdrop" data-close-video></div><div class="video-modal-panel"><button class="video-modal-close" type="button" aria-label="Cerrar" data-close-video>×</button><div class="video-placeholder"><div class="video-placeholder-mark">▶</div><span class="eyebrow">Park Aventura Lleida</span><h3 id="videoModalTitle">Paintball</h3><p>Muy pronto podrás ver aquí el vídeo de esta experiencia.</p><span class="video-coming">VÍDEO PRÓXIMAMENTE</span></div><div class="video-modal-footer"><p>Descubre todos los detalles y prepara tu aventura.</p><a class="btn primary" href="#reservar" id="videoReserveLink">Consultar y reservar ↗</a></div></div></div>
+<div class="activity-info-modal" id="activityInfoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="activityInfoTitle"><div class="activity-info-backdrop" data-close-info></div><div class="activity-info-panel"><button class="activity-info-close" type="button" data-close-info aria-label="Cerrar">×</button><span class="eyebrow">Park Aventura Lleida · Información</span><h2 id="activityInfoTitle">Actividad</h2><p id="activityInfoDescription"></p><div class="activity-info-prices" id="activityInfoPrices"></div><p class="activity-info-note" id="activityInfoNote"></p><a class="btn primary" href="#reservar">CONSULTAR Y RESERVAR ↗</a></div></div><div class="video-modal" id="activityVideoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle"><div class="video-modal-backdrop" data-close-video></div><div class="video-modal-panel"><button class="video-modal-close" type="button" aria-label="Cerrar" data-close-video>×</button><div class="video-placeholder" id="videoPlaceholder"><div class="video-placeholder-mark">▶</div><span class="eyebrow">Park Aventura Lleida</span><h3 id="videoModalTitle">Paintball</h3><p id="videoPlaceholderText">Muy pronto podrás ver aquí el vídeo de esta experiencia.</p><span class="video-coming" id="videoComingLabel">VÍDEO PRÓXIMAMENTE</span></div><div class="video-playback" id="videoPlayback" hidden><div class="video-playback-header"><span class="eyebrow">PARK AVENTURA LLEIDA · VER EXPERIENCIA</span><strong id="videoPlayingTitle">EXPERIENCIA</strong></div><video id="experienceVideo" playsinline controls preload="none" aria-label="Vídeo de la experiencia"></video></div><div class="video-modal-footer"><p>Descubre todos los detalles y prepara tu aventura.</p><a class="btn primary" href="#reservar" id="videoReserveLink">Consultar y reservar ↗</a></div></div></div>
 <section class="statement"><div class="statement-ring" aria-hidden="true"></div><div class="wrap statement-inner reveal"><span class="eyebrow">La rutina puede esperar</span><h2>NO ES OTRO PLAN.<br>ES <span>EL PLAN.</span></h2><p>Ven por la actividad. Quédate por las risas, la competición y ese momento en el que todo el equipo se viene arriba.</p></div></section>
 <section class="section feature"><div class="wrap feature-grid"><div class="feature-visual reveal"><div class="feature-main"><img loading="lazy" src="/68a72b4f-8c0d-4ac8-a0e1-678f77be4cb8.jpeg" alt="Personas disfrutando de retos de aventura"></div><div class="feature-small"><img loading="lazy" src="/0bfcf067-9f09-4cb0-8983-47004232d65d.jpeg" alt="Reto de aventura para grupos"></div><div class="round-stamp">TEAM UP<br>GAME ON<br>✳</div></div><div class="feature-copy reveal d1"><span class="eyebrow">Mejor cuando se comparte</span><h2>BUENAS HISTORIAS. <span class="orange">MEJORES EQUIPOS.</span></h2><p>Hay planes que se olvidan al día siguiente. Y hay partidas que se recuerdan durante años. Monta tu experiencia según el grupo, la ocasión y las ganas de pasarlo bien.</p><div class="feature-points"><div class="point"><b>✳ Cumpleaños</b><span>Una celebración con acción y recuerdos.</span></div><div class="point"><b>✳ Amigos y familias</b><span>Risas y desafíos para compartir.</span></div><div class="point"><b>✳ Empresas</b><span>Comunicación y trabajo en equipo.</span></div><div class="point"><b>✳ Grupos grandes</b><span>Opciones adaptadas a vuestro plan.</span></div></div><a class="btn primary" href="#reservar">Vamos a organizarlo <span class="arrow">↗</span></a></div></div></section>
 <section class="section" id="packs"><div class="wrap"><div class="section-heading reveal"><div><span class="eyebrow">Tarifas actualizadas · reserva previa</span><h2>ELIGE TU <span class="orange">AVENTURA.</span></h2></div><p>Todos los precios son por persona. Combina actividades y consulta disponibilidad por WhatsApp.</p></div>
@@ -926,13 +935,71 @@ const progress=document.getElementById('scrollProgress');const updateProgress=()
 const canHover=window.matchMedia('(hover:hover) and (pointer:fine)').matches&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(canHover){const glow=document.getElementById('cursorGlow');window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true});document.querySelectorAll('[data-tilt]').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;card.style.transform='perspective(1000px) rotateX('+((.5-y)*3)+'deg) rotateY('+((x-.5)*4)+'deg) translateY(-3px)'});card.addEventListener('pointerleave',()=>{card.style.transform=''})})}
 
-// Modal de vídeo: por ahora muestra una pantalla de espera; los vídeos reales se conectarán cuando estén disponibles.
+// Reproduce los vídeos reales subidos a GitHub en el botón «Ver experiencia».
+// El vídeo de Cumpleaños se muestra en Humor Amarillo, nombre actual de ese apartado.
+const experienceVideos={
+  'Paintball':'/VIDEO-2026-11-07-14-41-50%20%281%29.mp4',
+  'Laser Tag':'/VIDEO-2026-11-07-14-41-49%20%281%29.mp4',
+  'Humor Amarillo':'/VIDEO-2026-11-07-14-45-28%20%281%29.mp4'
+};
+const experiencePosters={
+  'Paintball':'/PHOTO-2026-11-07-14-41-50%20%282%29.jpg',
+  'Laser Tag':'/5ac10b49-c7f7-4159-a252-b0f128f6ade0.jpeg',
+  'Humor Amarillo':'/PHOTO-2026-11-07-14-45-28%20%281%29.jpg'
+};
 const activityVideoModal=document.getElementById('activityVideoModal');
 const videoModalTitle=document.getElementById('videoModalTitle');
 const videoReserveLink=document.getElementById('videoReserveLink');
-function openActivityVideo(title){videoModalTitle.textContent=title;activityVideoModal.classList.add('open');activityVideoModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';videoReserveLink.href='#reservar';}
-function closeActivityVideo(){activityVideoModal.classList.remove('open');activityVideoModal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-document.querySelectorAll('.video-trigger').forEach(button=>button.addEventListener('click',()=>openActivityVideo(button.dataset.videoTitle)));
+const videoPlaceholder=document.getElementById('videoPlaceholder');
+const videoPlaceholderText=document.getElementById('videoPlaceholderText');
+const videoComingLabel=document.getElementById('videoComingLabel');
+const videoPlayback=document.getElementById('videoPlayback');
+const videoPlayingTitle=document.getElementById('videoPlayingTitle');
+const experienceVideo=document.getElementById('experienceVideo');
+let lastVideoTrigger=null;
+function openActivityVideo(title, trigger){
+  lastVideoTrigger=trigger || null;
+  const src=experienceVideos[title];
+  videoModalTitle.textContent=title;
+  videoPlayingTitle.textContent=title;
+  videoPlaceholder.hidden=Boolean(src);
+  videoPlayback.hidden=!src;
+  videoPlaceholderText.textContent='Muy pronto podrás ver aquí el vídeo de esta experiencia.';
+  videoComingLabel.textContent='VÍDEO PRÓXIMAMENTE';
+  activityVideoModal.classList.add('open');
+  activityVideoModal.setAttribute('aria-hidden','false');
+  activityVideoModal.setAttribute('aria-label','Vídeo de '+title);
+  document.body.style.overflow='hidden';
+  videoReserveLink.href='#reservar';
+  if(src){
+    experienceVideo.pause();
+    experienceVideo.poster=experiencePosters[title]||'';
+    experienceVideo.src=src;
+    experienceVideo.load();
+    const attempt=experienceVideo.play();
+    if(attempt && typeof attempt.catch==='function') attempt.catch(()=>{/* El usuario puede pulsar play en los controles. */});
+  }
+  activityVideoModal.querySelector('.video-modal-close').focus();
+}
+function closeActivityVideo(){
+  experienceVideo.pause();
+  experienceVideo.removeAttribute('src');
+  experienceVideo.removeAttribute('poster');
+  experienceVideo.load();
+  videoPlayback.hidden=true;
+  activityVideoModal.classList.remove('open');
+  activityVideoModal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(lastVideoTrigger)lastVideoTrigger.focus();
+}
+experienceVideo.addEventListener('error',()=>{
+  if(!activityVideoModal.classList.contains('open'))return;
+  videoPlayback.hidden=true;
+  videoPlaceholder.hidden=false;
+  videoPlaceholderText.textContent='Este vídeo no se ha podido cargar. Puedes probar a abrirlo de nuevo.';
+  videoComingLabel.textContent='VÍDEO NO DISPONIBLE';
+});
+document.querySelectorAll('.video-trigger').forEach(button=>button.addEventListener('click',()=>openActivityVideo(button.dataset.videoTitle,button)));
 activityVideoModal.querySelectorAll('[data-close-video]').forEach(el=>el.addEventListener('click',closeActivityVideo));
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&activityVideoModal.classList.contains('open'))closeActivityVideo();});
 videoReserveLink.addEventListener('click',closeActivityVideo);
