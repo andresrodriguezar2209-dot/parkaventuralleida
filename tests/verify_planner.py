@@ -75,6 +75,7 @@ with sync_playwright() as playwright:
         # Offline gallery must never prevent the planner from working.
         page.route('https://esm.sh/**', lambda route: route.abort())
         page.goto(BASE_URL, wait_until='domcontentloaded')
+        page.locator('.finder-disclosure > summary').click()
         expect(page.locator('#finderAge')).to_be_visible()
         expect(page.locator('#bookingSummary')).to_be_attached()
         assert page.locator('#inicio h1').inner_text() == 'PARK\nAVENTURA\nLLEIDA.'
@@ -209,7 +210,6 @@ with sync_playwright() as playwright:
             photo.scroll_into_view_if_needed()
             assert 'PHOTO-2026-11-07-' in photo.get_attribute('src')
             page.wait_for_function('(id)=>{const img=document.querySelector("#detalle-"+id+" .mission-photo img");return img.complete&&img.naturalWidth>0}', arg=activity_id)
-            assert 'PHOTO-2026-11-07-' in page.locator('.quick-card[href="#detalle-' + activity_id + '"]').get_attribute('style')
 
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Horizontal overflow'
         assert not errors, errors

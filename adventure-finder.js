@@ -1,7 +1,7 @@
 /* The plan finder uses only the park's published ages, group limits and prices. */
 (() => {
   'use strict';
-  const grid = document.querySelector('.quick-grid');
+  const grid = document.querySelector('.mission-list');
   const catalog = window.ParkAdventure;
   if (!grid || !Array.isArray(catalog?.activities)) return;
 
@@ -85,7 +85,7 @@
   });
   assistance.append(assistanceCopy, assistanceLink);
   finder.append(error, status, results, assistance);
-  grid.before(finder);
+  document.getElementById('planFinderHost').append(finder);
 
   const hasNumber = value => typeof value === 'number' && Number.isFinite(value);
   const typedNumber = input => input.value === '' ? null : input.valueAsNumber;
@@ -207,13 +207,13 @@
     const engaged = age !== null || people !== null || state.preference !== 'all';
     if (message) {
       status.textContent = 'Revisa los datos para ver opciones para vuestro grupo.';
-      grid.querySelectorAll('.quick-card').forEach(card => card.classList.remove('plan-match'));
+      grid.querySelectorAll('.mission-card').forEach(card => card.classList.remove('plan-match'));
       return;
     }
     if (!engaged) {
       status.textContent = 'Añade edad y participantes para comprobar las condiciones, o empieza por lo que os apetece.';
       results.hidden = true;
-      grid.querySelectorAll('.quick-card').forEach(card => card.classList.remove('plan-match'));
+      grid.querySelectorAll('.mission-card').forEach(card => card.classList.remove('plan-match'));
       return;
     }
     results.hidden = false;
@@ -222,7 +222,7 @@
     const matching = options.filter(item => item.status === 'compatible');
     const consulting = options.filter(item => item.status === 'consult');
     const activeIds = new Set(options.map(item => item.activity.id));
-    grid.querySelectorAll('.quick-card').forEach(card => card.classList.toggle('plan-match', activeIds.has(card.getAttribute('href')?.replace('#detalle-', ''))));
+    grid.querySelectorAll('.mission-card').forEach(card => card.classList.toggle('plan-match', activeIds.has(card.id.replace('detalle-', ''))));
     if (!options.length) {
       status.textContent = 'No encontramos una opción que encaje con todos los datos indicados.';
       const empty = el('div', 'finder-empty', 'Podemos ayudarte a preparar una alternativa. Revisa la edad, el tamaño del grupo o consulta al parque.');

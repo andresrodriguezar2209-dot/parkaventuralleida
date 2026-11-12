@@ -28,7 +28,7 @@
  function syncDialogs(){
   const active=dialogs.find(d=>d.getAttribute('aria-hidden')==='false');
   pageParts.forEach(part=>{part.inert=Boolean(active)&&!part.contains(active);});
-  if(active&&active!==previousDialog)setTimeout(()=>{if(active.getAttribute('aria-hidden')==='false')active.querySelector('button:not(:disabled)')?.focus();},60);
+  if(active&&active!==previousDialog)active.querySelector('button:not(:disabled)')?.focus({preventScroll:true});
   if(!active&&previousDialog&&returnFocus?.isConnected)returnFocus.focus({preventScroll:true});
   previousDialog=active;
  }

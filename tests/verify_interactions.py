@@ -11,6 +11,7 @@ with sync_playwright() as p:
   page.goto(BASE_URL,wait_until='domcontentloaded')
   page.wait_for_function("document.querySelectorAll('.home-gallery-item').length>0")
   assert page.locator('#inicio h1').inner_text()=='PARK\nAVENTURA\nLLEIDA.'
+  page.locator('.finder-disclosure > summary').click()
   for key in ['all','action','virtual','group','all']:
    page.locator('[data-plan="'+key+'"]').click()
    assert page.locator('[data-plan="'+key+'"]').get_attribute('aria-pressed')=='true'
@@ -39,7 +40,9 @@ with sync_playwright() as p:
    page.keyboard.press('Escape')
    assert page.locator('#activityVideoModal').get_attribute('aria-hidden')=='true'
    assert page.locator('#experienceVideo').get_attribute('src') is None
-  assert page.locator('.video-trigger:disabled').count()==5
+  assert page.locator('.video-trigger:disabled').count()==0
+  assert page.locator('.video-trigger').count()==3
+  assert page.locator('#activity option').filter(has_text='Misión Galáctica').count()==0
   for button in page.locator('[data-gallery-category]').all():
    button.click()
    assert button.get_attribute('aria-pressed')=='true'
@@ -64,7 +67,7 @@ with sync_playwright() as p:
    assert page.locator('#menu').get_attribute('aria-expanded')=='false'
    page.locator('#menu').click();page.locator('#links a[href="#packs"]').click()
    assert page.locator('#menu').get_attribute('aria-expanded')=='false'
-  page.locator('#experiencias-rapidas').scroll_into_view_if_needed()
+  page.locator('#misiones').scroll_into_view_if_needed()
   page.screenshot(path=f'/tmp/park-interactive-{width}.png')
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'), 'overflow'
   assert not errors,errors
@@ -81,12 +84,13 @@ with sync_playwright() as p:
  page=b.new_page(viewport={'width':1440,'height':1000})
  page.route('https://esm.sh/**',lambda r:r.abort())
  page.goto(BASE_URL,wait_until='domcontentloaded')
- page.locator('#experiencias-rapidas').scroll_into_view_if_needed();page.wait_for_timeout(1800)
+ page.locator('#misiones').scroll_into_view_if_needed();page.wait_for_timeout(1800)
+ page.locator('.finder-disclosure > summary').click()
  page.locator('[data-plan=virtual]').click();page.wait_for_timeout(500)
  assert page.locator('.plan-match').count()==3
  page.screenshot(path='/tmp/park-motion.png')
  
- for card in page.locator('.quick-card').all():
+ for card in page.locator('.mission-card').all():
   card.scroll_into_view_if_needed();page.wait_for_timeout(700)
   assert card.evaluate('e=>Number(getComputedStyle(e).opacity)>.95'), 'Animation left a card invisible'
  print('Motion enabled: all cards visible and controls clickable',flush=True)
