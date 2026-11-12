@@ -649,6 +649,16 @@ img,svg,video,iframe{max-width:100%}
 #homeGalleryLightbox .gallery-lightbox-close{top:15px;right:18px;border-radius:8px}
 @media(max-width:850px){#galeria .home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}}
 @media(max-width:520px){#galeria .home-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}#galeria .home-gallery-item,#galeria .home-gallery-item img{aspect-ratio:4/5!important}#homeGalleryLightbox{padding:65px 12px}#homeGalleryLightbox img{max-height:calc(100dvh - 145px)}}
+</style><style id="mission-buttons-layout-fix">
+/* Dos botones alineados horizontalmente sobre cada imagen de misión */
+.mission-photo{position:relative}
+.mission-photo .video-trigger{left:18px!important;right:auto!important;bottom:18px!important;max-width:calc(50% - 22px);white-space:nowrap;justify-content:center}
+.mission-photo .info-trigger{right:18px!important;left:auto!important;bottom:18px!important;top:auto!important;max-width:calc(50% - 22px);white-space:nowrap;justify-content:center}
+@media(max-width:650px){
+ .mission-photo .video-trigger{left:10px!important;bottom:10px!important;padding:9px 10px!important;gap:6px!important;font-size:.58rem!important;letter-spacing:0!important;max-width:calc(50% - 13px)}
+ .mission-photo .info-trigger{right:10px!important;bottom:10px!important;padding:9px 10px!important;font-size:.58rem!important;letter-spacing:0!important;max-width:calc(50% - 13px)}
+ .mission-photo .video-trigger .play-icon{width:22px;height:22px;flex:none}
+}
 </style></head>
 <body>
 <div class="topline" id="scrollProgress" aria-hidden="true"></div><div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
