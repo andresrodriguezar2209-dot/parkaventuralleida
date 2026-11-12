@@ -1,4 +1,4 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 from urllib.parse import unquote
 import json, os, shutil
 BASE_URL=os.environ.get("PARK_TEST_URL","http://127.0.0.1:4173").rstrip("/")
@@ -14,13 +14,14 @@ with sync_playwright() as p:
   for key in ['all','action','virtual','group','all']:
    page.locator('[data-plan="'+key+'"]').click()
    assert page.locator('[data-plan="'+key+'"]').get_attribute('aria-pressed')=='true'
-   assert page.locator('.plan-match').count()==(0 if key=='all' else 2)
+   assert page.locator('.plan-match').count()=={'all':0,'action':4,'virtual':3,'group':5}[key]
   for key,value in [('paintball','Paintball'),('laser','Laser Tag'),('vr','Realidad virtual'),('humor','Humor Amarillo'),('team','Team Building'),('stress','Stress Room'),('battle','Battle Start')]:
    button=page.locator('[data-activity-info="'+key+'"]');button.click()
    assert page.locator('#activityInfoModal').get_attribute('aria-hidden')=='false'
    page.locator('#activityInfoPrices').wait_for(state='visible')
    page.wait_for_function("document.activeElement.classList.contains('activity-info-close')")
-   assert page.locator('#activityInfoPrices').inner_text()
+   expect(page.locator('#activityInfoPrices')).to_be_visible()
+   assert page.locator('#activityInfoPrices').text_content()
    # Tab backward from close must wrap to reserve.
    page.keyboard.press('Shift+Tab')
    assert page.locator('#activityInfoModal a').evaluate('(el)=>el===document.activeElement')
@@ -31,14 +32,14 @@ with sync_playwright() as p:
   for button in page.locator('[data-pack]').all():
    expected=button.get_attribute('data-pack');button.click()
    assert page.locator('#activity').input_value()==expected,expected
-  for title in ['Paintball','Laser Tag','Humor Amarillo']:
+  for title in ['Paintball','Laser Tag','Sala y merienda']:
    page.locator('[data-video-title="'+title+'"]').click()
    assert page.locator('#activityVideoModal').get_attribute('aria-hidden')=='false'
    assert page.locator('#experienceVideo').get_attribute('src')
    page.keyboard.press('Escape')
    assert page.locator('#activityVideoModal').get_attribute('aria-hidden')=='true'
    assert page.locator('#experienceVideo').get_attribute('src') is None
-  assert page.locator('.video-trigger:disabled').count()==4
+  assert page.locator('.video-trigger:disabled').count()==5
   for button in page.locator('[data-gallery-category]').all():
    button.click()
    assert button.get_attribute('aria-pressed')=='true'
@@ -82,7 +83,7 @@ with sync_playwright() as p:
  page.goto(BASE_URL,wait_until='domcontentloaded')
  page.locator('#experiencias-rapidas').scroll_into_view_if_needed();page.wait_for_timeout(1800)
  page.locator('[data-plan=virtual]').click();page.wait_for_timeout(500)
- assert page.locator('.plan-match').count()==2
+ assert page.locator('.plan-match').count()==3
  page.screenshot(path='/tmp/park-motion.png')
  
  for card in page.locator('.quick-card').all():

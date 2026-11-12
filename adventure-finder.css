@@ -1,0 +1,44 @@
+/* Finder styles are scoped to the activity section; the original hero is unchanged. */
+.adventure-finder{padding:28px;border-radius:6px;position:relative;overflow:hidden;background:linear-gradient(125deg,#25190f,#171717 65%);border-color:#ff8f3c55;margin-bottom:30px}
+.adventure-finder .finder-header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:25px}
+.adventure-finder .finder-title{font:800 clamp(1.8rem,3vw,2.5rem)/1 'Barlow Condensed',sans-serif;letter-spacing:-.015em;margin:12px 0 10px;color:var(--white)}
+.adventure-finder .finder-intro{margin:0;max-width:650px;font-size:.84rem;line-height:1.7;color:#bbb5ad}
+.adventure-finder .finder-reset{border:0;border-bottom:1px solid #ffffff40;background:none;padding:4px 0;color:#d9d1c6;font-size:.68rem;white-space:nowrap;cursor:pointer;min-height:35px}
+.adventure-finder .finder-reset:hover{color:#ffb36d;border-color:currentColor}
+.adventure-finder .finder-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+.adventure-finder .finder-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.adventure-finder .finder-field label{font-size:.74rem;font-weight:700;color:#f6f4ef}
+.adventure-finder .finder-field input{width:100%;min-width:0;min-height:48px;background:#0c0c0cb3;border:1px solid #ffffff38;border-radius:3px;color:#fff;padding:12px 14px;line-height:1.3;font-size:.87rem;transition:border-color .2s,box-shadow .2s;box-sizing:border-box}
+.adventure-finder .finder-field input:focus{border-color:var(--orange);box-shadow:0 0 0 3px #ff650d17}
+.adventure-finder .finder-field input[aria-invalid=true]{border-color:#ffb36d}
+.adventure-finder .finder-field-note{font-size:.65rem;color:#aaa399}
+.adventure-finder .finder-choices{gap:8px;display:flex;flex-wrap:wrap}
+.adventure-finder .finder-choices button{flex:1 1 auto;max-width:260px;min-height:44px}
+.adventure-finder .finder-status{border-top:1px solid #ffffff20;padding-top:18px;margin:20px 0 0;color:#c4bdb3;font-size:.78rem;line-height:1.8;max-width:900px}
+.adventure-finder .finder-input-error{padding:12px 14px;border-left:2px solid #ffb36d;background:#ff650d10;color:#ffd2b0;font-size:.78rem;line-height:1.65;margin:18px 0 0}
+.adventure-finder [hidden]{display:none!important}
+.adventure-finder .finder-results{margin-top:18px}
+.adventure-finder .finder-option-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.adventure-finder .finder-option{border:1px solid #ffffff2b;border-radius:4px;padding:20px;background:#111111b8;min-width:0;display:flex;flex-direction:column}
+.adventure-finder .finder-option[data-finder-status=compatible]{border-color:#ff8f3c80;background:linear-gradient(125deg,#ff650d0e,#111111b8)}
+.adventure-finder .finder-option-badge{font-size:.5rem;letter-spacing:.14em;font-weight:800;color:#bdb5a8;line-height:1.6}
+.adventure-finder .finder-option[data-finder-status=compatible] .finder-option-badge{color:#ffb36d}
+.adventure-finder .finder-option-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin:12px 0 0}
+.adventure-finder .finder-option h4{font:800 1.7rem/1 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:-.01em;margin:0;color:#f6f4ef}
+.adventure-finder .finder-price{color:#ffc493;font-size:.79rem;line-height:1.6;white-space:nowrap}
+.adventure-finder .finder-session{font-size:.72rem;color:#e1d9cf;line-height:1.55;margin:8px 0 0}
+.adventure-finder .finder-conditions{font-size:.73rem;line-height:1.75;color:#b4ada3;margin:10px 0 0}
+.adventure-finder .finder-confirm-note{font-size:.69rem;line-height:1.65;color:#efbc96;margin:8px 0 0}
+.adventure-finder .finder-option-actions{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-top:auto;padding-top:18px}
+.adventure-finder .finder-details{font-size:.65rem;font-weight:800;text-transform:uppercase;color:#ddd6cb;min-height:40px;display:inline-flex;align-items:center;text-decoration:none}
+.adventure-finder .finder-prepare{background:var(--orange);color:#111;border:1px solid var(--orange);border-radius:3px;padding:11px 13px;min-height:42px;font-size:.67rem;font-weight:800;cursor:pointer;line-height:1.5;transition:transform .2s,box-shadow .2s}
+.adventure-finder .finder-prepare:hover{transform:translateY(-2px);box-shadow:0 6px 20px #ff650d33}
+.adventure-finder .finder-consultation-label{font-size:.57rem;letter-spacing:.16em;font-weight:800;color:#aba398;margin:20px 0 12px}
+.adventure-finder .finder-empty{padding:20px;border:1px dashed #ffffff45;border-radius:3px;color:#d1c9bd;font-size:.82rem;line-height:1.8}
+.adventure-finder .finder-assistance{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:20px;padding-top:17px;border-top:1px solid #ffffff18}
+.adventure-finder .finder-assistance p{font-size:.74rem;line-height:1.7;margin:0;color:#aaa295}
+.adventure-finder .finder-assistance-link{font-size:.72rem;line-height:1.7;font-weight:800;color:#ffb36d;white-space:nowrap;min-height:42px;display:inline-flex;align-items:center}
+@media(prefers-reduced-motion:no-preference){.adventure-finder.changed .finder-option{animation:finder-option-in .4s ease both}.adventure-finder.changed .finder-option:nth-child(2){animation-delay:50ms}.adventure-finder.changed .finder-option:nth-child(3){animation-delay:90ms}@keyframes finder-option-in{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}}
+@media(max-width:900px){.adventure-finder .finder-option-heading{flex-direction:column;gap:7px}.adventure-finder .finder-option-actions{align-items:flex-start;flex-direction:column;gap:4px}.adventure-finder .finder-prepare{width:100%}}
+@media(max-width:600px){.adventure-finder{padding:20px 15px}.adventure-finder .finder-header{display:block;margin-bottom:20px}.adventure-finder .finder-reset{margin-top:10px}.adventure-finder .finder-fields{grid-template-columns:1fr;gap:16px}.adventure-finder .finder-choices{display:grid;grid-template-columns:1fr 1fr}.adventure-finder .finder-choices button{font-size:.64rem;padding:10px 7px;max-width:none}.adventure-finder .finder-option-list{grid-template-columns:1fr}.adventure-finder .finder-option-heading{flex-direction:row;gap:10px}.adventure-finder .finder-option{padding:17px}.adventure-finder .finder-option h4{font-size:1.55rem}.adventure-finder .finder-price{font-size:.72rem}.adventure-finder .finder-assistance{align-items:flex-start;flex-direction:column;gap:3px}.adventure-finder .finder-intro{font-size:.79rem}.adventure-finder .finder-title{font-size:1.9rem}}
+@media(prefers-reduced-motion:reduce){.adventure-finder *{animation:none!important;transition:none!important}}

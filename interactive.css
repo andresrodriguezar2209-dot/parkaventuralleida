@@ -44,3 +44,6 @@ html{scroll-snap-type:none!important}
 @media(prefers-reduced-motion:no-preference){.activity-info-modal.open .activity-info-panel,.video-modal.open .video-modal-panel{animation:result-in .25s ease both}}
 /* A zero-area clip prevents IntersectionObserver from ever revealing a card. */
 body.scroll-fx .quick-card.motion-item:not(.in-view){clip-path:none!important}
+
+/* The visible planning actions replace the floating shortcut in these sections. */
+body.planning-in-view>.wa{opacity:0;visibility:hidden;pointer-events:none}

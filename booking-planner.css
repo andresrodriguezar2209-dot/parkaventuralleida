@@ -1,0 +1,22 @@
+/* Live booking plan, styled to fit the existing orange-and-black interface. */
+.booking-form .booking-session-field[hidden]{display:none!important}
+.booking-field-help{display:block;margin-top:7px;color:#aaa7a1;font-size:.68rem;line-height:1.55}
+.booking-summary{min-width:0;padding:23px;border:1px solid #ff650d55;background:linear-gradient(125deg,#ff650d10,#0e0e0e 70%);border-radius:5px;isolation:isolate}
+.booking-summary h3{font-size:1.7rem!important;line-height:1!important;margin:0 0 8px!important;color:#f6f4ef}
+.booking-summary .booking-summary-intro{font-size:.73rem;color:#aaa7a1;margin:0 0 17px;line-height:1.7}
+.booking-summary-rows{margin:0;display:grid;gap:0}
+.booking-summary-rows>div{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px;padding:9px 0;border-bottom:1px solid #ffffff12;font-size:.73rem;line-height:1.55}
+.booking-summary-rows dt{color:#aaa7a1;font-weight:500}
+.booking-summary-rows dd{margin:0;text-align:right;color:#f6f4ef;overflow-wrap:anywhere}
+.booking-summary-total{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:19px 0 16px;border-bottom:1px solid #ff650d30}
+.booking-summary-total>span{font-size:.75rem;color:#ddd8cf}
+.booking-summary-total>strong{font-family:'Barlow Condensed',sans-serif;font-size:2.1rem;font-weight:800;line-height:1;color:#ff9c36;text-align:right}
+.booking-summary .booking-summary-conditions{margin:14px 0 0;font-size:.7rem;line-height:1.75;color:#bdb8af}
+.booking-summary .booking-summary-status{margin:11px 0 0;font-size:.72rem;line-height:1.65;color:#e4ddd2}
+.booking-summary-status.has-issue{color:#ffb878!important}
+.booking-summary.has-issue{border-color:#ff9c3690}
+.booking-advice{display:inline-flex;align-items:center;margin:11px 0 0;padding:8px 0;min-height:40px;border:0;background:transparent;color:#ffb36d;font:700 .7rem 'DM Sans',sans-serif;text-align:left;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.booking-advice[hidden]{display:none!important}
+.booking-summary .booking-summary-note{margin:14px 0 0;font-size:.65rem;line-height:1.65;color:#aaa7a1}
+.booking-party-field input:invalid:not(:placeholder-shown){border-color:#ff9c36}
+@media(max-width:650px){.booking-summary{padding:19px 15px}.booking-summary h3{font-size:1.55rem!important}.booking-summary-rows>div{grid-template-columns:.85fr 1.15fr;font-size:.7rem;gap:9px}.booking-summary-total>strong{font-size:1.9rem}}
