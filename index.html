@@ -736,6 +736,27 @@ img,svg,video,iframe{max-width:100%}
 @media(prefers-reduced-motion:reduce){#misiones .mission-card,#experiencias-rapidas .quick-card{transition:none!important;transform:none!important}}
 </style>
 
+
+<style id="mobile-hero-footer-fix">
+.hero-mobile-photo{display:none}
+@media(max-width:760px){
+body #inicio.chapter{display:flex;flex-direction:column;align-items:stretch;height:auto!important;min-height:0!important;padding:78px 0 62px!important;gap:0}
+body.scroll-fx #inicio.chapter .chapter-bg,body #inicio.chapter .chapter-bg{position:relative!important;inset:auto!important;z-index:0!important;width:100%;height:auto!important;flex:none;background:none!important;transform:none!important;animation:none!important;opacity:1!important;will-change:auto}
+#inicio .hero-mobile-photo{display:block;width:100%;max-width:100%;height:auto;object-fit:contain}
+body #inicio.chapter:before,body #inicio.chapter:after{display:none!important}
+body #inicio.chapter .chapter-inner{position:relative;width:calc(100% - 40px)!important;margin:0 auto!important;padding:28px 0 0!important}
+body #inicio.chapter h1{font-size:clamp(2.8rem,16vw,6.3rem)!important;transform:none;line-height:.86!important;letter-spacing:-.035em!important}
+body #inicio.chapter .chapter-label{flex-wrap:wrap;line-height:1.6;max-width:100%}
+body #inicio.chapter .chapter-next,body #inicio.chapter .chapter-hint{display:none}
+.final-cta:after{display:none}
+.final-cta h2{font-size:clamp(2rem,9vw,3.4rem);line-height:1;overflow-wrap:normal}
+.footer .brand{width:100%;max-width:100%;min-width:0;gap:10px}
+.footer .brand img{width:44px;height:44px}
+.footer .brandname{font-size:clamp(.7rem,3.4vw,.9rem);line-height:1.2;white-space:normal;min-width:0}
+.footer .brand small{font-size:.55rem;letter-spacing:.12em;line-height:1.5}
+.footer-inner>p{max-width:100%;overflow-wrap:anywhere}
+}
+</style>
 </head>
 <body>
 <div class="topline" id="scrollProgress" aria-hidden="true"></div><div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
@@ -749,7 +770,7 @@ img,svg,video,iframe{max-width:100%}
 <nav class="chapter-dots" aria-label="Navegación principal">
 <button class="chapter-dot active" data-chapter="0" aria-label="Portada" title="Portada"></button><button class="chapter-dot" data-chapter="1" aria-label="Experiencias" title="Experiencias"></button><button class="chapter-dot" data-chapter="2" aria-label="Reserva" title="Reserva"></button>
 </nav>
-<section class="chapter" id="inicio" data-chapter-page="0"><div class="chapter-bg" style="background-image:url('https://iauhvbdwatgpeqkjqdcr.supabase.co/storage/v1/object/public/park-gallery/7edd629f-72b8-4127-abc1-e1fe75002b6d.png')"></div><div class="chapter-inner"><span class="chapter-label">PARK AVENTURA LLEIDA · EXPERIENCIAS PARA COMPARTIR</span><h1>PARK<br>AVENTURA<br><span class="orange">LLEIDA.</span></h1><p class="hero-slogan">SIN LÍMITES. <span class="orange">SOLO AVENTURA.</span></p><p>Acción, tecnología y diversión para vivir algo diferente con los tuyos.</p><div class="chapter-actions"><button class="btn primary" data-next-chapter="1">DESCUBRIR EXPERIENCIAS <span class="arrow">↗</span></button><a class="btn ghost" href="#reservar">QUIERO RESERVAR</a></div></div><span class="chapter-hint">PAINTBALL · LASER TAG · VR · CUMPLEAÑOS</span><span class="chapter-count"><strong>00</strong> / 02</span><button class="chapter-next" data-next-chapter="1" aria-label="Ver experiencias">↓</button><a class="hero-corner-cta" href="#reservar">RESERVA AHORA <span>→</span></a></section>
+<section class="chapter" id="inicio" data-chapter-page="0"><div class="chapter-bg" style="background-image:url('https://iauhvbdwatgpeqkjqdcr.supabase.co/storage/v1/object/public/park-gallery/7edd629f-72b8-4127-abc1-e1fe75002b6d.png')"><img class="hero-mobile-photo" src="https://iauhvbdwatgpeqkjqdcr.supabase.co/storage/v1/object/public/park-gallery/7edd629f-72b8-4127-abc1-e1fe75002b6d.png" alt="Park Aventura Lleida: experiencias y aventura en equipo" fetchpriority="high" decoding="async"></div><div class="chapter-inner"><span class="chapter-label">PARK AVENTURA LLEIDA · EXPERIENCIAS PARA COMPARTIR</span><h1>PARK<br>AVENTURA<br><span class="orange">LLEIDA.</span></h1><p class="hero-slogan">SIN LÍMITES. <span class="orange">SOLO AVENTURA.</span></p><p>Acción, tecnología y diversión para vivir algo diferente con los tuyos.</p><div class="chapter-actions"><button class="btn primary" data-next-chapter="1">DESCUBRIR EXPERIENCIAS <span class="arrow">↗</span></button><a class="btn ghost" href="#reservar">QUIERO RESERVAR</a></div></div><span class="chapter-hint">PAINTBALL · LASER TAG · VR · CUMPLEAÑOS</span><span class="chapter-count"><strong>00</strong> / 02</span><button class="chapter-next" data-next-chapter="1" aria-label="Ver experiencias">↓</button><a class="hero-corner-cta" href="#reservar">RESERVA AHORA <span>→</span></a></section>
 <section class="quick-activities" id="experiencias-rapidas" data-chapter-page="1"><div class="wrap"><div class="quick-heading"><div><span class="eyebrow">Siete formas de salir de la rutina</span><h2>ELIGE TU <span class="orange">AVENTURA.</span></h2></div><p>Descubre lo que te espera. Más abajo encontrarás todos los detalles.</p></div><div class="quick-grid">
 <a class="quick-card" href="#detalle-paintball" style="--quick-image:url('/PHOTO-2026-11-07-14-41-50%20%281%29.jpg');--photo-position:50% 50%"><span>01 / ACCIÓN</span><strong>PAINTBALL</strong><i>Descubrir ↗</i></a>
 <a class="quick-card" href="#detalle-laser" style="--quick-image:url('/PHOTO-2026-11-07-14-41-48.jpg');--photo-position:50% 42%"><span>02 / COMPETICIÓN</span><strong>LASER TAG</strong><i>Descubrir ↗</i></a>
