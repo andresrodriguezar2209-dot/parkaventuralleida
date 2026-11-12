@@ -23,14 +23,14 @@ html{scroll-behavior:smooth}body{overflow-x:hidden;background:radial-gradient(el
 @media(prefers-reduced-motion:reduce){.item,.item img{transition:none}}
 </style></head><body><div class="wrap"><nav class="nav"><a class="brand" href="/">PARK AVENTURA <span>LLEIDA</span></a><a class="btn" href="/">Volver a la web ↗</a></nav><header class="intro"><span class="eyebrow">Así se vive la aventura</span><h1>Momentos <span>reales.</span></h1><p>Descubre algunas de las experiencias que se viven en Park Aventura Lleida. Cada foto cuenta una misión, un reto y un buen recuerdo.</p></header><div id="filters" class="filters"><button class="active" data-category="all">Todas</button><button data-category="paintball">Paintball</button><button data-category="laser-tag">Laser Tag</button><button data-category="realidad-virtual">Realidad virtual</button><button data-category="humor-amarillo">Humor amarillo</button><button data-category="cumpleanos">Cumpleaños y grupos</button><button data-category="team-building">Team Building</button><button data-category="stress-room">Stress Room</button><button data-category="battle-start">Battle Start</button></div><main id="gallery" class="grid"><p class="empty">Cargando galería…</p></main><div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Fotografía ampliada"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="Cerrar fotografía">×</button><button class="gallery-step gallery-prev" id="galleryPrev" aria-label="Foto anterior" type="button">‹</button><img id="lightboxImage" alt=""><button class="gallery-step gallery-next" id="galleryNext" aria-label="Foto siguiente" type="button">›</button><span class="gallery-counter" id="galleryCounter" aria-live="polite"></span></div><footer class="foot">© <span id="year"></span> Park Aventura Lleida · <a href="/">Volver al inicio</a></footer></div>
 <script type="module">
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './supabase-config.js';
-const db = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+let db=null;
 const root = document.getElementById('gallery');
 let photos = [];
 let current = 'all';
 let visiblePhotos = [];
 let activePhotoIndex = -1;
+let lastPhotoTrigger=null;
 document.getElementById('year').textContent = new Date().getFullYear();
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
@@ -42,6 +42,7 @@ function closeLightbox() {
   lightbox.setAttribute('aria-hidden', 'true');
   lightboxImage.removeAttribute('src');
   document.body.style.overflow = '';
+  if(lastPhotoTrigger?.isConnected)lastPhotoTrigger.focus();
 }
 document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
@@ -68,9 +69,11 @@ function render() {
     img.src = photo.url || db.storage.from('park-gallery').getPublicUrl(photo.storage_path).data.publicUrl;
     img.alt = photo.title || 'Park Aventura Lleida';
     const open = () => {
+      lastPhotoTrigger=figure;
       showPhoto(index);
       lightbox.classList.add('open');
       lightbox.setAttribute('aria-hidden', 'false');
+      document.getElementById('lightboxClose').focus();
       document.body.style.overflow = 'hidden';
     };
     figure.addEventListener('click', open);
@@ -83,10 +86,10 @@ function render() {
 }
 document.querySelectorAll('[data-category]').forEach(b => b.addEventListener('click', () => {
   current = b.dataset.category;
-  document.querySelectorAll('[data-category]').forEach(x => x.classList.toggle('active', x === b));
+  document.querySelectorAll('[data-category]').forEach(x => (x.classList.toggle('active', x === b),x.setAttribute('aria-pressed',String(x===b))));
   render();
 }));
-const repoImage = name => 'https://raw.githubusercontent.com/andresrodriguezar2209-dot/parkaventuralleida/main/' + encodeURIComponent(name);
+const repoImage = name => '/' + encodeURIComponent(name);
 const repositoryPhotos = [
   { title: 'Partida de Laser Tag', category: 'laser-tag', url: repoImage('PHOTO-2026-11-07-14-41-48.jpg') },
   { title: 'Realidad virtual en grupo', category: 'realidad-virtual', url: repoImage('PHOTO-2026-11-07-14-41-48 (1).jpg') },
@@ -104,11 +107,25 @@ const repositoryPhotos = [
   { title: 'Recuerdo de la partida', category: 'paintball', url: repoImage('PHOTO-2026-11-07-14-44-31 (1).jpg') },
   { title: 'Zona de celebración y comida', category: 'cumpleanos', url: repoImage('PHOTO-2026-11-07-14-45-28.jpg') }
 ];
-const { data, error } = await db.from('gallery_photos')
-  .select('id,title,category,storage_path')
-  .eq('is_published', true)
-  .order('sort_order')
-  .order('created_at', { ascending: false });
-photos = [...repositoryPhotos, ...(error ? [] : (data || []))];
+photos=repositoryPhotos;
 render();
+document.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.classList.contains('active'))));
+document.addEventListener('keydown',e=>{
+ if(e.key!=='Tab'||!lightbox.classList.contains('open'))return;
+ const buttons=[...lightbox.querySelectorAll('button')],first=buttons[0],last=buttons[buttons.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
+async function loadPublishedPhotos(){
+ try{
+  const {createClient}=await import('https://esm.sh/@supabase/supabase-js@2');
+  db=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+  const {data,error}=await db.from('gallery_photos').select('id,title,category,storage_path').eq('is_published',true).order('sort_order').order('created_at',{ascending:false}).abortSignal(AbortSignal.timeout(8000));
+  if(error||!data?.length)return;
+  // Keep the current photo index stable while a visitor is using the lightbox.
+  if(lightbox.classList.contains('open')||root.contains(document.activeElement))return;
+  photos=[...repositoryPhotos,...data];render();
+ }catch{/* Local photos and all controls remain available. */}
+}
+loadPublishedPhotos();
 </script></body></html>

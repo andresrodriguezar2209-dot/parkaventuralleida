@@ -11,7 +11,7 @@
   // This observer remains subscribed (unlike the one-shot legacy reveal watcher).
   const revealWatcher = new IntersectionObserver(entries => {
     for (const entry of entries) {
-      entry.target.classList.toggle('visible', entry.isIntersecting);
+      if(entry.isIntersecting){entry.target.classList.add('visible');revealWatcher.unobserve(entry.target);}
     }
   }, { rootMargin: '0px 0px -6% 0px', threshold: 0.065 });
   document.querySelectorAll('.reveal').forEach(el => revealWatcher.observe(el));
@@ -27,7 +27,7 @@
   // Staggered image cards; animate again if scrolling back up.
   const itemWatcher = new IntersectionObserver(entries => {
     for (const entry of entries) {
-      entry.target.classList.toggle('in-view', entry.isIntersecting);
+      if(entry.isIntersecting){entry.target.classList.add('in-view');itemWatcher.unobserve(entry.target);}
     }
   }, { rootMargin: '0px 0px -5% 0px', threshold: 0.06 });
 
@@ -130,13 +130,15 @@
   });
 
   let current = '';
+  const played=new Set();
   let timer = null;
   let enabled = false;
   // Let the first viewport settle; transitions should respond to real navigation.
   window.requestAnimationFrame(() => { enabled = true; });
 
   function play(scene) {
-    if (!enabled || scene.selector === current) return;
+    if (!enabled || scene.selector === current || played.has(scene.selector)) return;
+    played.add(scene.selector);
     current = scene.selector;
     if (timer !== null) clearTimeout(timer);
     num.textContent = scene.num + ' · PARK AVENTURA LLEIDA';
