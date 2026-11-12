@@ -1,7 +1,7 @@
 # Park Aventura Lleida — modelo editorial
 
 Tipo: place. Actividades, cumpleaños y grupos en un parque real; reserva por WhatsApp.
-Sistema: papel #f5f2e9, tinta oliva #20231d, naranja de marca #d64415. Barlow Condensed y DM Sans, conservando la voz deportiva del parque. El naranja y el logotipo existentes tienen prioridad sobre las paletas de demostración de Taste.
+Sistema: papel #f5f2e9, tinta oliva #20231d, naranja de marca #c23d12. Barlow Condensed y DM Sans, conservando la voz deportiva del parque. El naranja y el logotipo existentes tienen prioridad sobre las paletas de demostración de Taste.
 
 ## Material y contenido
 
@@ -30,3 +30,5 @@ Rama de trabajo: mejora/taste-skill.
 Además existe un bundle completo local en /workspace/parkaventuralleida-antes-taste-2026-11-12.bundle.
 
 La vista previa de esta rama es independiente de producción. No se fusiona en main ni se promociona a producción.
+
+El naranja se oscurece ligeramente para garantizar el contraste del texto blanco en botones y cierre. El acceso flotante se retira porque podía tapar información; WhatsApp sigue disponible en ubicación y en la solicitud.

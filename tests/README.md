@@ -1,37 +1,27 @@
-# Pruebas de interacción
+# Verificación del modelo Taste
 
-Requiere Python, Playwright (`pip install playwright`) y Chromium. Si Chromium no está en PATH, indica su ruta con `CHROMIUM_PATH`; también puedes instalar el navegador de Playwright con `python -m playwright install chromium`.
+Requiere Python, Playwright y Chromium. Si el navegador no está en PATH, configura `CHROMIUM_PATH`. Las pruebas aceptan `PARK_TEST_URL`.
 
-Desde la raíz del proyecto, inicia un servidor local:
+Inicia el sitio estático desde la raíz del proyecto:
 
 ```sh
 python -m http.server 4173 --bind 127.0.0.1
 ```
 
-En otra terminal:
+Ejecuta las comprobaciones del modelo actual:
 
 ```sh
+python tests/verify_redesign.py
 python tests/verify_interactions.py
-```
-
-`PARK_TEST_URL` permite elegir otra URL de prueba. Las pruebas comprueban los paneles de precios, la selección de todos los packs, los vídeos, la ausencia de vídeos sin contenido, los filtros de galería, teclado, enlaces internos, menú móvil, desbordamiento y visibilidad de las tarjetas con animaciones activadas y el buscador desplegable. Se ejecutan a 1440, 768 y 390 píxeles.
-
-El servicio de galería se bloquea deliberadamente para probar la recuperación mediante fotos locales. La apertura de WhatsApp se intercepta: no se envían mensajes. Las capturas se guardan en `/tmp`. No valida el inicio de sesión del administrador ni operaciones de escritura en servicios externos.
-
-Para verificar las recomendaciones, las fotos reales y el cálculo orientativo de la reserva:
-
-```sh
 python tests/verify_planner.py
 ```
 
-Comprueba edades, límites de participantes, modalidad, tarifa según el día, transferencia al formulario y recuperación tras corregir datos. Los importes son orientativos y la disponibilidad necesita confirmación del parque.
+`verify_redesign.py` comprueba seis anchuras (1440, 1024, 820, 768, 390 y 320), fuentes locales, botón de reserva visible en la portada, ausencia de desbordamiento, fotografías reales cargadas, las siete actividades, los ocho packs, los dos momentos de Taste y el contraste del cierre. Utiliza movimiento reducido para verificar que la información sigue visible.
 
-Para comprobar la versión con todos los efectos activados:
+`verify_interactions.py` comprueba los siete diálogos de información y precios, ocho packs, tres vídeos, filtros y ampliación de la galería, teclado, enlaces internos, menú móvil, reserva y visibilidad de todas las actividades con movimiento activado. Incluye la galería independiente.
 
-```sh
-python tests/verify_motion.py
-```
+`verify_planner.py` comprueba edades y límites de participantes, modalidades, tarifas según el día, cálculo orientativo, recuperación al corregir datos y coherencia del mensaje de WhatsApp.
 
-Verifica partículas, radar, parallax, la banda de texto en movimiento, los siete efectos de actividad, las transiciones, el envío preparado de la reserva y la ausencia de desbordamiento a 1440, 390 y 320 píxeles. Comprueba también que los bucles se detienen fuera de pantalla y que se respeta la preferencia de movimiento reducido. No envía mensajes.
+La galería remota se bloquea deliberadamente para probar la recuperación mediante fotografías locales. WhatsApp se intercepta: no se envían mensajes. No se escribe en servicios externos ni se prueba el acceso del administrador. Los importes y la disponibilidad requieren confirmación del parque.
 
-La reserva utiliza un solo campo de participantes; número y fecha pueden quedar pendientes. Edad, horario y comentarios están en el apartado opcional. Las pruebas verifican el total al cambiar o borrar participantes, y que los packs con modalidad fija no pidan elegirla de nuevo. Las tres vistas previas de vídeo de la galería usan el mismo reproductor que las actividades.
+`verify_motion.py` se conserva como referencia de la versión anterior; verifica sus partículas, radar y parallax. Ese diseño está preservado en `backup/antes-taste-2026-11-12`. El nuevo modelo utiliza la entrada y los momentos de Taste en lugar de esos efectos; su comprobación es `verify_redesign.py`.
