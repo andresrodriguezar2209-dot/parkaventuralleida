@@ -13,13 +13,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script src="/activity-catalog.js?v=4" defer></script>
-<script src="/interactive.js?v=4" defer></script>
+<script src="/interactive.js?v=8" defer></script>
 <script src="/booking-planner.js?v=7" defer></script>
 <script src="/adventure-finder.js?v=7" defer></script>
 
 <link rel="stylesheet" href="/adventure-finder.css?v=4">
 <link rel="stylesheet" href="/booking-planner.css?v=4">
-<link rel="stylesheet" href="/home.css?v=7">
+<link rel="stylesheet" href="/home.css?v=8">
 <link rel="stylesheet" href="/scroll-effects.css?v=5">
 <link rel="stylesheet" href="/experience-motion.css?v=5">
 <link rel="stylesheet" href="/cinematic.css?v=5">
@@ -31,9 +31,9 @@
 <a class="skip-link" href="#misiones">Saltar al contenido</a>
 <div class="topline" id="scrollProgress" aria-hidden="true"></div><div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 <header class="nav"><div class="wrap navin">
-<a class="brand" href="#inicio" aria-label="Park Aventura Lleida, inicio"><img src="/unnamed-removebg-preview.png" alt="Logo Park Aventura Lleida"><span class="brandname">PARK AVENTURA<small>LLEIDA · EXPERIENCIAS</small></span></a>
+<a class="brand header-brand" href="#inicio" aria-label="Park Aventura Lleida, inicio"><img class="header-logo" src="/logo-park-aventura.png" width="76" height="76" alt="" fetchpriority="high"><span class="header-wordmark"><strong>PARK AVENTURA<span class="brand-period">.</span></strong><span class="header-location">LLEIDA</span></span></a>
 <button class="menu" id="menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
-<nav class="links" id="links"><a href="#misiones">Experiencias</a><a href="#packs">Packs</a><a href="#ubicacion">Encuéntranos</a><a href="#galeria">Galería</a><a class="btn primary" href="#reservar">Reserva ahora <span class="arrow"><svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></nav>
+<nav class="links" id="links" aria-label="Navegación principal"><a href="#misiones">Actividades</a><a href="#packs-cumple">Cumpleaños</a><a href="#packs">Packs</a><a href="#galeria">Galería</a><a href="#ubicacion">Cómo llegar</a><a class="btn primary header-reserve" href="#reservar">Prepara tu plan <svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav>
 </div></header>
 <main>
 
@@ -135,7 +135,7 @@
   <figure><button class="gallery-lightbox-close" id="homeGalleryClose" type="button" aria-label="Cerrar fotografía">×</button><img id="homeGalleryLarge" alt=""></figure>
 </div>
 
-<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#inicio"><img src="/unnamed-removebg-preview.png" alt="Logo Park Aventura Lleida"><span class="brandname">PARK AVENTURA<small>LLEIDA · EXPERIENCIAS</small></span></a><p>© <span id="year"></span> Park Aventura Lleida · La aventura se vive.</p><div class="footer-actions"><a href="mailto:parkaventuralleida@gmail.com">Contacto <svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#inicio"><img src="/logo-park-aventura.png" alt="Logo Park Aventura Lleida"><span class="brandname">PARK AVENTURA<small>LLEIDA · EXPERIENCIAS</small></span></a><p>© <span id="year"></span> Park Aventura Lleida · La aventura se vive.</p><div class="footer-actions"><a href="mailto:parkaventuralleida@gmail.com">Contacto <svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></footer>
 <a class="wa" href="https://wa.me/34722146640?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20reservar%20en%20Park%20Aventura%20Lleida." target="_blank" rel="noopener"><span class="wa-dot"></span> WhatsApp <svg class="icon-arrow" viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true" focusable="false"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 
 <script type="module">
@@ -268,7 +268,7 @@ document.querySelectorAll('[data-activity]').forEach(b=>b.addEventListener('clic
 document.querySelectorAll('[data-pack]').forEach(b=>b.addEventListener('click',()=>selectActivity(b.dataset.pack)));
 const chapterObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.chapter-dot').forEach(dot=>dot.classList.toggle('active',Number(dot.dataset.chapter)===Number(entry.target.dataset.chapterPage)));}})},{threshold:.25});
 chapterPages.forEach(p=>chapterObserver.observe(p));
-if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'✕':'☰';});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';}));}
+if(menu&&links){menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');menu.textContent=open?'✕':'☰';});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú');menu.textContent='☰';}));}
 document.getElementById('year').textContent=new Date().getFullYear();
 const date=document.getElementById('date'),now=new Date();date.min=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);
 

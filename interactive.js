@@ -44,7 +44,7 @@
   }
   if(e.key==='Escape'){
    const menu=document.getElementById('menu'),links=document.getElementById('links');
-   if(links?.classList.contains('open')){links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';menu.focus();}
+   if(links?.classList.contains('open')){links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú');menu.textContent='☰';menu.focus();}
   }
  });
  document.querySelectorAll('[data-gallery-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.classList.contains('active'))));
