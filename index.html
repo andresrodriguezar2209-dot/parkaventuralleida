@@ -680,6 +680,62 @@ img,svg,video,iframe{max-width:100%}
 <script src="/booking-planner.js?v=3" defer></script>
 <script src="/adventure-finder.js?v=3" defer></script>
 <script src="/experience-motion.js?v=3" defer></script>
+
+<style id="park-design-refinement">
+/* Unified activity layout, with dedicated space for media and actions. */
+#misiones .mission-layout{grid-template-columns:minmax(220px,.65fr) minmax(0,1.65fr);gap:clamp(28px,4vw,64px)}
+#misiones .mission-list{display:grid;gap:28px}
+#misiones .mission-card,#misiones .mission-card:nth-child(even){display:grid;grid-template-columns:minmax(0,1fr)!important;border:1px solid #ffffff24;border-radius:16px;background:linear-gradient(145deg,#20201e,#141413);overflow:hidden}
+#misiones .mission-card .mission-info{order:1;padding:28px 30px 30px}
+#misiones .mission-card .mission-photo{order:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:center;padding:0 20px 18px;min-height:0;overflow:hidden}
+#misiones .mission-photo:after{display:none}
+#misiones .mission-photo img{position:relative;inset:auto;grid-column:1/-1;width:calc(100% + 40px);max-width:none;height:auto;aspect-ratio:16/9;object-fit:cover;margin:0 -20px 6px;transform:none}
+#misiones .mission-photo .video-trigger,#misiones .mission-photo .info-trigger{position:relative!important;inset:auto!important;bottom:auto!important;left:auto!important;right:auto!important;top:auto!important;width:100%;max-width:100%;min-height:48px;padding:12px!important;font-size:.65rem!important;letter-spacing:.025em!important;white-space:normal;line-height:1.3;justify-content:center;border-radius:6px}
+#misiones .mission-photo .video-trigger{background:#252523;border-color:#ffffff38}
+#misiones .mission-photo .info-trigger{background:var(--orange)}
+#misiones .mission-info h3{font-size:clamp(2.4rem,4vw,3.8rem);margin:10px 0 12px}
+#misiones .mission-info p{max-width:52ch;margin-bottom:0;color:#c5c2bb;line-height:1.7}
+#misiones .mission-type{color:#ffab70;letter-spacing:.14em}
+#misiones .mission-info:after{opacity:.045}
+#experiencias-rapidas .quick-grid{gap:18px}
+#experiencias-rapidas .quick-card{min-height:280px;border-radius:12px;padding:24px;transition:border-color .25s,transform .25s}
+#experiencias-rapidas .quick-card:before{background-position:var(--photo-position,center)}
+#experiencias-rapidas .quick-card i{display:flex;align-items:center;gap:8px;margin-top:8px}
+#experiencias-rapidas .quick-card span{letter-spacing:.15em}
+#chapter-reserva{min-height:0;height:auto;padding:72px 0}
+#chapter-reserva .chapter-inner{padding-block:0}
+#chapter-reserva .chapter-hint,#chapter-reserva .chapter-count,#chapter-reserva .chapter-next{display:none}
+#chapter-reserva h2{font-size:clamp(2.8rem,6vw,5.5rem)}
+#chapter-reserva .chapter-actions{margin-bottom:0}
+.reviews-score,.review-card{border-radius:12px}
+:where(a,button,input,select,textarea):focus-visible{outline:3px solid #ffae70;outline-offset:5px}
+@media(min-width:1100px){
+#experiencias-rapidas .quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+#experiencias-rapidas .quick-card:first-child{grid-column:span 2}
+#experiencias-rapidas .quick-card:first-child strong{font-size:4rem}
+}
+@media(max-width:800px){
+#misiones .mission-layout{grid-template-columns:minmax(0,1fr)!important}
+#misiones .mission-intro{position:static;max-width:620px}
+#misiones .mission-number{display:none}
+#misiones .mission-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+#misiones .mission-card .mission-info{padding:22px}
+#misiones .mission-photo img{aspect-ratio:4/3}
+#experiencias-rapidas .quick-card{min-height:230px;padding:18px}
+}
+@media(max-width:580px){
+#misiones .mission-list{grid-template-columns:minmax(0,1fr)}
+#misiones .mission-card .mission-photo{padding:0 14px 14px;gap:8px}
+#misiones .mission-photo img{width:calc(100% + 28px);margin-inline:-14px;aspect-ratio:4/3}
+#misiones .mission-card .mission-info{padding:22px}
+#misiones .mission-photo .video-trigger,#misiones .mission-photo .info-trigger{font-size:.61rem!important;padding:10px 7px!important}
+#experiencias-rapidas .quick-grid{grid-template-columns:minmax(0,1fr)!important;gap:14px}
+#experiencias-rapidas .quick-card{min-height:260px;padding:24px}
+#chapter-reserva{padding:48px 0}
+}
+@media(prefers-reduced-motion:reduce){#misiones .mission-card,#experiencias-rapidas .quick-card{transition:none!important;transform:none!important}}
+</style>
+
 </head>
 <body>
 <div class="topline" id="scrollProgress" aria-hidden="true"></div><div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
