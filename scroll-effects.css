@@ -1,0 +1,167 @@
+/* Park Aventura Lleida · cinematic bidirectional scroll motion
+   Additive visual effects only: no content, prices, navigation or gallery layout changes. */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Staged, reversible reveals. The existing .visible class remains the source of truth. */
+  body.scroll-fx .reveal {
+    opacity: 0;
+    transform: translate3d(0, 58px, 0) scale(.977);
+    filter: blur(7px);
+    transition: opacity .85s cubic-bezier(.16,1,.3,1),
+                transform 1.04s cubic-bezier(.16,1,.3,1),
+                filter .8s ease;
+  }
+  body.scroll-fx .reveal.visible {
+    opacity: 1;
+    transform: translate3d(0,0,0) scale(1);
+    filter: blur(0);
+  }
+  body.scroll-fx .reveal.d1 { transition-delay: 95ms; }
+  body.scroll-fx .reveal.d2 { transition-delay: 185ms; }
+  body.scroll-fx .reveal.d3 { transition-delay: 275ms; }
+  body.scroll-fx .mission-card.reveal:not(.visible) {
+    transform: translate3d(55px,65px,0) scale(.955);
+  }
+  body.scroll-fx .mission-card.reveal:nth-child(even):not(.visible) {
+    transform: translate3d(-55px,65px,0) scale(.955);
+  }
+  /* Preserve all original hover and featured-pack treatments. */
+  body.scroll-fx .mission-card.reveal.visible:hover { transform: translateX(-6px); }
+  body.scroll-fx .pack.reveal.visible:hover { transform: translateY(-9px); }
+  body.scroll-fx .pack.featured.reveal.visible { transform: translateY(-12px); }
+  body.scroll-fx .pack.featured.reveal.visible:hover { transform: translateY(-20px); }
+  body.scroll-fx .review-card.reveal.visible:hover,
+  body.scroll-fx .group-card.reveal.visible:hover { transform: translateY(-7px); }
+
+  /* The first three chapters enter like editorial slides, in both directions. */
+  body.scroll-fx .chapter .chapter-inner > .chapter-label,
+  body.scroll-fx .chapter .chapter-inner > h1,
+  body.scroll-fx .chapter .chapter-inner > h2,
+  body.scroll-fx .chapter .chapter-inner > p,
+  body.scroll-fx .chapter .chapter-inner > .chapter-actions {
+    opacity: 0;
+    transform: translate3d(0,54px,0);
+    filter: blur(6px);
+    transition: opacity .78s ease, transform 1s cubic-bezier(.16,1,.3,1), filter .85s ease;
+  }
+  body.scroll-fx .chapter.fx-active .chapter-inner > .chapter-label,
+  body.scroll-fx .chapter.fx-active .chapter-inner > h1,
+  body.scroll-fx .chapter.fx-active .chapter-inner > h2,
+  body.scroll-fx .chapter.fx-active .chapter-inner > p,
+  body.scroll-fx .chapter.fx-active .chapter-inner > .chapter-actions {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  body.scroll-fx .chapter .chapter-inner > .chapter-label { transition-delay: 25ms; }
+  body.scroll-fx .chapter .chapter-inner > h1,
+  body.scroll-fx .chapter .chapter-inner > h2 { transition-delay: 120ms; }
+  body.scroll-fx .chapter .chapter-inner > p { transition-delay: 210ms; }
+  body.scroll-fx .chapter .chapter-inner > p.hero-slogan { transition-delay: 190ms; }
+  body.scroll-fx .chapter .chapter-inner > .chapter-actions { transition-delay: 340ms; }
+
+  /* Photos and cards build a more dramatic sequence instead of appearing together. */
+  body.scroll-fx .motion-item {
+    opacity: 0;
+    transform: translate3d(0,63px,0) scale(.955);
+    filter: blur(5px);
+    transition: opacity .8s cubic-bezier(.16,1,.3,1),
+                transform .98s cubic-bezier(.16,1,.3,1),
+                filter .85s ease;
+    transition-delay: var(--fx-delay, 0ms);
+  }
+  body.scroll-fx .motion-item.in-view {
+    opacity: 1;
+    transform: translate3d(0,0,0) scale(1);
+    filter: none;
+  }
+  body.scroll-fx .quick-card.motion-item:not(.in-view) {
+    clip-path: inset(0 0 13% 0 round 2px);
+  }
+  body.scroll-fx .quick-card.motion-item {
+    transition-property: opacity,transform,filter,clip-path,border-color;
+    transition-duration: .8s,.98s,.85s,1.02s,.3s;
+    clip-path: inset(0 0 0 0 round 2px);
+  }
+  body.scroll-fx .quick-card.motion-item.in-view:hover { transform: translateY(-6px) scale(1.015); }
+  body.scroll-fx #galeria .home-gallery-item.motion-item.in-view:hover { transform: translateY(-4px) scale(1.015); }
+  body.scroll-fx .faq details.motion-item { transform: translate3d(0,28px,0); }
+  body.scroll-fx .faq details.motion-item.in-view { transform: none; }
+
+  /* Real scroll-parallax instead of autoplay-only movement. */
+  body.scroll-fx #inicio.chapter .chapter-bg {
+    animation: none !important;
+    transform: translate3d(0,var(--fx-shift,0px),0) scale(1.105);
+    transition: transform .2s linear;
+    will-change: transform;
+  }
+  body.scroll-fx .fx-parallax-image {
+    transform: translate3d(0,var(--fx-shift,0px),0) scale(1.12);
+    transition: transform .21s linear, filter .5s ease;
+  }
+  body.scroll-fx .mission-card:hover .mission-photo .fx-parallax-image,
+  body.scroll-fx .feature-visual:hover .fx-parallax-image {
+    transform: translate3d(0,var(--fx-shift,0px),0) scale(1.18);
+    filter: saturate(1.18);
+  }
+  body.scroll-fx .quick-card::before {
+    transform: translate3d(0,var(--fx-shift,0px),0) scale(1.10);
+    transition: transform .25s linear,filter .4s ease;
+  }
+  body.scroll-fx .quick-card:hover::before {
+    transform: translate3d(0,var(--fx-shift,0px),0) scale(1.18);
+    filter: saturate(1.2);
+  }
+
+  /* A directional orange underline travels in as each new section takes focus. */
+  body.scroll-fx .section-heading h2::after,
+  body.scroll-fx .quick-heading h2::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: clamp(75px,10vw,145px);
+    margin-top: 20px;
+    background: linear-gradient(90deg,#ff650d,#ffd39f);
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: left;
+    transition: transform .95s cubic-bezier(.16,1,.3,1) .22s,opacity .6s ease .22s;
+    box-shadow: 0 0 20px #ff650d6b;
+  }
+  body.scroll-fx .fx-active .section-heading h2::after,
+  body.scroll-fx .quick-activities.fx-active .quick-heading h2::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  body.scroll-fx .topline {
+    height: 4px;
+    box-shadow: 0 0 20px #ff650dbb;
+  }
+  body.scroll-fx .nav.fx-scrolled {
+    box-shadow: 0 10px 35px #0007,0 1px 0 #ff650d2f;
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  body.scroll-fx .reveal { filter: none; transform: translate3d(0,28px,0) scale(.99); transition-duration:.65s; }
+  body.scroll-fx .reveal.visible { transform: none; }
+  body.scroll-fx .mission-card.reveal:not(.visible),
+  body.scroll-fx .mission-card.reveal:nth-child(even):not(.visible) { transform: translate3d(0,35px,0) scale(.98); }
+  body.scroll-fx .motion-item { filter:none; transform:translate3d(0,30px,0) scale(.985); transition-duration:.65s; }
+  body.scroll-fx .motion-item.in-view { transform:none; }
+  body.scroll-fx #inicio.chapter .chapter-bg,
+  body.scroll-fx .fx-parallax-image,
+  body.scroll-fx .quick-card::before { transition-duration:.45s; }
+  body.scroll-fx .pack.featured.reveal.visible { transform: none; }
+  body.scroll-fx .pack.featured.reveal.visible:hover { transform: translateY(-5px); }
+  body.scroll-fx .chapter .chapter-inner > .chapter-label,
+  body.scroll-fx .chapter .chapter-inner > h1,
+  body.scroll-fx .chapter .chapter-inner > h2,
+  body.scroll-fx .chapter .chapter-inner > p,
+  body.scroll-fx .chapter .chapter-inner > .chapter-actions { filter:none; transform:translate3d(0,30px,0);transition-duration:.75s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-item,.reveal { opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important; }
+  #inicio.chapter .chapter-bg { animation:none!important; }
+}
