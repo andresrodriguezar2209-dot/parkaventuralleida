@@ -81,3 +81,13 @@
 @media(max-width:800px){.nav{height:80px}.navin{gap:18px}.brand .header-logo{width:64px;height:64px}.header-brand{gap:11px}.header-wordmark strong{font-size:1.55rem}.header-location{font-size:.55rem;letter-spacing:.4em}.nav .links{top:80px;gap:0;padding:14px 20px 22px;max-height:calc(100svh - 80px);background:linear-gradient(145deg,#1b1e17,#10120f);border-bottom:1px solid #ffad7340;box-shadow:0 18px 35px #0006}.nav .links>a:not(.btn){padding:16px 7px;border-bottom:1px solid #ffffff10;font-size:.88rem}.nav .links>a:not(.btn):after{display:none}.nav .header-reserve{margin:18px 0 0;min-height:50px;font-size:.72rem;justify-content:space-between;padding-inline:17px}.links.open{animation:header-menu-in .25s var(--ease) both}#inicio{min-height:calc(100svh - 80px)}}
 @media(max-width:380px){.navin{width:calc(100% - 28px);gap:10px}.brand .header-logo{width:58px;height:58px}.header-brand{gap:8px}.header-wordmark strong{font-size:1.35rem}.header-location{font-size:.5rem}.nav .menu{width:42px;min-width:42px;height:44px}.header-wordmark{gap:6px}}
 @keyframes header-menu-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* The group's optional pica-pica, shown with the client's own photographs. */
+.team-meal{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.65fr);align-items:center;gap:40px;margin-top:28px;padding-top:28px;border-top:1px solid var(--line)}
+.team-meal-copy h4{margin:0 0 20px;font:800 clamp(2rem,3.2vw,3rem)/1 'Barlow Condensed',sans-serif;letter-spacing:-.025em}
+.team-meal-copy p{margin:0;font-size:.83rem;line-height:1.8}
+.team-meal-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;min-width:0}
+.team-meal-photo.home-gallery-item{aspect-ratio:3/4;min-width:0;width:100%;cursor:zoom-in}
+.team-meal-photo img{width:100%;height:100%;object-fit:contain}
+@media(max-width:800px){.team-meal{grid-template-columns:1fr;gap:24px}.team-meal-copy{max-width:580px}}
+@media(max-width:580px){.team-meal{margin-top:24px;padding-top:24px}.team-meal-photos{gap:10px}.team-meal-copy p{font-size:.8rem}}

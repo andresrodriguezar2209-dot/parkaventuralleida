@@ -10,7 +10,7 @@ with sync_playwright() as p:
   page.route('https://esm.sh/**',lambda r:r.abort())
   page.goto(BASE_URL,wait_until='domcontentloaded')
   page.wait_for_function("document.querySelectorAll('.home-gallery-item').length>0")
-  assert page.locator('#inicio h1').inner_text()=='PARK\nAVENTURA\nLLEIDA.'
+  assert ' '.join(page.locator('#inicio h1').inner_text().split())=='PARK AVENTURA LLEIDA.'
   page.locator('.finder-disclosure > summary').click()
   for key in ['all','action','virtual','group','all']:
    page.locator('[data-plan="'+key+'"]').click()
@@ -81,7 +81,7 @@ with sync_playwright() as p:
   assert not errors,errors
   print(json.dumps({'width':width,'prices':7,'packButtons':8,'videos':3,'gallery':'offline passed','booking':'passed','anchors':'passed','errors':errors}),flush=True)
   page.goto(BASE_URL+'/galeria.html',wait_until='domcontentloaded')
-  page.wait_for_function("document.querySelectorAll('.item').length===15")
+  page.wait_for_function("document.querySelectorAll('.item').length===17")
   page.locator('.item').first.click();initial=page.locator('#lightboxImage').get_attribute('src')
   page.locator('#galleryNext').click();assert page.locator('#lightboxImage').get_attribute('src')!=initial
   page.keyboard.press('ArrowLeft');assert page.locator('#lightboxImage').get_attribute('src')==initial
