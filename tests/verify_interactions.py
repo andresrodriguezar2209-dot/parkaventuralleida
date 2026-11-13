@@ -49,7 +49,7 @@ with sync_playwright() as p:
   assert page.locator('#people').count()==0
   assert page.locator('#phone').count()==0
   assert page.locator('.video-trigger:disabled').count()==0
-  assert page.locator('.video-trigger').count()==6
+  assert page.locator('.video-trigger').count()==7
   assert page.locator('#activity option').filter(has_text='Misión Galáctica').count()==0
   for button in page.locator('[data-gallery-category]').all():
    button.click()
