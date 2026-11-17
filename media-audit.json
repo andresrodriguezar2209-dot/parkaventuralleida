@@ -1,0 +1,682 @@
+{
+  "folderId": "19YtBhKDTGsH-1-miuMeZv9f1k8xRn1bE",
+  "review": "Revisión visual de las 36 fotos y los 6 vídeos; montajes revisados por escenas. Originales conservados en Drive y /workspace/media-originals/drive.",
+  "files": [
+    {
+      "index": 0,
+      "original": "db36f542-14a6-4692-a3c1-71d0059b0f1c.mp4",
+      "driveId": "110KQhqrp7KqUUcg_o6F2PPuI17OfFJfW",
+      "sha256": "5d47e2869fdce8a9f956d5dbf3bfd99833e164c9c8b2f05c55995a5f1a638803",
+      "bytes": 5073987,
+      "published": true,
+      "category": "realidad-virtual",
+      "observation": "Simuladores individuales VR: conducción, vuelo y otras máquinas."
+    },
+    {
+      "index": 1,
+      "original": "6e9ee42c-ff56-4003-821c-5768ca06ee91.mp4",
+      "driveId": "1S2UBNIpmYTNZG9wKE1CayOs5d3ZwSZ2j",
+      "sha256": "301e377d0717ed6f8f03cb8aba7b27dfad2f8a2bf88588f6313dc96bc37d5b24",
+      "bytes": 4179369,
+      "published": true,
+      "category": "mixto",
+      "observation": "Montaje de Paintball, toro mecánico, Laser Tag y simuladores VR. Se publican extractos separados."
+    },
+    {
+      "index": 2,
+      "original": "b486d2a4-f337-4410-90e4-28b750d6b97e.mp4",
+      "driveId": "1bGKrH4zfOqgwgQ0NNtAad4Fs1BECMAC7",
+      "sha256": "691961642c5badc4367c0d0952632efdecb1dd0bdce85f8deeec7f9b99ae7cd1",
+      "bytes": 3780290,
+      "published": true,
+      "category": "mixto",
+      "observation": "Montaje de Laser Tag, Battle Start, Paintball, toro y simuladores. Se publican extractos separados."
+    },
+    {
+      "index": 3,
+      "original": "ab7d9999-50c9-4763-83af-e5f0942f5f0d.mp4",
+      "driveId": "1L4MxMshXW4TZ-cGcP7Wt8TBpLwo9tTy9",
+      "sha256": "ef887b9aa1844329526883300d417b5cd415634b6fca7f8cd7f5ce6d37120383",
+      "bytes": 3780290,
+      "published": false,
+      "category": "mixto",
+      "reason": "Mismo montaje visual y audio que b486d2a4, distinta metadata del contenedor; se publica una sola copia.",
+      "observation": "Revisado visualmente: idénticas escenas en idénticos tiempos al archivo 2."
+    },
+    {
+      "index": 4,
+      "original": "8d020306-5333-4708-aa02-09d70ce2c5fd.mp4",
+      "driveId": "1asRw66FTpYoCEOyKsQja9Iez8DzovoFA",
+      "sha256": "4ffdbb6aceac125139b28cbff9b01d2e6401c68450a24237a56d63e3d753a6e7",
+      "bytes": 3248477,
+      "published": true,
+      "category": "paintball",
+      "observation": "Campo y participantes de Paintball. Se omite la cartela final del editor."
+    },
+    {
+      "index": 5,
+      "original": "8a1992a5-351c-44d1-a463-c87e50847c43.mp4",
+      "driveId": "1F9MfrL5_akDXFoIITPBYkLMAIMSf4_p0",
+      "sha256": "d1b3641f81d9f1241bb94dd5b19cd6705964aadfcf3cc5ccf02dd42557312d83",
+      "bytes": 1537605,
+      "published": true,
+      "category": "realidad-virtual",
+      "observation": "Simulador de movimiento VR."
+    },
+    {
+      "index": 6,
+      "original": "IMG_0807.JPG",
+      "driveId": "18XveZuX1chTWkguZTQVmRXeOf0Ywq8N8",
+      "sha256": "f19f354a0ef64ccb3a06dce192a3963c6c024f3069f8d32736ffc90801d9f3ea",
+      "bytes": 597468,
+      "category": "paintball",
+      "observation": "Equipo rojo de Paintball en el campo",
+      "width": 1600,
+      "height": 1200,
+      "published": true,
+      "url": "/assets/experiences/paintball-06-960.webp"
+    },
+    {
+      "index": 7,
+      "original": "IMG_0808.JPG",
+      "driveId": "1rnZ4VrrhMm4vhwNYrP5UyFVkXq9DtbIU",
+      "sha256": "6aa68d1f2aadaca06e6fbddf839f1b6dab0edb712ae30508280234bae28ce702",
+      "bytes": 584197,
+      "category": "paintball",
+      "observation": "Equipo azul de Paintball entre los refugios",
+      "width": 1600,
+      "height": 1200,
+      "published": true,
+      "url": "/assets/experiences/paintball-07-960.webp"
+    },
+    {
+      "index": 8,
+      "original": "IMG_0809.JPG",
+      "driveId": "17MiMvBCPjhT8g6xRf2gdCa_4DYa6oN0s",
+      "sha256": "b2c50efea37f318002647a08e7773edd360ebf8607337797b4ae41c0dd6c68ba",
+      "bytes": 445040,
+      "category": "paintball",
+      "observation": "Grupo de Paintball después de la partida",
+      "width": 1600,
+      "height": 1200,
+      "published": true,
+      "url": "/assets/experiences/paintball-08-960.webp"
+    },
+    {
+      "index": 9,
+      "original": "749d5aa7-18f2-4450-84cb-7643fed061e3.jpg",
+      "driveId": "1OK3ZOTcqWOgRAfzi3iHatD976OWXwqvL",
+      "sha256": "7b09bdcfb4c61cb7b5134a2ed00679031faa452a0a35d1490304dcc46a708bf1",
+      "bytes": 393413,
+      "category": "humor-amarillo",
+      "observation": "Vista aérea del circuito de Humor Amarillo y sus obstáculos",
+      "width": 1672,
+      "height": 941,
+      "published": true,
+      "url": "/assets/experiences/humor-amarillo-09-960.webp"
+    },
+    {
+      "index": 10,
+      "original": "1aeb6394-78a9-4b55-a07e-d8a2f87d701b.jpg",
+      "driveId": "1tL0geBsd_Vs4kWpyJVlIRmdge4_1GmZb",
+      "sha256": "c5514c555fcee6caa35dc4236e1c7f0c94305432582c46de93aff4ab235c8ba2",
+      "bytes": 362509,
+      "category": "humor-amarillo",
+      "observation": "Obstáculo de agua e hinchables de Humor Amarillo",
+      "width": 905,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/humor-amarillo-10-960.webp"
+    },
+    {
+      "index": 11,
+      "original": "IMG_0806.JPG",
+      "driveId": "1DsiXugPMfLalNT5AbgC6LmbimxMPdx5X",
+      "sha256": "325b9ac25883720b59e065a7246c0b486ed792eb8467109df6976f38fbe512d1",
+      "bytes": 362443,
+      "category": "instalaciones",
+      "observation": "Photocall de Park Aventura Lleida",
+      "width": 1600,
+      "height": 1200,
+      "published": true,
+      "url": "/assets/experiences/instalaciones-11-960.webp"
+    },
+    {
+      "index": 12,
+      "original": "5532109b-d071-4f03-8eab-8b6dad6b71b5.jpg",
+      "driveId": "1NjZVoBracTkpcXHacaLqooKMidJFDn9y",
+      "sha256": "4f2c1ac18a46f0724c5a7243f1f9d3037dc061c76ac07d09cb925515ef294e02",
+      "bytes": 290997,
+      "category": "paintball",
+      "observation": "Participantes equipados para Paintball en la terraza",
+      "width": 1125,
+      "height": 1503,
+      "published": true,
+      "url": "/assets/experiences/paintball-12-960.webp"
+    },
+    {
+      "index": 13,
+      "original": "IMG_0819.JPG",
+      "driveId": "1cD_ToWVs8nh6yjyznUub812emCm4gwk_",
+      "sha256": "432f59be9a6539d66a8b409f604717644b545aa1bd1466acebe531b74da46a16",
+      "bytes": 284708,
+      "category": "cumpleanos",
+      "observation": "Mesa de celebración preparada en la sala",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/cumpleanos-13-960.webp"
+    },
+    {
+      "index": 14,
+      "original": "IMG_0814.JPG",
+      "driveId": "1frE_j6gFFSPem6pXUj5ylwLngJmmIZLZ",
+      "sha256": "833a6e84eb3b5823cbddef20ab34010f5606158af2cae1e75f10384bcbe1addf",
+      "bytes": 243737,
+      "category": "laser-tag",
+      "observation": "Participantes de Laser Tag entre obstáculos iluminados",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-14-960.webp"
+    },
+    {
+      "index": 15,
+      "original": "IMG_0798.JPG",
+      "driveId": "1DBevOjv9x1pLCnEF0An6bAExDbY3uJoX",
+      "sha256": "64c792edde0d31754f6ca313b2d5c713f827264ebda0522b5eaa6c5a78f39409",
+      "bytes": 234484,
+      "category": "cumpleanos",
+      "observation": "Merienda preparada para un cumpleaños",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/cumpleanos-15-960.webp"
+    },
+    {
+      "index": 16,
+      "original": "IMG_0818.JPG",
+      "driveId": "1QPkWjwZEEEOUrYGX9jjcvQ8FhWbESek5",
+      "sha256": "1ecd306a2dfe6631324a81ca999b7cac9d62e66969c0cef7a914411f23e7d3dd",
+      "bytes": 234218,
+      "category": "cumpleanos",
+      "observation": "Mesa de celebración preparada en la sala",
+      "width": 900,
+      "height": 1600,
+      "published": false,
+      "reason": "Misma fotografía que archivo 13, distinta exportación; se evita duplicarla."
+    },
+    {
+      "index": 17,
+      "original": "b51a6141-d491-459f-aab6-6630062a775e.jpg",
+      "driveId": "1byV-f4hIDq7EY2nlO8bYWvcZRDuvfDjY",
+      "sha256": "3c6adb232e07f7a8304f1fa4c06ab809380fe6ad3739f543ac417e333f6f5705",
+      "bytes": 194711,
+      "category": "humor-amarillo",
+      "observation": "Atracción de giros de Humor Amarillo",
+      "width": 904,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/humor-amarillo-17-960.webp"
+    },
+    {
+      "index": 18,
+      "original": "IMG_0802.JPG",
+      "driveId": "1DX-OM-1RSSXfnW5Ha1FlYQJLaIoGXXbA",
+      "sha256": "f0d1a87f58182df8b78b1e9e09b5e554b61c069e81fca46f757390283d4f6313",
+      "bytes": 187656,
+      "category": "laser-tag",
+      "observation": "Jugador de Laser Tag en el circuito interior",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-18-960.webp"
+    },
+    {
+      "index": 19,
+      "original": "IMG_0816.JPG",
+      "driveId": "1sHarthHHRGVfUrkWnXUjRebLhk7wUb8F",
+      "sha256": "28e7b579d2aa5fd54e9d3774d51fc8d47f971a0a6debb6875918e37293071b97",
+      "bytes": 170054,
+      "category": "laser-tag",
+      "observation": "Recorrido de Laser Tag con iluminación fluorescente",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-19-960.webp"
+    },
+    {
+      "index": 20,
+      "original": "IMG_0821.JPG",
+      "driveId": "1zmR6jLPtrF9kdfS-mkWGjKe2J3tvzI38",
+      "sha256": "cde7f0ca649522857eb5a461d4dc8d42eda3493b301d4d00e8b848512978e1b4",
+      "bytes": 166392,
+      "category": "laser-tag",
+      "observation": "Obstáculos y escenario del circuito de Laser Tag",
+      "width": 1600,
+      "height": 900,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-20-960.webp"
+    },
+    {
+      "index": 21,
+      "original": "IMG_0817.JPG",
+      "driveId": "1fESQ-UhAEP4fHDdO-E2fFSxLBfiulbcB",
+      "sha256": "3d629c97e9d50abda57dedf95142a8d692e05d0c40831fed04deab5d5a1f2861",
+      "bytes": 154422,
+      "category": "cumpleanos",
+      "observation": "Tarta de cumpleaños en la sala de celebraciones",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/cumpleanos-21-960.webp"
+    },
+    {
+      "index": 22,
+      "original": "IMG_0820.JPG",
+      "driveId": "1_kUUxZAIktC3VRmLFMH8E-BhGy778WqO",
+      "sha256": "494d8532073f5edf3cb3b25e4ef50462a6aa5bfc53118cb0b9b7c5062a329228",
+      "bytes": 134754,
+      "category": "realidad-virtual",
+      "observation": "Simulador de moto de realidad virtual",
+      "width": 900,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/realidad-virtual-22-960.webp"
+    },
+    {
+      "index": 23,
+      "original": "1ea4c4dc-7469-4967-848c-7019c67faacb.jpg",
+      "driveId": "13DjXYXTwA3evbzmyRyY6Z7S0diu9dRW0",
+      "sha256": "f066801be0476af54a2f4b091e09934adb969f91a0ce58bf0220d14e0bbbb165",
+      "bytes": 134730,
+      "category": "humor-amarillo",
+      "observation": "Participante en el toro mecánico de Humor Amarillo",
+      "width": 901,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/humor-amarillo-23-960.webp"
+    },
+    {
+      "index": 24,
+      "original": "IMG_0800.JPG",
+      "driveId": "1VyeJ-OimcdXJjgsfzZmbUHHYWpOGSURf",
+      "sha256": "885c9862df31f0c4c808bc602ac6396498852f7879cb3546ace1fa2a4beeb349",
+      "bytes": 124468,
+      "category": "laser-tag",
+      "observation": "Partida de Laser Tag bajo luz ultravioleta",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-24-960.webp"
+    },
+    {
+      "index": 25,
+      "original": "897de2ab-929f-443a-912f-36bd39e26e4b.jpg",
+      "driveId": "15V64tqRMyw0IlEdaZ1pRFlxoHKjhP9p7",
+      "sha256": "73d9135667e5c83f22af7e449c091dec6b66614b15c7d12cf7f6ce618dcace36",
+      "bytes": 115385,
+      "category": "laser-tag",
+      "observation": "Partida de Laser Tag bajo luz ultravioleta",
+      "width": 1200,
+      "height": 1600,
+      "published": false,
+      "reason": "Misma fotografía que archivo 24, distinta exportación; se evita duplicarla."
+    },
+    {
+      "index": 26,
+      "original": "3c648e26-2c60-4840-9b94-150873461010.jpg",
+      "driveId": "1X2VvQoanSX7ayyd_U83GHbkVuKu0JyV4",
+      "sha256": "394d61faccc2cb86c8a4a1db17d2404945de5e142aa5861cb6153c3a24b654dd",
+      "bytes": 99851,
+      "category": "humor-amarillo",
+      "observation": "Participante en un obstáculo hinchable de Humor Amarillo",
+      "width": 738,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/humor-amarillo-26-960.webp"
+    },
+    {
+      "index": 27,
+      "original": "IMG_0811.JPG",
+      "driveId": "1JxbNhsxHO6m_xt94H7Prh5JYrlWmdoAQ",
+      "sha256": "c5e032f82f92546d88c1f66f06381915e258bc098da7582130a81021eef5be65",
+      "bytes": 98733,
+      "category": "battle-start",
+      "observation": "Grupo de Battle Start con visores y mandos",
+      "width": 856,
+      "height": 1518,
+      "published": true,
+      "url": "/assets/experiences/battle-start-27-960.webp"
+    },
+    {
+      "index": 28,
+      "original": "IMG_0801.JPG",
+      "driveId": "1kLhC6o6wUnpwcud3ZhyGO9ZJNnTRnzSn",
+      "sha256": "9b857eeb9398b794a5794c667b07fd6728584f50a88c2dcf5ae5d33dc3ae9464",
+      "bytes": 95635,
+      "category": "laser-tag",
+      "observation": "Jugador de Laser Tag junto a una barrera",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-28-960.webp"
+    },
+    {
+      "index": 29,
+      "original": "IMG_0815.JPG",
+      "driveId": "1SHtBybasv_MYhsH8LJ0Kt76kXLiTRclo",
+      "sha256": "81eb8aa4373963fc535dfe27a6433c245ba8aa4a30c61e5b16df7d313cb831ad",
+      "bytes": 94013,
+      "category": "laser-tag",
+      "observation": "Jugadores de Laser Tag en el escenario interior",
+      "width": 1200,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-29-960.webp"
+    },
+    {
+      "index": 30,
+      "original": "IMG_0810.JPG",
+      "driveId": "11ui5d7Ty1AvOmDXeFlSwYP5lK46U9gCv",
+      "sha256": "70e97cb95fb2d6fc19dbafed464c135dc7cc0e760848eb43269e7fcc11ede0cb",
+      "bytes": 78334,
+      "category": "realidad-virtual",
+      "observation": "Simulador de conducción de realidad virtual",
+      "width": 857,
+      "height": 1519,
+      "published": true,
+      "url": "/assets/experiences/realidad-virtual-30-960.webp"
+    },
+    {
+      "index": 31,
+      "original": "741f6de0-af71-4b63-9097-628e6ecfe2f9.jpg",
+      "driveId": "1nDTbl788jBBM1y2_MUan6ipmyjkv5RCK",
+      "sha256": "da8937b8d5244dbc6c838433ba1e1d4f6854d911827f2cc2f1ce87fdf12ce4cb",
+      "bytes": 78171,
+      "category": "battle-start",
+      "observation": "Participantes de Battle Start en la zona de juego libre",
+      "width": 738,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/battle-start-31-960.webp"
+    },
+    {
+      "index": 32,
+      "original": "IMG_0804.JPG",
+      "driveId": "1kmMSsdg8XzD8JLpjnOTouTALpGih1-tW",
+      "sha256": "c5009048717dd7add668eac8ea8b5798fd7da00d1d39180aa32bc620a4e9faca",
+      "bytes": 77421,
+      "category": "realidad-virtual",
+      "observation": "Participante en el simulador de vuelo VR",
+      "width": 998,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/realidad-virtual-32-960.webp"
+    },
+    {
+      "index": 33,
+      "original": "d0ca005f-c451-43e9-b0a8-d60f6e5f6a61.jpg",
+      "driveId": "1Ti_UhX0h4m835Ej4wam76qCTnr5o_K-F",
+      "sha256": "a063a5199c2cf26d377effc42d114854ac0df838d835332b96757b97b9970f95",
+      "bytes": 76620,
+      "category": "battle-start",
+      "observation": "Jugador de Battle Start con visor y mandos",
+      "width": 738,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/battle-start-33-960.webp"
+    },
+    {
+      "index": 34,
+      "original": "c99522ae-6d39-40bc-af77-cc2eb0cf23a7.jpg",
+      "driveId": "1Huav-rfFpCHut6HPIIb3XW6CB3i2mSpd",
+      "sha256": "e18226fdc0124f74b1d970d9595f824b6a1a6461111134745dc0e94c00177f13",
+      "bytes": 71778,
+      "category": "realidad-virtual",
+      "observation": "Simulador de conducción de realidad virtual",
+      "width": 857,
+      "height": 1519,
+      "published": false,
+      "reason": "Misma fotografía que archivo 30, distinta exportación; se evita duplicarla."
+    },
+    {
+      "index": 35,
+      "original": "cd8ccc10-0bc7-44dd-b1d4-3a16ae4a6f1f.jpg",
+      "driveId": "1QuiUG4f8mAv5-Nta6D4zfc5GBceVtaxm",
+      "sha256": "4a9860f1aa257866cf89799db1ddbf954bfd8588082cac0664691a9a6df70c6d",
+      "bytes": 70480,
+      "category": "realidad-virtual",
+      "observation": "Simuladores individuales de realidad virtual",
+      "width": 906,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/realidad-virtual-35-960.webp"
+    },
+    {
+      "index": 36,
+      "original": "93eb4844-9c42-49b6-b8b3-8693af82d645.jpg",
+      "driveId": "1AFxcKu9A3vvgGbICsrr70IYYrY1PUiTK",
+      "sha256": "274b3fdd2a1a0afbebc6715d670f22caa6718e8f28209077308e104c48729be0",
+      "bytes": 58509,
+      "category": "realidad-virtual",
+      "observation": "Participantes en los simuladores de realidad virtual",
+      "width": 902,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/realidad-virtual-36-960.webp"
+    },
+    {
+      "index": 37,
+      "original": "88294b29-c84e-4bc1-89a6-44d34b4267b3.jpg",
+      "driveId": "1s14JoiU1p1PErbJr91tLEaLYp4C39WFg",
+      "sha256": "15cd57b2eadc8e6a8d361baae5dc15eca33f3c688cdde87d0a94476f10e19142",
+      "bytes": 56020,
+      "category": "laser-tag",
+      "observation": "Jugador de Laser Tag junto a los obstáculos",
+      "width": 889,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-37-960.webp"
+    },
+    {
+      "index": 38,
+      "original": "fedf0f49-728c-49b8-b7b5-528af05da021.jpg",
+      "driveId": "1dCReucyXlkPcxNAoMZzwSihF4ke0A2ED",
+      "sha256": "1816813a2c5fa3bb50aa64f93c01bdfa3831df812f08166d72d953a9fa3b3630",
+      "bytes": 53501,
+      "category": "realidad-virtual",
+      "observation": "Simulador de vuelo de realidad virtual en acción",
+      "width": 857,
+      "height": 1532,
+      "published": true,
+      "url": "/assets/experiences/realidad-virtual-38-960.webp"
+    },
+    {
+      "index": 39,
+      "original": "072ec2dc-9763-4b7e-9aea-b168d10f4f78.jpg",
+      "driveId": "1ZKnaNCJkDX5JRD-01tT1LEHH2KaUKLnK",
+      "sha256": "9490346c06483d27c59c706a02b9b0cfe3be75cf3291c5548ad77f38072a12ff",
+      "bytes": 49448,
+      "category": "laser-tag",
+      "observation": "Partida de Laser Tag con iluminación roja",
+      "width": 903,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-39-960.webp"
+    },
+    {
+      "index": 40,
+      "original": "a967a5dd-d389-4c24-a9ea-b8a86567500a.jpg",
+      "driveId": "1QGd5ez-_Ya2ZQjmi0Hq-o6-ojVIptFyS",
+      "sha256": "ae9eb5626c325a405fb122d03bc7f17593789a6611ad7de2f7cb36fdbe0342ac",
+      "bytes": 40790,
+      "category": "laser-tag",
+      "observation": "Jugador de Laser Tag entre barreras fluorescentes",
+      "width": 894,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-40-960.webp"
+    },
+    {
+      "index": 41,
+      "original": "IMG_0812.JPG",
+      "driveId": "1mZSrRyfo4ZBpp0yT_Ls0Jvcwcu2x2zU-",
+      "sha256": "e897b72045f8191e2005cc88eb89bf26455372f4b2a01e8612723736287708e3",
+      "bytes": 40112,
+      "category": "laser-tag",
+      "observation": "Escenario de Laser Tag con humo e iluminación verde",
+      "width": 738,
+      "height": 1600,
+      "published": true,
+      "url": "/assets/experiences/laser-tag-41-960.webp"
+    }
+  ],
+  "videoDerivatives": [
+    {
+      "id": "vr-simuladores",
+      "category": "realidad-virtual",
+      "src": "/assets/experiences/vr-simuladores.mp4",
+      "poster": "/assets/experiences/vr-simuladores-poster.webp",
+      "sourceIndex": 0,
+      "ranges": [
+        [
+          0,
+          22.73
+        ]
+      ]
+    },
+    {
+      "id": "vr-movimiento",
+      "category": "realidad-virtual",
+      "src": "/assets/experiences/vr-movimiento.mp4",
+      "poster": "/assets/experiences/vr-movimiento-poster.webp",
+      "sourceIndex": 5,
+      "ranges": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "id": "paintball-campo",
+      "category": "paintball",
+      "src": "/assets/experiences/paintball-campo.mp4",
+      "poster": "/assets/experiences/paintball-campo-poster.webp",
+      "sourceIndex": 4,
+      "ranges": [
+        [
+          0,
+          12.1
+        ]
+      ]
+    },
+    {
+      "id": "humor-toro",
+      "category": "humor-amarillo",
+      "src": "/assets/experiences/humor-toro.mp4",
+      "poster": "/assets/experiences/humor-toro-poster.webp",
+      "sourceIndex": 1,
+      "ranges": [
+        [
+          6.5,
+          7.8
+        ]
+      ]
+    },
+    {
+      "id": "laser-partida",
+      "category": "laser-tag",
+      "src": "/assets/experiences/laser-partida.mp4",
+      "poster": "/assets/experiences/laser-partida-poster.webp",
+      "sourceIndex": 1,
+      "ranges": [
+        [
+          8.5,
+          10
+        ],
+        [
+          13.5,
+          15
+        ]
+      ]
+    },
+    {
+      "id": "vr-moto-vuelo",
+      "category": "realidad-virtual",
+      "src": "/assets/experiences/vr-moto-vuelo.mp4",
+      "poster": "/assets/experiences/vr-moto-vuelo-poster.webp",
+      "sourceIndex": 1,
+      "ranges": [
+        [
+          12,
+          13.2
+        ],
+        [
+          15.5,
+          16.7
+        ],
+        [
+          17.5,
+          18.7
+        ]
+      ]
+    },
+    {
+      "id": "paintball-accion",
+      "category": "paintball",
+      "src": "/assets/experiences/paintball-accion.mp4",
+      "poster": "/assets/experiences/paintball-accion-poster.webp",
+      "sourceIndex": 2,
+      "ranges": [
+        [
+          6,
+          7.2
+        ],
+        [
+          11.2,
+          12.7
+        ],
+        [
+          15,
+          17.2
+        ]
+      ]
+    },
+    {
+      "id": "laser-recorrido",
+      "category": "laser-tag",
+      "src": "/assets/experiences/laser-recorrido.mp4",
+      "poster": "/assets/experiences/laser-recorrido-poster.webp",
+      "sourceIndex": 2,
+      "ranges": [
+        [
+          0.3,
+          2.3
+        ],
+        [
+          9.1,
+          10.8
+        ]
+      ]
+    },
+    {
+      "id": "battle-grupo",
+      "category": "battle-start",
+      "src": "/assets/experiences/battle-grupo.mp4",
+      "poster": "/assets/experiences/battle-grupo-poster.webp",
+      "sourceIndex": 2,
+      "ranges": [
+        [
+          3.9,
+          4.7
+        ],
+        [
+          12.9,
+          13.65
+        ]
+      ]
+    }
+  ]
+}

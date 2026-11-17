@@ -27,6 +27,7 @@ with sync_playwright() as p:
 
         page.locator('.adventure-ticker').scroll_into_view_if_needed()
         page.wait_for_function("document.querySelector('.adventure-ticker').classList.contains('motion-running')")
+        page.mouse.move(0, 0)  # Hover intentionally pauses the ticker.
         before = page.locator('.adventure-ticker-track').evaluate('e=>getComputedStyle(e).transform')
         page.wait_for_timeout(120)
         after = page.locator('.adventure-ticker-track').evaluate('e=>getComputedStyle(e).transform')

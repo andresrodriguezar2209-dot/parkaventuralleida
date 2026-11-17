@@ -81,7 +81,7 @@ with sync_playwright() as playwright:
         page.locator('.finder-disclosure > summary').click()
         expect(page.locator('#finderAge')).to_be_visible()
         expect(page.locator('#bookingSummary')).to_be_attached()
-        assert page.locator('#inicio h1').inner_text() == 'PARK\nAVENTURA\nLLEIDA.'
+        assert ' '.join(page.locator('#inicio h1').inner_text().split()) == 'PARK AVENTURA LLEIDA.'
         assert 'SIN LÍMITES.' in page.locator('#inicio .hero-slogan').inner_text()
 
         # Invalid input does not produce a compatible recommendation.
@@ -212,7 +212,7 @@ with sync_playwright() as playwright:
         for activity_id in ['paintball', 'laser', 'vr', 'battle']:
             photo=page.locator('#detalle-' + activity_id + ' .mission-photo img')
             photo.scroll_into_view_if_needed()
-            assert 'PHOTO-2026-11-07-' in photo.get_attribute('src')
+            assert '/assets/experiences/' in photo.get_attribute('src')
             page.wait_for_function('(id)=>{const img=document.querySelector("#detalle-"+id+" .mission-photo img");return img.complete&&img.naturalWidth>0}', arg=activity_id)
 
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'Horizontal overflow'
