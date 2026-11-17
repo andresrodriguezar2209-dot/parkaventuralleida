@@ -15,10 +15,6 @@
   if(reduced.matches||e.detail===0)return;
   const r=button.getBoundingClientRect(),wave=document.createElement('span');wave.className='tap-wave';wave.setAttribute('aria-hidden','true');wave.style.left=e.clientX-r.left+'px';wave.style.top=e.clientY-r.top+'px';button.append(wave);wave.addEventListener('animationend',()=>wave.remove(),{once:true});
  }));
- const availableVideos=new Set(['Paintball','Laser Tag','Sala y merienda']);
- document.querySelectorAll('.video-trigger').forEach(button=>{
-  if(!availableVideos.has(button.dataset.videoTitle)){button.disabled=true;button.setAttribute('aria-label','Vídeo de '+button.dataset.videoTitle+' próximamente');button.querySelector('span:last-child').textContent='Vídeo próximamente';}
- });
  // Trap keyboard focus inside every open modal; make the page inert while it is open.
  const dialogs=[...document.querySelectorAll('[role="dialog"]')];
  const pageParts=[...document.querySelectorAll('header.nav,main,footer,.wa,.chapter-dots')];
@@ -26,7 +22,7 @@
  let returnFocus=null;
  document.addEventListener('click',e=>{const trigger=e.target.closest('[data-activity-info],.video-trigger,.home-gallery-item');if(trigger)returnFocus=trigger;},true);
  function syncDialogs(){
-  const active=dialogs.find(d=>d.getAttribute('aria-hidden')==='false');
+  const active=dialogs.findLast(d=>d.getAttribute('aria-hidden')==='false');
   pageParts.forEach(part=>{part.inert=Boolean(active)&&!part.contains(active);});
   if(active&&active!==previousDialog)active.querySelector('button:not(:disabled)')?.focus({preventScroll:true});
   if(!active&&previousDialog&&returnFocus?.isConnected)returnFocus.focus({preventScroll:true});
@@ -34,7 +30,7 @@
  }
  dialogs.forEach(dialog=>new MutationObserver(syncDialogs).observe(dialog,{attributes:true,attributeFilter:['aria-hidden']}));
  document.addEventListener('keydown',e=>{
-  const active=dialogs.find(d=>d.getAttribute('aria-hidden')==='false');
+  const active=dialogs.findLast(d=>d.getAttribute('aria-hidden')==='false');
   if(e.key==='Tab'&&active){
    const focusable=[...active.querySelectorAll('button:not(:disabled),a[href],input,select,textarea,video[controls],[tabindex="0"]')].filter(el=>el.getClientRects().length&&!el.closest('[hidden]'));
    if(!focusable.length){e.preventDefault();return;}

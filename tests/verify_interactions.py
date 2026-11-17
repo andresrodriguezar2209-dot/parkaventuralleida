@@ -49,7 +49,7 @@ with sync_playwright() as p:
   assert page.locator('#people').count()==0
   assert page.locator('#phone').count()==0
   assert page.locator('.video-trigger:disabled').count()==0
-  assert page.locator('.video-trigger').count()==7
+  assert page.locator('.mission-card .video-trigger').count()==7
   assert page.locator('#activity option').filter(has_text='Misión Galáctica').count()==0
   for button in page.locator('[data-gallery-category]').all():
    button.click()
@@ -81,7 +81,7 @@ with sync_playwright() as p:
   assert not errors,errors
   print(json.dumps({'width':width,'prices':7,'packButtons':8,'videos':3,'gallery':'offline passed','booking':'passed','anchors':'passed','errors':errors}),flush=True)
   page.goto(BASE_URL+'/galeria.html',wait_until='domcontentloaded')
-  page.wait_for_function("document.querySelectorAll('.item').length===17")
+  page.wait_for_function("document.querySelectorAll('.item').length===47")
   page.locator('.item').first.click();initial=page.locator('#lightboxImage').get_attribute('src')
   page.locator('#galleryNext').click();assert page.locator('#lightboxImage').get_attribute('src')!=initial
   page.keyboard.press('ArrowLeft');assert page.locator('#lightboxImage').get_attribute('src')==initial
