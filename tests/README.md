@@ -35,3 +35,7 @@ python tests/verify_motion.py
 Verifica partículas, radar, parallax, la banda de texto en movimiento, los siete efectos de actividad, las transiciones, el envío preparado de la reserva y la ausencia de desbordamiento a 1440, 390 y 320 píxeles. Comprueba también que los bucles se detienen fuera de pantalla y que se respeta la preferencia de movimiento reducido. No envía mensajes.
 
 La reserva utiliza un solo campo de participantes; número y fecha pueden quedar pendientes. Edad, horario y comentarios están en el apartado opcional. Las pruebas verifican el total al cambiar o borrar participantes, y que los packs con modalidad fija no pidan elegirla de nuevo. Las tres vistas previas de vídeo de la galería usan el mismo reproductor que las actividades.
+
+## Medios reales de Drive
+
+`python tests/verify_media.py` comprueba las siete experiencias, los nueve clips separados por actividad, reproducción y pausa, portadas, ausencia de descargas MP4 nuevas al inicio, galería de 47 fotos únicas, ampliación anidada, navegación por teclado, encuadre completo de Humor Amarillo y ausencia de desplazamiento lateral a 1440, 768, 390 y 320 px. Véase `MEDIA-REVIEW.md` para el inventario y las exclusiones.
