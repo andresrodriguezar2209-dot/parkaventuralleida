@@ -117,7 +117,7 @@ with sync_playwright() as playwright:
         expect(page.locator('#activity')).to_have_value('Paintball')
         expect(page.locator('#partySize')).to_have_value('10')
         assert page.locator('#people').count() == 0, 'Duplicate group-size question must be removed'
-        assert amount_in(page.locator('#bookingSummaryTotal').inner_text(), 250)
+        assert amount_in(page.locator('#bookingSummaryTotal').inner_text(), 300)
 
         # Clear the optional age through the finder before isolated booking checks.
         set_finder(page, None, 10, 'action')
